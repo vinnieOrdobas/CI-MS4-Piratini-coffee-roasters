@@ -1,5 +1,5 @@
 """
-WSGI config for piratiniCoffeeRoasters project.
+WSGI config for piratini_coffee_roasters project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'piratiniCoffeeRoasters.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'piratini_coffee_roasters.settings')
 
 application = get_wsgi_application()
