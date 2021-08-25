@@ -103,11 +103,11 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 ##### Data Model
 
-> - External data modelling documentation can be found following this [link](piratiniCoffeeRoasters/assets/docs/data_model.md).
+> - External data modelling documentation can be found following this [link](assets/docs/data_model.md).
 
 #### 4. Skeleton
 
-> - [Wire frames](piratiniCoffeeRoasters/assets/docs/wireframes.pdf): Web app categorised in five different clusters.
+> - [Wire frames](assets/docs/wireframes.pdf): Web app categorised in five different clusters.
 >
 > - Home, Login, Profile, Teams and Training.
 >
