@@ -14,9 +14,19 @@ html {
     width: fit-content;
 }
 
+.btn-wrapper {
+    position:absolute;left:0;top:0;
+    z-index: 1000;
+}
+
 .shop-now-button {
+    
     background: black;
     color: white;
+}
+
+.carousel-hero {
+    position: relative;
 }
 
 .shop-now-button:hover,
