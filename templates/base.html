@@ -61,9 +61,11 @@
         {% endif %}
       <li><a href="#!">My Profile</a></li>
       <li><a href="{% url 'account_logout' %}">Logout</a></li>
+      <li><a href="#">My Cart</a></li>
     {% else %}
       <li><a href="{% url 'account_signup' %}">Register</a></li>
       <li><a href="{% url 'account_login' %}">Login</a></li>
+      <li><a href="#">My Cart</a></li>
     {% endif %}
       <li><a class="sidenav-close">Close Menu</a></li>
     </ul>
