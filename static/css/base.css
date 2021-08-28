@@ -20,10 +20,6 @@
 
 /* Body */
 
-body {
-    background-color:#555;
-}
-
 /* Navbar Elements */
 .navbar-fixed {
     position: absolute;
@@ -97,6 +93,11 @@ body {
 
 .carousel-content {
     margin: auto;
+}
+
+.carousel-content h2 {
+    color: whitesmoke;
+    font-size: 40px !important;
 }
 /* Footer */
 
