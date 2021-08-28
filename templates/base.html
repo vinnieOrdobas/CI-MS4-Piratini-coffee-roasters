@@ -42,7 +42,8 @@
     <div class="navbar-fixed">
       <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
-          <a href="#!" class="left brand-logo">Logo</a>
+          <a href="#!" class="brand-logo left">Logo</a>
+          <a href="#" data-target="mobile-nav" class="right sidenav-trigger"><i class="fas fa-ellipsis-v"></i></a>
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"></span><i class="fas fa-user fa-lg"></i></a></li>
@@ -52,17 +53,32 @@
         </div>
       </nav>
     </div>
+    <!-- Mobile Sidenav -->
+    <ul class="sidenav mobile-menu white-text" id="mobile-nav">
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <li><a href="#" class="dropdown-item">Product Management</a></li>
+        {% endif %}
+      <li><a href="#!">My Profile</a></li>
+      <li><a href="{% url 'account_logout' %}">Logout</a></li>
+    {% else %}
+      <li><a href="{% url 'account_signup' %}">Register</a></li>
+      <li><a href="{% url 'account_login' %}">Login</a></li>
+    {% endif %}
+      <li><a class="sidenav-close">Close Menu</a></li>
+    </ul>
     <!-- Search form structure -->
     <div class="search-form-wrapper">
       <form class="search-form-wrapper" action="">
         <div class="container">
           <div class="row">
             <div class="input-field inline col s6">
+              <input id="search" type="text" class="validate" placeholder="Search">
               <span class="icon prefix">
-                <button class="btn-flat" type="submit" namee="action"><i class="white-text fas fa-search"></i>
+                <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                  <i class="white-text fas fa-search"></i>
                 </button>
               </span>
-              <input id="search" type="text" class="validate" placeholder="Search">
             </div>
           </div>
         </div>

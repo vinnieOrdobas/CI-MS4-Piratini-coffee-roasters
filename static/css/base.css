@@ -16,10 +16,15 @@ body {
     background-color:#555;
 }
 
-/* Navbar */
+/* Navbar Elements */
 .navbar-fixed {
     position: absolute;
     z-index:999999999;
+}
+
+.mobile-menu {
+    max-width: 250px;
+    background-color: rgba(0,0,0,0.25);
 }
 
 .search-form-wrapper {
@@ -31,6 +36,11 @@ body {
 }
 .search-form-wrapper.open {
     display: block;
+}
+
+.btn-wrapper {
+    padding-left: 0;
+    padding-top: 1.5rem;
 }
 /* -- Media Queries -- */
 

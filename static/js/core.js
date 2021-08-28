@@ -1,6 +1,11 @@
+// Materialize Objects
 $(document).ready(function() {
-    $(".dropdown-trigger").dropdown();
-    $(".dropdown-trigger-bag").dropdown();
+    $('.dropdown-trigger').dropdown();
+    $('.dropdown-trigger-bag').dropdown();
+    $('.sidenav').sidenav({
+        edge: 'right',
+        
+    });
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');

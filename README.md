@@ -231,6 +231,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - [Grid Critters](https://gridcritters.com/) - To learn CSS Grid technology.
 > - [Markdown Tutorial](https://www.markdowntutorial.com/) - Used to learn Markdown.
 > - Code Institute **SLACK Channel** - Assistance.
+> - https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml
 
 ### Testing
 
