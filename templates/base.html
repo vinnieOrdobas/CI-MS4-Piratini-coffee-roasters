@@ -14,7 +14,7 @@
     {% endblock %}
 
     {% block corecss %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -38,45 +38,67 @@
     <title>Piratini Coffee Roasters</title>
   </head>
   <body>
-
-    <!-- User Dropdown Structure -->
-      <ul id="user_dropdown" class="dropdown-content">
-        {% if request.user.is_authenticated %}
-          {% if request.user.is_superuser %}
-            <a href="#" class="dropdown-item">Product Management</a>
-          {% endif %}
-          <li><a href="#!">My Profile</a></li>
-          <li><a href="{% url 'account_logout' %}">Logout</a></li>
-        {% else %}
-          <li><a href="{% url 'account_signup' %}">Register</a></li>
-          <li><a href="{% url 'account_login' %}">Login</a></li>
-        {% endif %}
-      </ul>
-      <!-- Bag Dropdown Structure -->
-      <ul id="bag_dropdown" class="dropdown-content">
-        <li>
-            <div class="center-align">
-              <p class="blue-text text-darken-2">
-                {% if grand_total %}
-                  ${{ grand_total|floatformat:2 }}
-                {% else %}
-                  $0.00
-                {% endif %}
-              </p>
-            </div>
-        </li>
-      </ul>
-      <nav>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Logo</a>
+          <a href="#!" class="left brand-logo">Logo</a>
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
-            <li><a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} dropdown-trigger-bag" href="#!" data-target="bag_dropdown"><span class="icon"></span><i class="fas fa-shopping-bag fa-lg"></a></li>
             <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"></span><i class="fas fa-user fa-lg"></i></a></li>
+            <li><a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} dropdown-trigger-bag" href="#!" data-target="bag_dropdown"><span class="icon"><i class="fas fa-shopping-bag fa-lg"></i></span></a></li>
+            <li class="search-form"><a><span class="icon"></span><i class="white-text fas fa-search"></i></a></li>
+            <li class="search-form-wrapper">
+              <form action="javascript:void(0)">
+                <div class="container">
+                  <div class="row">
+                    <div class="input-field inline col s6">
+                      <span class="icon prefix">
+                        <button class="btn-flat" type="submit" name="action">
+                          <i class="white-text fas fa-search"></i>
+                        </button>
+                      </span>
+                      <input id="search" type="text" class="validate" placeholder="Search">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
       </nav>
-   
+    </div>
+    <!-- Navbar -->
+    <!-- Test -->
+
+    <!-- User Dropdown Structure -->
+    <ul id="user_dropdown" class="dropdown-content">
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <a href="#" class="dropdown-item">Product Management</a>
+        {% endif %}
+        <li><a href="#!">My Profile</a></li>
+        <li><a href="{% url 'account_logout' %}">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'account_signup' %}">Register</a></li>
+        <li><a href="{% url 'account_login' %}">Login</a></li>
+      {% endif %}
+    </ul>
+    <!-- Bag Dropdown Structure -->
+    <ul id="bag_dropdown" class="dropdown-content">
+      <li>
+          <div class="center-align">
+            <p class="blue-text text-darken-2">
+              {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+              {% else %}
+                $0.00
+              {% endif %}
+            </p>
+          </div>
+      </li>
+    </ul>
+      <!-- Messages -->
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}

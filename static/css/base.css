@@ -10,6 +10,29 @@ text {
 color: white;
 }
 
+/* Body */
+
+body {
+    background-color:#555;
+}
+
+/* Navbar */
+.navbar-fixed {
+    position: absolute;
+    z-index:999999999;
+}
+
+.search-form-wrapper {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 20px 15px;
+    margin-top: 30px;
+}
+.search-form-wrapper.open {
+    display: block;
+}
 /* -- Media Queries -- */
 
 /* Container on XL screens */
