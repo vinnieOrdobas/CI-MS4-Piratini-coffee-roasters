@@ -55,6 +55,49 @@ body {
     padding-top: 1.5rem;
 }
 
+
+/* Carousel */
+
+.carousel-hero {
+    height: 70vh;
+}
+
+.carousel-hero-1 {
+    background-image: url(../../media/hand-full-of-roasted-coffee.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-hero-2 {
+    background-image: url(../../media/camping-kettle-and-coffee-cup.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-hero-3 {
+    background-image: url(../../media/barista-pour-over-coffee-from-copper-kettle.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-hero-4 {
+    background-image: url(../../media/making-coffee.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+.carousel-content {
+    margin: auto;
+}
 /* Footer */
 
 .page-footer {
