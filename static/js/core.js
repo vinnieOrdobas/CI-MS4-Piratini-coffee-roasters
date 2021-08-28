@@ -6,6 +6,7 @@ $(document).ready(function() {
         edge: 'right',
         
     });
+    $('.modal').modal();
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');

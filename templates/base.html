@@ -54,20 +54,20 @@
       </nav>
     </div>
     <!-- Mobile Sidenav -->
-    <ul class="sidenav mobile-menu white-text" id="mobile-nav">
+    <ul class="sidenav mobile-menu" id="mobile-nav">
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-          <li><a href="#" class="dropdown-item">Product Management</a></li>
+          <li><a class="sidenav-item" href="#" class="dropdown-item">Product Management</a></li>
         {% endif %}
-      <li><a href="#!">My Profile</a></li>
-      <li><a href="{% url 'account_logout' %}">Logout</a></li>
-      <li><a href="#">My Cart</a></li>
+      <li><a class="sidenav-item" href="#!">My Profile</a></li>
+      <li><a class="sidenav-item" href="{% url 'account_logout' %}">Logout</a></li>
     {% else %}
-      <li><a href="{% url 'account_signup' %}">Register</a></li>
-      <li><a href="{% url 'account_login' %}">Login</a></li>
-      <li><a href="#">My Cart</a></li>
+      <li><a class="sidenav-item" href="{% url 'account_signup' %}">Register</a></li>
+      <li><a class="sidenav-item" href="{% url 'account_login' %}">Login</a></li>
     {% endif %}
-      <li><a class="sidenav-close">Close Menu</a></li>
+      <li><a class="sidenav-item" href="#">My Cart</a></li>
+      <li><a class="sidenav-item modal-trigger" href="#search_modal">Find a Product</a></li>
+      <li><a class="sidenav-close sidenav-item">Close Menu</a></li>
     </ul>
     <!-- Search form structure -->
     <div class="search-form-wrapper">
@@ -85,6 +85,29 @@
           </div>
         </div>
       </form>
+    </div>
+    <!-- Search form modal -->
+    <div id="search_modal" class="modal">
+      <div class="modal-content">
+        <h4 class="text-title">Find a Product</h4>
+        <form class="mobile-search-form-wrapper" action="">
+          <div class="container">
+            <div class="row">
+              <div class="input-field inline col">
+                <input id="search-mobile" type="text" class="validate" placeholder="Search">
+                <span class="icon prefix">
+                  <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                    <i class="black-text fas fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
     </div>
     <!-- User Dropdown Structure -->
     <ul id="user_dropdown" class="dropdown-content">
@@ -126,5 +149,81 @@
 
     {% block postloadjs %}
     {% endblock %}
+
+    <footer class="page-footer">
+      <div class="container footer-container hide-on-small-only">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="black-text title">Piratini Coffee Roasters Co.</h5>
+            <p class="grey-text">Image logo goes here</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <h5 class="black-text title ">Sign Up for Updates</h5>
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                    <button class="btn-floating red lighten-3 waves-effect waves-light prefix" type="submit" name="action">
+                        <i class="fas fa-paper-plane white-text right"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>          
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container black-text">
+          © 2021 Copyrights - Vinnie Ordobas
+          </div>
+          <div class="card-action center-align icon-footer">
+            <a href="https://vinumjournal.com/wp/" target="_blank" class="btn-floating btn waves-effect light-green darken-4 waves-light tooltipped" data-position="top" data-tooltip="Check my Portfolio here!" title="My Portfolio"><i class="fas fa-link fa-2x"></i></a>
+            <a href="https://github.com/vinnieOrdobas" target="_blank" class="btn-floating btn waves-effect blue-grey darken-2 waves-light" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/vinnie-ordobas/" target="_blank" class="btn-floating btn waves-effect light-blue darken-4 waves-light" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-container hide-on-med-and-up">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card brown lighten-4">
+              <div class="card-content white-text center-align">
+                <h5 class="black-text title">Sign up for updates</h5>
+                <form class="mobile-search-form-wrapper" action="">
+                  <div class="container">
+                    <div class="row mobile-form">
+                      <div class="input-field inline col">
+                        <input id="search-mobile" type="text" class="validate" placeholder="Email">
+                        <span class="icon prefix">
+                          <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                            <i class="black-text fas fa-paper-plane"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="brand">
+                  <h5 class="black-text title">Piratini Coffee Roasters Co.</h5>
+                  <p class="grey-text">Image logo goes here</p>
+                </div>
+              </div>
+              <div class="card-action">
+                <div class="section black-text center-align">
+                  © 2021 Copyrights - Vinnie Ordobas
+                  <div class="center-align inline social">
+                    <a href="https://vinumjournal.com/wp/" target="_blank" class="btn-floating btn waves-effect light-green darken-4 waves-light tooltipped" data-position="top" data-tooltip="Check my Portfolio here!" title="My Portfolio"><i class="fas fa-link fa-2x"></i></a>
+                    <a href="https://github.com/vinnieOrdobas" target="_blank" class="btn-floating btn waves-effect blue-grey darken-2 waves-light" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/vinnie-ordobas/" target="_blank" class="btn-floating btn waves-effect light-blue darken-4 waves-light" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
