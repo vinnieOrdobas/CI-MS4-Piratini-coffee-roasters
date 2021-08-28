@@ -6,7 +6,7 @@ $(document).ready(function() {
         edge: 'right',
         
     });
-    $('.modal').modal();
+    $('.modal').modal(); 
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');
@@ -20,7 +20,6 @@ $(document).ready(function() {
     $('.search-form-wrapper .search').keypress(function( event ) {
       if($(this).val() == "Search") $(this).val("");
     });
-  
     $('.search-close').click(function(event) {
       $('.search-form-wrapper').removeClass('open');
       $('html').removeClass('search-form-open');
