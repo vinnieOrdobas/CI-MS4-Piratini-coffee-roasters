@@ -48,29 +48,26 @@
             <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"></span><i class="fas fa-user fa-lg"></i></a></li>
             <li><a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} dropdown-trigger-bag" href="#!" data-target="bag_dropdown"><span class="icon"><i class="fas fa-shopping-bag fa-lg"></i></span></a></li>
             <li class="search-form"><a><span class="icon"></span><i class="white-text fas fa-search"></i></a></li>
-            <li class="search-form-wrapper">
-              <form action="javascript:void(0)">
-                <div class="container">
-                  <div class="row">
-                    <div class="input-field inline col s6">
-                      <span class="icon prefix">
-                        <button class="btn-flat" type="submit" name="action">
-                          <i class="white-text fas fa-search"></i>
-                        </button>
-                      </span>
-                      <input id="search" type="text" class="validate" placeholder="Search">
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </li>
           </ul>
         </div>
       </nav>
     </div>
-    <!-- Navbar -->
-    <!-- Test -->
-
+    <!-- Search form structure -->
+    <div class="search-form-wrapper">
+      <form class="search-form-wrapper" action="">
+        <div class="container">
+          <div class="row">
+            <div class="input-field inline col s6">
+              <span class="icon prefix">
+                <button class="btn-flat" type="submit" namee="action"><i class="white-text fas fa-search"></i>
+                </button>
+              </span>
+              <input id="search" type="text" class="validate" placeholder="Search">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
     <!-- User Dropdown Structure -->
     <ul id="user_dropdown" class="dropdown-content">
       {% if request.user.is_authenticated %}
