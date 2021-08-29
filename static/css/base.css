@@ -6,6 +6,7 @@
     justify-content: center;
     height: 1.5 rem;
     width: 1.5 rem;
+    color: #f4511e;
 }
 
 .social {
@@ -19,6 +20,10 @@
 }
 
 /* Body */
+
+body {
+    background-color: #EAE7E0;
+}
 
 /* Navbar Elements */
 .navbar-fixed {
@@ -99,14 +104,60 @@
     color: whitesmoke;
     font-size: 40px !important;
 }
+
+.shop-now {
+    margin-top: 25px;
+}
+
+/* Card section */
+
+.image-card-sml {
+    background-image: url(../../media/coffee-beans.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-card {
+    background-image: url(../../media/coffee-beans.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+}
+
+.about-card {
+    margin: auto;
+    margin-top: 8rem;
+}
+
+.about-card-sml {
+    margin-top: 5rem;
+    display: block;
+}
+
+.hr-text {
+    border: 2px solid red;
+    max-width: 60px;
+    margin-left: 1px;
+}
+
 /* Footer */
 
 .page-footer {
-    background-color: #EAE7E0;
-}
-
-.btn-footer {
-    color: #FAF9F6 !important;
+    background-color: #d7ccc8;
 }
 
 .mobile-form {

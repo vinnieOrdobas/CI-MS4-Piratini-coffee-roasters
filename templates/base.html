@@ -43,12 +43,12 @@
       <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo left black-text">Logo</a>
-          <a href="#" data-target="mobile-nav" class="right sidenav-trigger"><i class="fas fa-ellipsis-v"></i></a>
+          <a href="#" data-target="mobile-nav" class="right sidenav-trigger"><span class="icon"><i class="fas fa-ellipsis-v"></i></span></a>
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
-            <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"></span><i class="fas fa-user fa-lg"></i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"><i class="fas fa-user fa-lg"></i></span></a></li>
             <li><a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} dropdown-trigger-bag" href="#!" data-target="bag_dropdown"><span class="icon"><i class="fas fa-shopping-bag fa-lg"></i></span></a></li>
-            <li class="search-form"><a><span class="icon"></span><i class="white-text fas fa-search"></i></a></li>
+            <li class="search-form"><a><span class="icon"><i class="fas fa-search"></i></span></a></li>
           </ul>
         </div>
       </nav>
@@ -198,8 +198,8 @@
                       <div class="input-field inline col">
                         <input id="search-mobile" type="text" class="validate white-text" placeholder="Email">
                         <span class="icon prefix">
-                          <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
-                            <i class="black-text fas fa-paper-plane"></i>
+                          <button class="btn-floating waves-effect red lighten-3 waves-light transparent" type="submit" name="action">
+                            <i class="white-text fas fa-paper-plane"></i>
                           </button>
                         </span>
                       </div>
