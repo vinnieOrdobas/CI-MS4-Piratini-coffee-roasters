@@ -42,7 +42,10 @@
     <div class="navbar-fixed">
       <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo left black-text">Logo</a>
+          <a href="#!" class="brand-logo left">
+            <div class="logo-img-wrapper">
+            </div>
+          </a>
           <a href="#" data-target="mobile-nav" class="right sidenav-trigger"><span class="icon"><i class="fas fa-ellipsis-v"></i></span></a>
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
@@ -67,6 +70,8 @@
     {% endif %}
       <li><a class="sidenav-item" href="#">My Cart</a></li>
       <li><a class="sidenav-item modal-trigger" href="#search_modal">Find a Product</a></li>
+      <li><a class="sidenav-item" href="{% url 'home' %}">Home</a></li>
+      <li><a class="sidenav-item" href="{% url 'about' %}">About us</a></li>
       <li><a class="sidenav-close sidenav-item">Close Menu</a></li>
     </ul>
     <!-- Search form structure -->
@@ -155,8 +160,9 @@
       <div class="container footer-container hide-on-small-only">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="black-text title">Piratini Coffee Roasters Co.</h5>
-            <p class="grey-text">Image logo goes here</p>
+            <h5 class="black-text title center-align">Piratini Coffee Roasters Co.</h5>
+            <div class="logo-footer-wrapper">
+            </div>
           </div>
           <div class="col l4 offset-l2 s12">
             <div class="row">
@@ -208,7 +214,7 @@
                 </form>
                 <div class="brand">
                   <h5 class="black-text title">Piratini Coffee Roasters Co.</h5>
-                  <p class="grey-text">Image logo goes here</p>
+                  <div class="logo-footer-wrapper-sml"></div>
                 </div>
               </div>
               <div class="card-action">

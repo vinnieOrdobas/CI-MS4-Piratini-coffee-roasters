@@ -4,8 +4,8 @@ $(document).ready(function() {
     $('.dropdown-trigger-bag').dropdown();
     $('.sidenav').sidenav({
         edge: 'right',
-        
     });
+    $('.materialboxed').materialbox();
     $('.modal').modal(); 
     // search form toggle
     $('.search-form').click(function() {

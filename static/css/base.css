@@ -62,6 +62,22 @@ body {
     padding-top: 1.5rem;
 }
 
+.logo-img-wrapper {
+    background-image: url(../../media/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999
+}
+
 /* Landing Page CSS */
 
 /* Carousel */
@@ -232,6 +248,36 @@ body {
     background-color: #d7ccc8;
 }
 
+.logo-footer-wrapper {
+    background-image: url(../../media/logo_transparent.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999
+}
+
+.logo-footer-wrapper-sml {
+    background-image: url(../../media/logo_transparent.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999
 
 /* -- Media Queries -- */
 
