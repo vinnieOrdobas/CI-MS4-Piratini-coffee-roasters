@@ -37,7 +37,7 @@ body {
 }
 
 .sidenav-item {
-    color: white !important;
+    color: #f4511e !important;
 }
 
 .search-form-wrapper {
@@ -215,7 +215,6 @@ body {
     padding: 0.5em 0.6em;
 
 }
-
 
 /* Footer */
 

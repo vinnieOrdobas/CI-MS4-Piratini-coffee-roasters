@@ -2,10 +2,6 @@
 {% load static %}
 
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
 <div class="carousel carousel-slider carousel-hero center">
     <div class="carousel-fixed-item center">
@@ -149,6 +145,14 @@
         </div>
     </div>
 </div>
+<!-- Scroll up button -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light deep-orange darken-1 scroll-button">
+        <span class="icon">
+            <i class="white-text fas fa-chevron-up"></i>
+        </span>
+    </a>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
@@ -173,6 +177,17 @@
     setTimeout(autoplay, 10000)
     function autoplay() {
     $('.carousel').carousel('next');
+
+    // Scroll button
+    $(document).ready(function(){
+        $('.scroll-button').click(function(){
+            $('html, body').animate({
+                scrollTop:0
+            }, "slow");
+            return false;
+        })
+    })    
+        
 }
 </script>
 {% endblock %}

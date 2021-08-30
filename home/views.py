@@ -9,3 +9,11 @@ def index(request):
     """
 
     return render(request, 'home/index.html')
+
+
+def about(request):
+    """
+    Renders the about page view
+    """
+
+    return render(request, 'home/about.html')
