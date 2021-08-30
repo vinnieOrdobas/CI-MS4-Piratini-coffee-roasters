@@ -216,6 +216,12 @@ body {
 
 }
 
+/* About page */
+
+.about-section {
+    padding-top: 150px;
+}
+
 /* Footer */
 
 .page-footer {
