@@ -222,6 +222,10 @@ body {
     padding-top: 150px;
 }
 
+.about-card {
+    font-size: 1.2rem;
+}
+
 /* Footer */
 
 .page-footer {
