@@ -78,6 +78,22 @@ body {
     z-index: 9999
 }
 
+.logo-transparent {
+    background-image: url(../../media/logo_transparent.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999
+}
+
 /* Landing Page CSS */
 
 /* Carousel */

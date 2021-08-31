@@ -45,3 +45,21 @@
     </div>
 
 {% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    var lastScrollTop = 0;
+    $(window).scroll(function(event){
+      var st = $(this).scrollTop();
+      if (st > lastScrollTop){
+          $(".logo-img-wrapper").addClass('logo-transparent')
+      } else {
+          // upscroll code
+      }
+      lastScrollTop = st;
+    });
+  })
+  
+</script>
+{% endblock %}
