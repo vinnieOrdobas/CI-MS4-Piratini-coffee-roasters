@@ -15,10 +15,51 @@
 
 {% block content %}
     <div class="section">
-        <div class="container">
+        <div class="container container-full-width">
             <div class="row">
-                <div class="col">
-                    {{ products }}
+                <div class="col s12 offset-s3 offset-m4">
+                    <h3 class="title">Products</h3>
+                </div>
+                <div class="col s12">
+                    <hr class="hr-title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="product-container col s10 offset-s1">
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col s6 m6 l4 xl3">
+                                <div class="card">
+                                    <div class="card-image">
+                                        {% if product.image %}
+                                            <a href="">
+                                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                            </a>
+                                        {% else %}
+                                            <a href="">
+                                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            </a>
+                                        {% endif %}
+                                        </div>
+                                      <span class="card-title">{{ product.name }}</span>
+                                    </div>
+                                    <div class="card-content">
+                                      <p>{{ product.description }}</p>
+                                    </div>
+                                    <div class="card-action">
+                                      <div class="row">
+                                          <div class="col">
+                                              <p>{{ product.price }}</p>
+                                          </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,6 +13,9 @@
     padding-top: 10px;
 }
 
+.container-full-width {
+    width: 100%;
+}
 /* Typography */
 
 .title {
@@ -191,6 +194,11 @@ body {
     border: 3px solid #f4511e;
     max-width: 60px;
     margin-left: 1px;
+}
+
+.hr-title {
+    border: 3px solid #f4511e;
+    max-width: 60px;
 }
 
 /* Image overlay section */
