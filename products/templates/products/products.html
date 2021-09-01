@@ -25,15 +25,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="product-container col s10 offset-s1">
+                <div class="col s12 cards-container">
                     <div class="row">
-
                     </div>
                     <div class="row">
                         {% for product in products %}
-                            <div class="col s6 m6 l4 xl3">
-                                <div class="card">
-                                    <div class="card-image">
+                            <div class="col s12 offset-s2 m6 l4 xl3">
+                                <div class="card product-card">
+                                    <div class="card-image product-image">
                                         {% if product.image %}
                                             <a href="">
                                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -43,19 +42,25 @@
                                                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                             </a>
                                         {% endif %}
-                                        </div>
-                                      <span class="card-title">{{ product.name }}</span>
                                     </div>
                                     <div class="card-content">
-                                      <p>{{ product.description }}</p>
+                                        <p>{{ product.name }}</p>
+                                        <p>€{{ product.price }}</p>
                                     </div>
                                     <div class="card-action">
-                                      <div class="row">
-                                          <div class="col">
-                                              <p>{{ product.price }}</p>
-                                          </div>
-                                      </div>
+                                        <a class="modal-trigger" href="#{{ product.name }}modal">Description</a>
+                                        <a href="#">Click here</a>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- Description Modal -->
+                            <div id="{{ product.name }}modal" class="modal">
+                                <div class="modal-content">
+                                <h4>{{ product.name }}</h4>
+                                <p>{{ product.description }}</p>
+                                </div>
+                                <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
                                 </div>
                             </div>
                         {% endfor %}

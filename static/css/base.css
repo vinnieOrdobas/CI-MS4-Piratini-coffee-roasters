@@ -262,6 +262,17 @@ body {
     font-size: 1.2rem;
 }
 
+/* Products page */
+
+.product-image {
+    max-height: 100% !important;
+}
+
+.product-card {
+    width: 280px;
+    height: 430px;
+}
+
 /* Footer */
 
 .page-footer {
