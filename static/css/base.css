@@ -279,6 +279,17 @@ body {
     font-size: 18px;
 }
 
+.title-wrapper {
+    position: absolute !important;
+    top: 0 !important;
+    right: 1 !important;
+    left: 52vh !important;
+    z-index: 99999999 !important;
+}
+
+#mobile-nav {
+    position: absolute;
+}
 /* Footer */
 
 .page-footer {
