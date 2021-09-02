@@ -28,11 +28,11 @@
                             <div class="card product-card">
                                 <div class="card-image product-image">
                                     {% if product.image %}
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                         </a>
                                     {% else %}
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
                                     {% endif %}
@@ -51,11 +51,11 @@
                             <div class="card product-card">
                                 <div class="card-image product-image">
                                     {% if product.image %}
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                         </a>
                                     {% else %}
-                                        <a href="">
+                                        <a href="{% url 'product_detail' product.id %}">
                                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
                                     {% endif %}
