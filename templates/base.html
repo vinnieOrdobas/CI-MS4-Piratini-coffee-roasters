@@ -42,11 +42,15 @@
     <div class="navbar-fixed">
       <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
+          <a href="#" data-target="mobile-nav" class="right sidenav-trigger">
+            <span class="icon right">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+          </a>
           <a href="{% url 'home' %}" class="brand-logo left">
             <div id="logo-image" class="logo-img-wrapper">
             </div>
           </a>
-          <a href="#" data-target="mobile-nav" class="right sidenav-trigger"><span class="icon"><i class="fas fa-ellipsis-v"></i></span></a>
           <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"><i class="fas fa-user fa-lg"></i></span></a></li>
@@ -69,8 +73,8 @@
       <li><a class="sidenav-item" href="{% url 'account_login' %}">Login</a></li>
     {% endif %}
       <li><a class="sidenav-item" href="#">My Cart</a></li>
+      <li><a class="sidenav-item" href="{% url 'products' %}">All Products</a></li>
       <li><a class="sidenav-item modal-trigger" href="#search_modal">Find a Product</a></li>
-      <li><a class="sidenav-item" href="{% url 'home' %}">Home</a></li>
       <li><a class="sidenav-item" href="{% url 'about' %}">About us</a></li>
       <li><a class="sidenav-close sidenav-item">Close Menu</a></li>
     </ul>
@@ -150,6 +154,9 @@
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block page_footer %}
     {% endblock %}
 
     {% block postloadjs %}

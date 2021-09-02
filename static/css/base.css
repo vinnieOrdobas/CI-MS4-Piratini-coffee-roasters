@@ -15,7 +15,9 @@
 
 .container-full-width {
     width: 100%;
+    z-index: 0;
 }
+
 /* Typography */
 
 .title {
@@ -271,6 +273,10 @@ body {
 .product-card {
     width: 280px;
     height: 430px;
+}
+
+.product-name {
+    font-size: 18px;
 }
 
 /* Footer */

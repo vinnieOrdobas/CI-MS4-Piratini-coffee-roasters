@@ -4,7 +4,7 @@
 
 {% block page_header %}
     <div class="section">
-        <div class="container">
+        <div class="container page-header">
             <div class="row">
                 <div class="col"></div>
             </div>
@@ -17,10 +17,13 @@
     <div class="section">
         <div class="container container-full-width">
             <div class="row">
-                <div class="col s12 offset-s3 offset-m4">
+                <div class="col s12 offset-s3 offset-m5">
                     <h3 class="title">Products</h3>
                 </div>
-                <div class="col s12">
+                <div class="col s12 hide-on-med-and-up">
+                    <hr class="hr-title">
+                </div>
+                <div class="col s12 hide-on-small-only">
                     <hr class="hr-title">
                 </div>
             </div>
@@ -42,25 +45,39 @@
                                                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                             </a>
                                         {% endif %}
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
                                     </div>
-                                    <div class="card-content">
-                                        <p>{{ product.name }}</p>
+                                    <div class="card-content center-align">
+                                        <p class="product-name"><strong>{{ product.card_name }}</strong></p>
                                         <p>€{{ product.price }}</p>
                                     </div>
-                                    <div class="card-action">
-                                        <a class="modal-trigger" href="#{{ product.name }}modal">Description</a>
-                                        <a href="#">Click here</a>
+                                    <div class="card-action center-align">
+                                        <a href="#">Add to cart</a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Description Modal -->
-                            <div id="{{ product.name }}modal" class="modal">
-                                <div class="modal-content">
-                                <h4>{{ product.name }}</h4>
-                                <p>{{ product.description }}</p>
-                                </div>
-                                <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            <!-- Delete this after development -->
+                            <div class="col s12 offset-s2 m6 l4 xl3">
+                                <div class="card product-card">
+                                    <div class="card-image product-image">
+                                        {% if product.image %}
+                                            <a href="">
+                                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                            </a>
+                                        {% else %}
+                                            <a href="">
+                                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            </a>
+                                        {% endif %}
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <p class="product-name"><strong>{{ product.card_name }}</strong></p>
+                                        <p>€{{ product.price }}</p>
+                                    </div>
+                                    <div class="card-action center-align">
+                                        <a href="#">Add to cart</a>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -71,5 +88,30 @@
     </div>
 {% endblock %}
 
+{% block page_footer %}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block postloadjs %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+        var lastScrollTop = 0;
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                $(".logo-img-wrapper").addClass('logo-transparent')
+            } else {
+                // upscroll code
+            }
+            lastScrollTop = st;
+        });
+        })
+        
+    </script>
 {% endblock %}

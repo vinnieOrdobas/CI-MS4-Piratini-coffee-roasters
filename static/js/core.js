@@ -6,7 +6,8 @@ $(document).ready(function() {
         edge: 'right',
     });
     $('.materialboxed').materialbox();
-    $('.modal').modal(); 
+    $('.modal').modal();
+    $('.tooltipped').tooltip();
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');
