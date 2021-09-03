@@ -15,25 +15,25 @@
     <div class="carousel-item white-text carousel-hero-1 valign-wrapper" href="#one!">
         <div class="carousel-content">
             <h2>Coffee Beans</h2>
-            <a href="{% url 'products' %}" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
+            <a href="{% url 'products' %}?collection=coffee_beans" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
         </div>
     </div>
     <div class="carousel-item white-text carousel-hero-3 valign-wrapper" href="#three!">
         <div class="carousel-content">
             <h2>Brewing Equipment</h2>
-            <a href="{% url 'products' %}" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
+            <a href="{% url 'products' %}?collection=brewers" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
         </div>
     </div>
     <div class="carousel-item white-text carousel-hero-2 valign-wrapper" href="#two!">
         <div class="carousel-content">
             <h2>Acessories</h2>
-            <a href="{% url 'products' %}" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
+            <a href="{% url 'products' %}?collection=accessories" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
         </div>
     </div>
     <div class="carousel-item white-text carousel-hero-4 valign-wrapper" href="#four!">
         <div class="carousel-content">
             <h2>Memberships</h2>
-            <a href="{% url 'products' %}" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
+            <a href="{% url 'products' %}?collection=memberships" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Shop now</a>
         </div>
     </div>
 </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4 center-align">Piratini Memberships<span class="icon right"><i class="fas fa-ellipsis-v"></i></span></span>
-                        <p class="center-align"><a class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Join the club</a></p>
+                        <p class="center-align"><a href="{% url 'products' %}?collection=memberships" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now">Join the club</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4"><span class="icon right"><i class="far fa-window-close"></i></span>

@@ -46,6 +46,9 @@ class Product(models.Model):
     def get_description(self):
         return self.description
 
+    def get_tags(self):
+        return [self.tags]
+
 
 class Membership(Product):
     # user = models.ForeignKey('User', on_delete=models.CASCADE)

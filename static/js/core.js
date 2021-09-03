@@ -9,6 +9,7 @@ $(document).ready(function() {
     $('.modal').modal();
     $('.tooltipped').tooltip();
     $('.collapsible').collapsible();
+    $('select').formSelect();
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');
