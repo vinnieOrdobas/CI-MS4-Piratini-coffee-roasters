@@ -20,7 +20,6 @@
             <div class="center-align">
                 <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
                 <h3 class="">{{ product.collection.friendly_name }}</h3>
-                <p class="product-name"><strong>{{ product.name }}</strong></p>
             </div>
             <div class="col s12 cards-container">
                 <div class="row">
@@ -39,12 +38,19 @@
                                 <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
                             </div>
                             <div class="card-action center-align">
-                                <span class="title">Price: €{{ product.price }}</span>
-                                <!-- add to checkout form -->
-                              </div>
+                                <p class="product-name"><strong>{{ product.name }}</strong></p>
+                                <span class="decimal"><strong>€{{ product.price }}</strong></span>
+                                <!-- add to checkout button -->
+                                <div class="btn-wrapper">
+                                    <a class="waves-effect waves-light btn"><i class="fas fa-cart-plus left white-text"></i>Add to cart</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col s12 m6">
+                        <div class="chip">
+                            Tag
+                        </div>
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
                                 <div class="collapsible-header active transparent">

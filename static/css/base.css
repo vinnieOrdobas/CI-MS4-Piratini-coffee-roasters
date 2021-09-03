@@ -18,6 +18,10 @@
     z-index: 0;
 }
 
+.decimal {
+    font-size: 20px;
+}
+
 /* Typography */
 
 .title {
@@ -145,8 +149,9 @@ body {
 }
 
 .carousel-content h2 {
-    color: whitesmoke;
+    color: #D7CCC8;
     font-size: 40px !important;
+    -webkit-text-stroke: 1px black;
 }
 
 .shop-now {
