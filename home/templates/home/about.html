@@ -12,64 +12,67 @@
 {% endblock %}
 
 {% block content %}
-    <div class="section about-section">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="row">
-                        <div class="center-align">
-                            <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-                            <h3 class="title">About us</h3>
-                        </div>
-                        <div class="col s12 m9 offset-m1">
-                          <div class="card">
-                            <div class="card-image materialboxed">
-                              <img src="../media/welcome-to-my-business.jpg">
-                            </div>
-                            <div class="card-content">
-                              <p class="about-card">
-                                When we first imagined P&Co., Bruce and I were baristas in a busy speciality coffee shop, and we knew what it take to brew good coffee: <strong>passion and dedication.</strong>
-                                We are also passionate about growing plants and the natural world, so we decided to create our own roastery with beans produced only by high-quality, organic farmers who
-                                care for nature as much as we do: we discovered that many people thought like us, that respect for the planet has to be the top priority.
-                              </p>
-                            </div>
+  <div class="section about-section">
+      <div class="container">
+          <div class="row">
+              <div class="col s12">
+                  <div class="row">
+                      <div class="center-align">
+                          <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
+                          <h3 class="title">About us</h3>
+                      </div>
+                      <div class="col s12 m9 offset-m1">
+                        <div class="card">
+                          <div class="card-image materialboxed">
+                            <img src="../media/welcome-to-my-business.jpg">
+                          </div>
+                          <div class="card-content">
+                            <p class="about-card">
+                              When we first imagined P&Co., Bruce and I were baristas in a busy speciality coffee shop, and we knew what it take to brew good coffee: <strong>passion and dedication.</strong>
+                              We are also passionate about growing plants and the natural world, so we decided to create our own roastery with beans produced only by high-quality, organic farmers who
+                              care for nature as much as we do: we discovered that many people thought like us, that respect for the planet has to be the top priority.
+                            </p>
                           </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12 m9 offset-m1">
-                            <div class="card">
-                              <div class="card-image materialboxed">
-                                <img src="../media/hand-holding-freshly-picked-coffee.jpg">
-                              </div>
-                              <div class="card-content">
-                                <p class="about-card">P&Co. was born from the idea that coffee is not a commodity, but a <strong>living</strong> product: just like wine, coffee is a complex beverage that takes its wonderful attributes from the 
-                                  <strong>land where the coffee tree has grown.</strong></p>
-                              </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col s12 m9 offset-m1">
+                          <div class="card">
+                            <div class="card-image materialboxed">
+                              <img src="../media/hand-holding-freshly-picked-coffee.jpg">
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+                            <div class="card-content">
+                              <p class="about-card">P&Co. was born from the idea that coffee is not a commodity, but a <strong>living</strong> product: just like wine, coffee is a complex beverage that takes its wonderful attributes from the 
+                                <strong>land where the coffee tree has grown.</strong></p>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Scroll up button -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light deep-orange darken-1 scroll-button">
+        <span class="icon">
+            <i class="white-text fas fa-chevron-up"></i>
+        </span>
+    </a>
+  </div>
 {% endblock %}
 
 {% block postloadjs %}
 <script type="text/javascript">
+// Scroll button
   $(document).ready(function(){
-    var lastScrollTop = 0;
-    $(window).scroll(function(event){
-      var st = $(this).scrollTop();
-      if (st > lastScrollTop){
-          $(".logo-img-wrapper").addClass('logo-transparent')
-      } else {
-          // upscroll code
-      }
-      lastScrollTop = st;
-    });
-  })
-  
+      $('.scroll-button').click(function(){
+          $('html, body').animate({
+              scrollTop:0
+          }, "slow");
+          return false;
+      })
+    })
 </script>
 {% endblock %}

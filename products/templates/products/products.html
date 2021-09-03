@@ -19,12 +19,64 @@
         <div class="row">
             <div class="center-align">
                 <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-                <h3 class="title">About us</h3>
+                <h3 class="title">Products</h3>
             </div>
-            <div class="col s12 cards-container">
+        </div>
+        <div class="row cards-container-sml hide-on-med-and-up">
+            <div class="col s12">
+                {% for product in products %}
+                    <div class="card product-card">
+                        <div class="card-image product-image">
+                            {% if product.image %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                </a>
+                            {% endif %}
+                        <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <div class="card-content center-align">
+                            <p class="product-name"><strong>{{ product.card_name }}</strong></p>
+                            <p>€{{ product.price }}</p>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="#">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="card product-card">
+                        <div class="card-image product-image">
+                            {% if product.image %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                </a>
+                            {% endif %}
+                        <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
+                        </div>
+                        <div class="card-content center-align">
+                            <p class="product-name"><strong>{{ product.card_name }}</strong></p>
+                            <p>€{{ product.price }}</p>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="#">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row hide-on-small-only">
+            <div class="col s12">
                 <div class="row">
                     {% for product in products %}
-                        <div class="col s12 offset-s2 m6 l4 xl3">
+                        <div class="col m6 l4 xl3">
                             <div class="card product-card">
                                 <div class="card-image product-image">
                                     {% if product.image %}
@@ -47,7 +99,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 offset-s2 m6 l4 xl3">
+                        <div class="divider"></div>
+                        <div class="col m6 l4 xl3">
                             <div class="card product-card">
                                 <div class="card-image product-image">
                                     {% if product.image %}
@@ -70,11 +123,20 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="divider"></div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+  <!-- Scroll up button -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light deep-orange darken-1 scroll-button">
+        <span class="icon">
+            <i class="white-text fas fa-chevron-up"></i>
+        </span>
+    </a>
 </div>
 {% endblock %}
 
@@ -90,19 +152,14 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
-        $(document).ready(function(){
-        var lastScrollTop = 0;
-        $(window).scroll(function(event){
-            var st = $(this).scrollTop();
-            if (st > lastScrollTop){
-                $(".logo-img-wrapper").addClass('logo-transparent')
-            } else {
-                // upscroll code
-            }
-            lastScrollTop = st;
-        });
-        })
-        
-    </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.scroll-button').click(function(){
+          $('html, body').animate({
+              scrollTop:0
+          }, "slow");
+          return false;
+      })
+    })
+</script>
 {% endblock %}

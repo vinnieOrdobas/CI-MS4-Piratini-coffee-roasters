@@ -279,17 +279,10 @@ body {
     font-size: 18px;
 }
 
-.title-wrapper {
-    position: absolute !important;
-    top: 0 !important;
-    right: 1 !important;
-    left: 52vh !important;
-    z-index: 99999999 !important;
+.cards-container-sml {
+    padding-left: 50px;
 }
 
-#mobile-nav {
-    position: absolute;
-}
 /* Footer */
 
 .page-footer {
@@ -325,7 +318,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    z-index: 9999
+    z-index: 9999;
 
 /* -- Media Queries -- */
 
