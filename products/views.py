@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Collection
+from .models import Product, Collection, Tags
 # Create your views here.
 
 
@@ -37,7 +37,6 @@ def all_products(request):
         'collections': collections,
         'collection': collection_name,
     }
-    print(collection)
     return render(request, 'products/products.html', context)
 
 
@@ -49,8 +48,9 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
-        'product': product
+        'product': product,
     }
 
+    print(tags)
     return render(request, 'products/product_detail.html', context)
 
