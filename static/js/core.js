@@ -8,6 +8,7 @@ $(document).ready(function() {
     $('.materialboxed').materialbox();
     $('.modal').modal();
     $('.tooltipped').tooltip();
+    $('.collapsible').collapsible();
     // search form toggle
     $('.search-form').click(function() {
         $('.search-form-wrapper').toggleClass('open');
