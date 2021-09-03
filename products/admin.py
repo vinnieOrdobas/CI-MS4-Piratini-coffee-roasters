@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Membership, Collection
+from .models import Product, Membership, Collection, Tags
 
 # Register your models here.
 
@@ -33,6 +33,13 @@ class MembershipAdmin(admin.ModelAdmin):
     )
 
 
+class TagsAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Membership, MembershipAdmin)
 admin.site.register(Collection, CollectionAdmin)
+admin.site.register(Tags, TagsAdmin)
