@@ -22,6 +22,10 @@
     font-size: 20px;
 }
 
+.text-muted {
+    display: none;
+}
+
 /* Typography */
 
 .title {

@@ -102,12 +102,20 @@
                         <div class="card-content center-align">
                             <p class="product-name"><strong>{{ product.card_name }}</strong></p>
                             <p class="decimal">€{{ product.price }}</p>
-                            <div class="chip">
-                                Tag
-                            </div>
+                            {% if product.collection %}
+                                <div class="collection-output">
+                                    <a href="{% url 'products' %}?collection={{ product.collection.name }}" class="chip">
+                                        <span class="icon">
+                                            <i class="fas fa-tag prefix"></i>
+                                        </span>
+                                        {{ product.collection.friendly_name }}
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="divider"></div>
+                    <!-- Delete after use -->
                     <div class="card product-card">
                         <div class="card-image product-image">
                             {% if product.image %}
@@ -124,9 +132,16 @@
                         <div class="card-content center-align">
                             <p class="product-name"><strong>{{ product.card_name }}</strong></p>
                             <p class="decimal">€{{ product.price }}</p>
-                            <div class="chip">
-                                Tag
-                            </div>
+                            {% if product.collection %}
+                                <div class="collection-output">
+                                    <a href="{% url 'products' %}?collection={{ product.collection.name }}" class="chip">
+                                        <span class="icon">
+                                            <i class="fas fa-tag prefix"></i>
+                                        </span>
+                                        {{ product.collection.friendly_name }}
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="divider"></div>
@@ -154,9 +169,16 @@
                                 <div class="card-content center-align">
                                     <p class="product-name"><strong>{{ product.card_name }}</strong></p>
                                     <p class="decimal">€{{ product.price }}</p>
-                                    <div class="chip">
-                                        Tag
-                                    </div>
+                                    {% if product.collection %}
+                                        <div class="collection-output">
+                                            <a href="{% url 'products' %}?collection={{ product.collection.name }}" class="chip">
+                                                <span class="icon">
+                                                    <i class="fas fa-tag prefix"></i>
+                                                </span>
+                                                {{ product.collection.friendly_name }}
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -179,9 +201,16 @@
                                 <div class="card-content center-align">
                                     <p class="product-name"><strong>{{ product.card_name }}</strong></p>
                                     <p class="decimal">€{{ product.price }}</p>
-                                    <div class="chip">
-                                        Tag
-                                    </div>
+                                    {% if product.collection %}
+                                        <div class="collection-output">
+                                            <a href="{% url 'products' %}?collection={{ product.collection.name }}" class="chip">
+                                                <span class="icon">
+                                                    <i class="fas fa-tag prefix"></i>
+                                                </span>
+                                                {{ product.collection.friendly_name }}
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
