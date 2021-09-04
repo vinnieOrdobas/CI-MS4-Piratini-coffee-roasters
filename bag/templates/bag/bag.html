@@ -20,8 +20,23 @@
             <h3 class="">Shopping Bag</h3>
         </div>
       </div>
+      <div class="divider"></div>
       <div class="row">
-        <div class="col"></div>
+        <div class="col">
+          {% if bag_items %}
+            <div class="responsive-table striped">
+
+            </div>
+          {% else %}
+            <p>Your bag is empty.</p>
+            <a href="{% url 'products' %}">
+              <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+              </span>
+              <span class="title">Keep Shopping</span>
+            </a>
+          {% endif %}
+        </div>
     </div>
   </div>
 
