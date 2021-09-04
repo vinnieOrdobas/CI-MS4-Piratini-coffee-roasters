@@ -31,7 +31,7 @@
                     <th scope="col">Product Info</th>
                     <th scope="col"></th>
                     <th scope="col">Price</th>
-                    <th scope="col">Qty</th>
+                    <th scope="col">Quantity</th>
                     <th scope="col">Subtotal</th>
                   </tr>
                 </thead>
@@ -48,7 +48,14 @@
                     <td>
                       <p>€{{ item.product.price }}</p>
                     <td>
-                      <p>{{ item.quantity }}</p>
+                      <form class="update-form" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="input-field col s9 m6 l4 xl3">
+                          <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="{{ item.quantity}}" min="1" max="99" data-item_id="{{ product.id }}" class="validate qty-input">
+                        </div>
+                      </form>
+                      <a class="update-link"><small>Update</small></a> |
+                      <a class="remove-item red-text" id="remove_{{ item.id }}"><small>Remove</small></a>
                     </td>
                     <td>
                       <p>€{{ item.product.price }}</p>
@@ -127,4 +134,23 @@
 {% endblock %}
 
 {% block postloadjs %}
+<script type="text/javascript">
+  // Update quantity on click
+  $('.update-link').click(function(e) {
+    var form = $(this).prev('.update-form');
+    form.submit();
+  })
+  // Remove item and reload and click
+  $('remove-item').click(function(e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `/bag/remove/${itemId}`;
+    var data = {'csrfmiddlewaretoken': csrfToken}
+
+    $.post(url, data)
+      .done(function() {
+        location.reload();
+      });
+  })
+</script>
 {% endblock %}

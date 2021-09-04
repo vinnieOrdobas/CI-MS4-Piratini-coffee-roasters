@@ -35,6 +35,10 @@
     border: none;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
 
 /* Typography */
 
