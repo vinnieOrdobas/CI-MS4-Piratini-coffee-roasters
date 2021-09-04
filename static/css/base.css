@@ -302,7 +302,12 @@ body {
 .cards-container-sml {
     padding-left: 50px;
 }
+/* Bag */
 
+.bag-img{
+    height: 200px;
+    width: 200px;
+}
 /* Footer */
 
 .page-footer {

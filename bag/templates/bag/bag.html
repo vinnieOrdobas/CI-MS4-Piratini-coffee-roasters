@@ -22,10 +22,76 @@
       </div>
       <div class="divider"></div>
       <div class="row">
-        <div class="col">
+        <div class="col s12">
           {% if bag_items %}
             <div class="responsive-table striped">
-              {{ bag_items }}
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Product Info</th>
+                    <th scope="col"></th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Subtotal</th>
+                  </tr>
+                </thead>
+
+                {% for item in bag_items %}
+                  <tr>
+                    <td>
+                      <img src="{{ item.product.image.url }}" alt="" class="circle responsive-img bag-img">
+                    </td>
+                    <td>
+                      <p><strong>{{ item.product.card_name }}</strong></p>
+                      <p>SKU: {{ item.product.sku|upper }}</p>
+                    </td>
+                    <td>
+                      <p>€{{ item.product.price }}</p>
+                    <td>
+                      <p>{{ item.quantity }}</p>
+                    </td>
+                    <td>
+                      <p>€{{ item.product.price }}</p>
+                    <td>
+                  </tr>
+                {% endfor %}
+                <tr>
+                  <td colspan="5" class="right-align">
+                    <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
+                    <h6><strong>Delivery: €{{ delivery|floatformat:2 }}</strong></h6>
+                    <h5><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h5>
+                    {% if free_delivery_delta > 0 %}
+                    <p>
+                      If you spend an additional <strong>€{{ free_delivery_delta }}</strong> you could get free delivery!
+                    </p>
+                    {% endif %}
+                    <div class="row">
+                      <div class="col s12">
+                        <a href="#" class="btn">
+                          <span class="title">Secure Checkout</span>
+                          <span class="icon prefix">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="5">
+                    <div class="row">
+                      <div class="col s9">
+                        <a href="{% url 'products' %}" class="btn">
+                          <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                          </span>
+                          <span class="title">Keep Shopping</span>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
             </div>
           {% else %}
             <p>Your bag is empty.</p>
