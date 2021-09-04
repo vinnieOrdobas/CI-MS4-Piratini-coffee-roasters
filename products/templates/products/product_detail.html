@@ -48,9 +48,16 @@
                         </div>
                     </div>
                     <div class="col s12 m6">
-                        <div class="chip">
-                            Tag
-                        </div>
+                        {% if product.collection %}
+                            <div class="collection-output center-align">
+                                <a href="{% url 'products' %}?collection={{ product.collection.name }}" class="chip">
+                                    <span class="icon">
+                                        <i class="fas fa-tag prefix"></i>
+                                    </span>
+                                    {{ product.collection.friendly_name }}
+                                </a>
+                            </div>
+                        {% endif %}
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
                                 <div class="collapsible-header active transparent">
