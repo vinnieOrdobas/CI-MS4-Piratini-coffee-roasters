@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # custom apps
     'home',
     'products',
+    'bag',
 ]
 
 MIDDLEWARE = [

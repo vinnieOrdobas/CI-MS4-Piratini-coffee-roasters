@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+      <div class="row">
+        <div class="center-align">
+            <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
+            <h3 class="">Shopping Bag</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+    </div>
+  </div>
+
+  <!-- Scroll up button -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light deep-orange darken-1 scroll-button">
+        <span class="icon">
+            <i class="white-text fas fa-chevron-up"></i>
+        </span>
+    </a>
+  </div>
+{% endblock %}
+
+{% block page_footer %}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

@@ -27,4 +27,11 @@ $(document).ready(function() {
       $('.search-form-wrapper').removeClass('open');
       $('html').removeClass('search-form-open');
     });
+    // scroll up button
+    $('.scroll-button').click(function(){
+        $('html, body').animate({
+            scrollTop:0
+        }, "slow");
+        return false;
+  })
 })

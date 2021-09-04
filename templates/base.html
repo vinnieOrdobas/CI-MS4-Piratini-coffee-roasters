@@ -72,7 +72,7 @@
       <li><a class="sidenav-item" href="{% url 'account_signup' %}">Register</a></li>
       <li><a class="sidenav-item" href="{% url 'account_login' %}">Login</a></li>
     {% endif %}
-      <li><a class="sidenav-item" href="#">My Cart</a></li>
+      <li><a class="sidenav-item" href="{% url 'view_bag' %}">My Bag</a></li>
       <li><a class="sidenav-item" href="{% url 'products' %}">All Products</a></li>
       <li><a class="sidenav-item modal-trigger" href="#search_modal">Find a Product</a></li>
       <li><a class="sidenav-item" href="{% url 'about' %}">About us</a></li>
@@ -134,6 +134,7 @@
     <!-- Bag Dropdown Structure -->
     <ul id="bag_dropdown" class="dropdown-content">
       <li>
+        <a href="{% url 'view_bag' %}">
           <div class="center-align">
             <p class="blue-text text-darken-2">
               {% if grand_total %}
@@ -143,6 +144,7 @@
               {% endif %}
             </p>
           </div>
+        </a>
       </li>
     </ul>
       <!-- Messages -->
