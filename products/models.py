@@ -36,7 +36,7 @@ class Product(models.Model):
     card_name = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    tags = models.ManyToManyField(Tags)
+    tags = models.ManyToManyField('Tags')
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

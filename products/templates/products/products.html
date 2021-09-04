@@ -43,10 +43,10 @@
                                 <div class="row">
                                     <div class="col s12 m12">
                                         <div class="collection">
-                                            <a href="{% url 'products' %}" class="collection-item">All Products</a>
                                             {% for collection in collections %}
                                                 <a href="{% url 'products' %}?collection={{ collection.name }}" class="collection-item">{{ collection.friendly_name }}</a>
                                             {% endfor %}
+                                            <a href="{% url 'products' %}" class="collection-item">All Products</a>
                                         </div>      
                                     </div>
                                 </div>
@@ -71,10 +71,9 @@
                                 <div class="row">
                                     <div class="col s12 m12">
                                         <div class="collection">
+                                            <a href="{% url 'products' %}?sort=price&direction=asc" class="collection-item">Price</a>
+                                            <a href="{% url 'products' %}?sort=collection&direction=asc" class="collection-item">Collection</a>
                                             <a href="{% url 'products' %}" class="collection-item">All Products</a>
-                                            {% for collection in collections %}
-                                                <a href="{% url 'products' %}?collection={{ collection.name }}" class="collection-item">{{ collection.friendly_name }}</a>
-                                            {% endfor %}
                                         </div>      
                                     </div>
                                 </div>
@@ -179,7 +178,7 @@
                                 </div>
                                 <div class="card-content center-align">
                                     <p class="product-name"><strong>{{ product.card_name }}</strong></p>
-                                    <p>€{{ product.price }}</p>
+                                    <p class="decimal">€{{ product.price }}</p>
                                     <div class="chip">
                                         Tag
                                     </div>
