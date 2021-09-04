@@ -64,7 +64,7 @@
     <ul class="sidenav mobile-menu" id="mobile-nav">
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-          <li><a class="sidenav-item" href="#" class="dropdown-item">Product Management</a></li>
+          <li><a class="sidenav-item" href="#" class="dropdown-item">Store Management</a></li>
         {% endif %}
       <li><a class="sidenav-item" href="#!">My Profile</a></li>
       <li><a class="sidenav-item" href="{% url 'account_logout' %}">Logout</a></li>
@@ -119,21 +119,21 @@
       </div>
     </div>
     <!-- User Dropdown Structure -->
-    <ul id="user_dropdown" class="dropdown-content">
+    <ul id="user_dropdown" class="dropdown-content black-text">
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-          <a href="#" class="dropdown-item">Product Management</a>
+          <li class="dropdown-item"><a href="#">Store</a></li>
         {% endif %}
-        <li><a href="#!">My Profile</a></li>
-        <li><a href="{% url 'account_logout' %}">Logout</a></li>
+        <li class="dropdown-item"><a href="#!">My Profile</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
       {% else %}
-        <li><a href="{% url 'account_signup' %}">Register</a></li>
-        <li><a href="{% url 'account_login' %}">Login</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_login' %}">Login</a></li>
       {% endif %}
     </ul>
     <!-- Bag Dropdown Structure -->
     <ul id="bag_dropdown" class="dropdown-content">
-      <li>
+      <li class="dropdown-item">
         <a href="{% url 'view_bag' %}">
           <div class="center-align">
             <p class="blue-text text-darken-2">
