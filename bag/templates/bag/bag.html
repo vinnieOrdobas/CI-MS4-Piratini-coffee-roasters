@@ -48,7 +48,7 @@
                     <td>
                       <p>€{{ item.product.price }}</p>
                     <td>
-                      <form class="update-form" action="" method="POST">
+                      <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                         {% csrf_token %}
                         <div class="input-field col s9 m6 l4 xl3">
                           <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="{{ item.quantity}}" min="1" max="99" data-item_id="{{ product.id }}" class="validate qty-input">
