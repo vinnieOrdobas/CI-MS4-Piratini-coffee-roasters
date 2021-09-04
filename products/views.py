@@ -14,7 +14,7 @@ def all_products(request):
     collections = Collection.objects.all()
     query = None
     collection = None
-    collection_name = None
+    current_collection = None
     sort = None
     direction = None
 
@@ -34,10 +34,10 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'collection' in request.GET:
-            collection_string = request.GET['collection']
-            products = products.filter(collection__name=collection_string)
-            collection = collections.filter(name=collection_string)
-            collection_name = collection[0]
+            collection = request.GET['collection'].split(',')
+            products = products.filter(collection__name__in=collection)
+            collection = Collection.objects.filter(name__in=collection)
+            current_collection = request.GET['collection']
 
         if 'search' in request.GET:
             query = request.GET['search']
@@ -54,7 +54,8 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'collections': collections,
-        'collection': collection_name,
+        'collection': collection,
+        'current_collection': current_collection,
         'current_sorting': current_sorting,
     }
     return render(request, 'products/products.html', context)
@@ -66,10 +67,11 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
-
+    collections = Collection.objects.all()
 
     context = {
         'product': product,
+        'collections': collections
     }
 
     return render(request, 'products/product_detail.html', context)

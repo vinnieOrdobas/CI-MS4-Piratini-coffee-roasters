@@ -19,17 +19,13 @@
         <div class="row">
             <div class="center-align">
                 <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-                {% if collection %}
-                    <h3 class="">{{ collection.friendly_name }}</h3>
-                {% else %}
-                    <h3 class="">All Products</h3>
-                {% endif %}
+                <h3 class="">Products</h3>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
                 <div class="col s6 push-s3">
-                    <ul class="collapsible" data-collapsible="accordion">
+                    <ul class="collapsible collapsible-menu" data-collapsible="accordion">
                         <li>
                             <div class="collapsible-header active transparent">
                                 <div class="col s12">
@@ -46,7 +42,7 @@
                                             {% for collection in collections %}
                                                 <a href="{% url 'products' %}?collection={{ collection.name }}" class="collection-item">{{ collection.friendly_name }}</a>
                                             {% endfor %}
-                                            <a href="{% url 'products' %}" class="collection-item">All Products</a>
+                                            <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships" class="collection-item">All Products</a>
                                         </div>      
                                     </div>
                                 </div>
@@ -57,7 +53,7 @@
             </div>
             <div class="col s12">
                 <div class="col s6 push-s3">
-                    <ul class="collapsible" data-collapsible="accordion">
+                    <ul class="collapsible collapsible-menu" data-collapsible="accordion">
                         <li>
                             <div class="collapsible-header active transparent">
                                 <div class="col s12">
@@ -71,9 +67,9 @@
                                 <div class="row">
                                     <div class="col s12 m12">
                                         <div class="collection">
-                                            <a href="{% url 'products' %}?sort=price&direction=asc" class="collection-item">Price</a>
+                                            <a href="{% url 'products' %}?collection={{ current_collection }}&sort=price&direction=asc" class="collection-item">Price</a>
                                             <a href="{% url 'products' %}?sort=collection&direction=asc" class="collection-item">Collection</a>
-                                            <a href="{% url 'products' %}" class="collection-item">All Products</a>
+                                            <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships" class="collection-item">All Products</a>
                                         </div>      
                                     </div>
                                 </div>

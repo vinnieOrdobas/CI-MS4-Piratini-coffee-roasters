@@ -22,8 +22,17 @@
     font-size: 20px;
 }
 
-.text-muted {
-    display: none;
+.collapsible-menu {
+    box-shadow: none;
+    border: none;
+}
+
+.collapsible-header {
+    border: none;
+}
+
+.collapsible-body {
+    border: none;
 }
 
 /* Typography */
