@@ -53,32 +53,21 @@
             </div>
             <div class="col s12">
                 <div class="col s6 push-s3">
-                    <ul class="collapsible collapsible-menu" data-collapsible="accordion">
-                        <li>
-                            <div class="collapsible-header active transparent">
-                                <div class="col s12">
-                                    <strong>Sort By</strong>
-                                    <span class="icon right">
-                                        <i class="fas fa-caret-down"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="collapsible-body">
-                                <div class="row">
-                                    <div class="col s12 m12">
-                                        <div class="collection">
-                                            <a href="{% url 'products' %}?collection={{ current_collection }}&sort=price&direction=asc" class="collection-item">Price</a>
-                                            <a href="{% url 'products' %}?sort=collection&direction=asc" class="collection-item">Collection</a>
-                                            <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships" class="collection-item">All Products</a>
-                                        </div>      
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="input-field col s12">
+                        <select id="sort-selector">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="collection_asc" {% if current_sorting == 'collection_asc' %}selected{% endif %}>Collection (A-Z)</option>
+                            <option value="collection_desc" {% if current_sorting == 'collection' %}selected{% endif %}>Collection (Z-A)</option>
+                        </select>
+                      </div>
                 </div>
             </div>
         </div>
+        <div class="divider"></div>
         <div class="row cards-container-sml hide-on-med-and-up">
             <div class="col s12">
                 {% for product in products %}
@@ -239,14 +228,36 @@
 {% endblock %}
 
 {% block postloadjs %}
+    {{ block.super }}
 <script type="text/javascript">
-  $(document).ready(function(){
-      $('.scroll-button').click(function(){
-          $('html, body').animate({
-              scrollTop:0
-          }, "slow");
-          return false;
-      })
+    $(document).ready(function(){
+        $('.scroll-button').click(function(){
+            $('html, body').animate({
+                scrollTop:0
+            }, "slow");
+            return false;
+        })
+        })
+    $('#sort-selector').change(function() {
+        var selector = $(this)
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if(selectedVal != 'reset'){
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set('sort', sort);
+            currentUrl.searchParams.set('direction', direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete('sort');
+            currentUrl.searchParams.delete('direction');
+            
+            window.location.replace(currentUrl);
+        }
     })
+
 </script>
 {% endblock %}
