@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Collection, Tags
+from .models import Product, Collection
+from django.db.models.functions import Lower
+
 # Create your views here.
 
 
