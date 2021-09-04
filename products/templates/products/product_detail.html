@@ -68,10 +68,6 @@
                             <div class="card-action center-align">
                                 <p class="product-name"><strong>{{ product.name }}</strong></p>
                                 <span class="decimal"><strong>€{{ product.price }}</strong></span>
-                                <!-- add to checkout button -->
-                                <div class="btn-wrapper">
-                                    <a class="waves-effect waves-light btn"><i class="fas fa-cart-plus left white-text"></i>Add to cart</a>
-                                </div>
                             </div>
                             {% if product.collection %}
                                 <div class="row">
@@ -112,6 +108,38 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                    <form class="col s12 m6" action="{% url 'add_to_bag' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col s3 push-s3 border">
+                                <span class="title">
+                                    <strong>Quantity</strong>
+                                </span>
+                                <div class="input-field">
+                                    <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ product.id }}" class="validate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 push-s1">
+                                <button class="btn waves-effect waves-light">
+                                    <a href="{% url 'products' %}">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="title white-text">Keep Shopping</span>
+                                    </a>
+                                </button>
+                                <button class="btn waves-effect waves-light" type="submit">Add to bag
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+                    <div class="row">
+                        
                     </div>
                 </div>
             </div>
