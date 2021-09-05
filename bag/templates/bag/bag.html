@@ -52,11 +52,25 @@
                       <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                         {% csrf_token %}
                         <div class="input-field col s9 m6 l4 xl3">
-                          <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="{{ item.quantity}}" min="1" max="99" data-item_id="{{ product.id }}" class="validate qty-input">
+                          <div class="quantity">
+                            <div class="btn-controls hide-on-med-and-up">
+                                <button id="increment_qty_{{ product.id }}" class="increment-qty" type="button" name="button">
+                                    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+                                </button> 
+                                <button id="decrement_qty_{{ product.id }}" class="decrement-qty" type="button" name="button">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="input-field">
+                                <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ product.id }}" class="browser-default validate qty-input">
+                            </div>
+                          </div>
                         </div>
                       </form>
-                      <a class="update-link"><small>Update</small></a> |
-                      <a class="remove-item red-text" id="remove_{{ item.product.id }}"><small>Remove</small></a>
+                      <div class="controls">
+                        <a class="update-link"><small>Update</small></a> |
+                        <a class="remove-item red-text" id="remove_{{ item.product.id }}"><small>Remove</small></a>
+                      </div>
                     </td>
                     <td>
                       <p>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -182,5 +196,33 @@
              location.reload();
          });
     })
+
+    // Controls for quantity
+    $(document).ready(function() {
+        buttonUp = $('.increment-qty')
+        buttonDown = $('.decrement-qty')
+        qtyInput = $('.qty-input')
+        
+        
+        buttonUp.on('click', function() {
+            oldVal = qtyInput.val();
+            newVal = parseFloat(oldVal) + 1;
+            qtyInput.val(newVal);
+        });
+
+        buttonDown.on('click', function() {
+            oldVal = qtyInput.val();
+
+            if (oldVal > 0) {
+            newVal = parseFloat(oldVal) - 1;
+
+            } else {
+
+            newVal = 0;
+            }
+
+            qtyInput.val(newVal);
+        });
+    });
 </script>
 {% endblock %}

@@ -312,6 +312,24 @@ body {
     height: 200px;
     width: 200px;
 }
+
+.quantity {
+    display: inline-flex;
+    flex-direction: row-reverse;
+
+}
+
+input[type=text] {
+    float: left;
+    width: 40px;
+    font: bold 20px Helvetica, sans-serif;
+    padding: 3px 0 0 0;
+    text-align: center;
+  }
+
+.quantity input {
+    max-width: 50px;
+}
 /* Footer */
 
 .page-footer {
