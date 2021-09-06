@@ -177,52 +177,53 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
-  // Update quantity on click
-  $('.update-link').click(function(e) {
-    var form = $('.update-form');
-    form.submit();
-  })
-  // Remove item and reload and click
-  $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1]
-        var url = `/bag/remove/${itemId}/`;
-        var data = {
-            'csrfmiddlewaretoken': csrfToken,
-        }
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+{{ block.super }}
+  <script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+      var form = $('.update-form');
+      form.submit();
     })
+    // Remove item and reload and click
+    $('.remove-item').click(function(e) {
+          var csrfToken = "{{ csrf_token }}";
+          var itemId = $(this).attr('id').split('remove_')[1]
+          var url = `/bag/remove/${itemId}/`;
+          var data = {
+              'csrfmiddlewaretoken': csrfToken,
+          }
+          $.post(url, data)
+          .done(function() {
+              location.reload();
+          });
+      })
 
-    // Controls for quantity
-    $(document).ready(function() {
-        buttonUp = $('.increment-qty')
-        buttonDown = $('.decrement-qty')
-        qtyInput = $('.qty-input')
-        
-        
-        buttonUp.on('click', function() {
-            oldVal = qtyInput.val();
-            newVal = parseFloat(oldVal) + 1;
-            qtyInput.val(newVal);
-        });
+      // Controls for quantity
+      $(document).ready(function() {
+          buttonUp = $('.increment-qty')
+          buttonDown = $('.decrement-qty')
+          qtyInput = $('.qty-input')
+          
+          
+          buttonUp.on('click', function() {
+              oldVal = qtyInput.val();
+              newVal = parseFloat(oldVal) + 1;
+              qtyInput.val(newVal);
+          });
 
-        buttonDown.on('click', function() {
-            oldVal = qtyInput.val();
+          buttonDown.on('click', function() {
+              oldVal = qtyInput.val();
 
-            if (oldVal > 0) {
-            newVal = parseFloat(oldVal) - 1;
+              if (oldVal > 0) {
+              newVal = parseFloat(oldVal) - 1;
 
-            } else {
+              } else {
 
-            newVal = 0;
-            }
+              newVal = 0;
+              }
 
-            qtyInput.val(newVal);
-        });
-    });
-</script>
+              qtyInput.val(newVal);
+          });
+      });
+  </script>
 {% endblock %}

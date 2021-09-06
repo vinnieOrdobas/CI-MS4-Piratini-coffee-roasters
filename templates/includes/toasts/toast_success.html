@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        var message = 
+        `<div>
+            <span>
+                <strong class="green-text">Success!</strong>
+                {{ message }}
+            </span>
+        </div>`
+        M.toast({html:message, classes: 'message-container'});
+    })
+</script>

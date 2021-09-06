@@ -40,6 +40,20 @@
     cursor: pointer;
 }
 
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+.toast {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999999999999999;
+}
+
 /* Typography */
 
 .title {
@@ -306,6 +320,7 @@ body {
 .cards-container-sml {
     padding-left: 50px;
 }
+
 /* Bag */
 
 .bag-img{
