@@ -47,12 +47,7 @@
     right: 15px;
     z-index: 99999999999;
 }
-.toast {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 9999999999999999999;
-}
+
 
 /* Typography */
 
@@ -406,3 +401,32 @@ input[type=text] {
     }
 }
 
+@media only screen and (min-width : 601px) and (max-width : 1260px) {
+    .toast {
+    width: 100%;
+    border-radius: 0; } 
+}
+    
+    @media only screen and (min-width : 1261px) {
+    .toast {
+    width: 100%;
+    border-radius: 0; } 
+}
+    
+    @media only screen and (min-width : 601px) and (max-width : 1260px) {
+    #toast-container {
+    min-width: 100%;
+    bottom: 0%;
+    top: 90%;
+    right: 0%;
+    left: 0%; } 
+}
+    
+    @media only screen and (min-width : 1261px) {
+    #toast-container {
+    min-width: 100%;
+    bottom: 0%;
+    top: 90%;
+    right: 0%;
+    left: 0%; } 
+} }
