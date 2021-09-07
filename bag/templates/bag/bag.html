@@ -54,15 +54,15 @@
                         <div class="input-field col s9 m6 l4 xl3">
                           <div class="quantity">
                             <div class="btn-controls hide-on-med-and-up">
-                                <button id="increment_qty_{{ product.id }}" class="increment-qty" type="button" name="button">
+                                <button id="increment_qty_{{ item.item_id }}" class="increment-qty" type="button" name="button">
                                     <i class="fas fa-chevron-up" aria-hidden="true"></i>
                                 </button> 
-                                <button id="decrement_qty_{{ product.id }}" class="decrement-qty" type="button" name="button">
+                                <button id="decrement_qty_{{ item.item_id }}" class="decrement-qty" type="button" name="button">
                                     <i class="fas fa-chevron-down"></i>
                                 </button>
                             </div>
                             <div class="input-field">
-                                <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ product.id }}" class="browser-default validate qty-input">
+                                <input id="qty_input_{{ item.item_id }}" name="quantity" type="number" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" class="browser-default validate qty-input">
                             </div>
                           </div>
                         </div>
@@ -199,31 +199,28 @@
       })
 
       // Controls for quantity
-      $(document).ready(function() {
-          buttonUp = $('.increment-qty')
-          buttonDown = $('.decrement-qty')
-          qtyInput = $('.qty-input')
+      $('.increment-qty').on('click', function(e) {
+          e.preventDefault()
+          qtyInput = $(this).closest('.input-field').find('.qty-input')
+          oldVal = parseInt(qtyInput.val())
+          newVal = parseFloat(oldVal) + 1;
+          qtyInput.val(newVal);
+      });
+
+      $('.decrement-qty').on('click', function(e) {
+          e.preventDefault()
+          qtyInput = $(this).closest('.input-field').find('.qty-input')
+          oldVal = parseInt(qtyInput.val())
           
-          
-          buttonUp.on('click', function() {
-              oldVal = qtyInput.val();
-              newVal = parseFloat(oldVal) + 1;
-              qtyInput.val(newVal);
-          });
+          if (oldVal > 0) {
+          newVal = parseFloat(oldVal) - 1;
 
-          buttonDown.on('click', function() {
-              oldVal = qtyInput.val();
+          } else {
 
-              if (oldVal > 0) {
-              newVal = parseFloat(oldVal) - 1;
+          newVal = 0;
+          }
 
-              } else {
-
-              newVal = 0;
-              }
-
-              qtyInput.val(newVal);
-          });
+          qtyInput.val(newVal);
       });
   </script>
 {% endblock %}

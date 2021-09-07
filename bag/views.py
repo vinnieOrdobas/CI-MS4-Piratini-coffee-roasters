@@ -25,7 +25,7 @@ def add_to_bag(request, item_id):
         bag[item_id] += quantity
     else:
         bag[item_id] = quantity
-        messages.success(request, f'{product.name} added to your bag.')
+        messages.success(request, f'{product.card_name} added to your bag.')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -36,6 +36,8 @@ def adjust_bag(request, item_id):
     Adjust the quantity of the specified product
     '''
 
+    product = Product.objects.get(pk=item_id)
+
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
@@ -45,6 +47,7 @@ def adjust_bag(request, item_id):
         bag.pop(item_id)
 
     request.session['bag'] = bag
+    messages.info(request, f'{product.card_name} quantity adjusted.')
     return redirect(reverse('view_bag'))
 
 
@@ -53,12 +56,15 @@ def remove_from_bag(request, item_id):
     Remove the item from the shopping bag
     '''
 
+    product = Product.objects.get(pk=item_id)
+
     try:
 
         bag = request.session.get('bag', {})
         bag.pop(item_id)
 
         request.session['bag'] = bag
+        messages.warning(request, f'{product.card_name} removed from your bag.')
         return HttpResponse(status=200)
 
     except Exception as e:

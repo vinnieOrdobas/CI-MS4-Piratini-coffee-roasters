@@ -1,15 +1,15 @@
-<div class="toast">
-    <span class="message-container">
-        <strong class="white-text">Alert!</strong>
-        {{ message }}
-    </span>
-    <button class="btn-flat toast-action">Undo</button>
-</div>
-
 <script type="text/javascript">
-
     $(document).ready(function() {
-        var message = $('message-container')
-        M.toast({html:message.html(), classes: 'rounded'});
+        var message = 
+        `<div>
+            <span>
+                <strong class="blue-text">Done!</strong>
+                {{ message }}
+            </span>
+        </div>`
+        M.toast({
+            html:message, 
+            classes: 'rounded'
+        });
     })
 </script>

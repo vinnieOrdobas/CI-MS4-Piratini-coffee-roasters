@@ -112,29 +112,21 @@
                     <form class="col s12 m6" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col s3 push-s5 hide-on-med-and-up">
+                            <div class="col s3 push-s5">
                                 <span class="title">
-                                    <strong>Quantity</strong>
+                                    <strong>Quantity:</strong>
                                 </span>
                                 <div class="quantity">
-                                    <div class="btn-controls">
-                                        <button id="increment_qty_{{ product.id }}" class="increment-qty" type="button" name="button">
+                                    <div class="btn-controls hide-on-med-and-up">
+                                        <button id="increment_qty_{{ item.item_id }}" class="increment-qty" data-item_id="{{ item.item_id }}" type="button" name="button">
                                             <i class="fas fa-chevron-up" aria-hidden="true"></i>
                                         </button> 
-                                        <button id="decrement_qty_{{ product.id }}" class="decrement-qty" type="button" name="button">
+                                        <button id="decrement_qty_{{ item.item_id }}" class="decrement-qty" data-item_id="{{ item.item_id }}" type="button" name="button">
                                             <i class="fas fa-chevron-down"></i>
                                         </button>
                                     </div>
                                     <div class="input-field">
-                                        <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ product.id }}" class="browser-default validate qty-input">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s12 hide-on-small-only">
-                                <div class="col s12">
-                                    Quantity
-                                    <div class="input-field form-inline">
-                                        <input id="id_qty_{{ product.id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ product.id }}" class="browser-default validate qty-input">
+                                        <input id="id_qty_{{ item.item_id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" class="browser-default validate qty-input">
                                     </div>
                                 </div>
                             </div>
@@ -188,16 +180,17 @@
     $(document).ready(function() {
         buttonUp = $('.increment-qty')
         buttonDown = $('.decrement-qty')
-        qtyInput = $('.qty-input')
         
         
         buttonUp.on('click', function() {
-            oldVal = qtyInput.val();
+            qtyInput = $('.increment-qty').parent().next().children();
+            oldVal = qtyInput.val()
             newVal = parseFloat(oldVal) + 1;
             qtyInput.val(newVal);
         });
 
         buttonDown.on('click', function() {
+            qtyInput = $('.decrement-qty').parent().next().children();
             oldVal = qtyInput.val();
 
             if (oldVal > 0) {
