@@ -69,7 +69,7 @@
                       </form>
                       <div class="controls">
                         <a class="update-link"><small>Update</small></a> |
-                        <a class="remove-item red-text" id="remove_{{ item.product.id }}"><small>Remove</small></a>
+                        <a class="remove-item red-text" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                       </div>
                     </td>
                     <td>
@@ -181,8 +181,8 @@
   <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-      var form = $('.update-form');
-      form.submit();
+        var form = $(this).parent().prev('.update-form');
+        form.submit();
     })
     // Remove item and reload and click
     $('.remove-item').click(function(e) {
