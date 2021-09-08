@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import DiscountCode, Order, OrderLineItem
+from .models import Order, OrderLineItem
 
 
-class DiscountCodeAdmin(admin.ModelAdmin):
-    list_display = ('code', 'count', 'active', 'discount')
-    list_filter = ['active']
-    search_fields = ['code']
+# class DiscountCodeAdmin(admin.ModelAdmin):
+#     # list_display = ('code', 'count', 'active', 'discount')
+#     # list_filter = ['active']
+#     # search_fields = ['code']
 
 
 class OrderLineItemAdmininline(admin.TabularInline):
@@ -32,5 +32,5 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
-admin.site.register(DiscountCode, DiscountCodeAdmin)
+# admin.site.register(DiscountCode) #DiscountCodeAdmin)
 

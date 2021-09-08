@@ -8,23 +8,23 @@ from django.conf import settings
 from products.models import Product
 
 
-class DiscountCode(models.Model):
-    active = models.BooleanField(null=False, blank=False, default=True)
-    code = models.CharField(max_length=50, unique=True, null=False, blank=False)
-    count = models.IntegerField(null=False, blank=False, default=0)
-    discount = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0),
-                                                                        MaxValueValidator(100)])
+# class DiscountCode(models.Model):
+#     active = models.BooleanField(null=False, blank=False, default=True)
+#     code = models.CharField(max_length=50, unique=True, null=False, blank=False)
+#     count = models.IntegerField(null=False, blank=False, default=0)
+#     discount = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0),
+#                                                                         MaxValueValidator(100)])
 
-    def __str__(self):
-        return self.code
+#     def __str__(self):
+#         return self.code
 
-    def increase_count(self):
-        if self.count < 10:
-            self.count += 1
-            super().save()
-        else:
-            self.active = False
-            super().save()
+#     def increase_count(self):
+#         if self.count < 10:
+#             self.count += 1
+#             super().save()
+#         else:
+#             self.active = False
+#             super().save()
 
 
 class Order(models.Model):
