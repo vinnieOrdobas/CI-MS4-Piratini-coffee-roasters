@@ -122,10 +122,9 @@
                                 <legend>Payment</legend>
                                 <!-- A Stripe card element will go here -->
                                 <div id="card-element">
-                                    test
                                 </div>
                                 <!-- Used to display form errors -->
-                                <div class="red-text" id="card-error"></div>
+                                <div class="red-text" id="card-errors"></div>
                             </fieldset>
                             <div class="col s12">
                                 <p class="small">
@@ -138,7 +137,7 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn waves-effect waves-light right" type="submit" name="action">Complete Order
+                                <button class="btn waves-effect waves-light right" type="submit" name="action" id="submit-button">Complete Order
                                     <i class="white-text fas fa-lock"></i>
                                 </button>
                                 <a href="{% url 'view_bag' %}" class="btn">
