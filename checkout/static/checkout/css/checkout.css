@@ -29,3 +29,12 @@
 #card-element {
     background-color: whitesmoke;
 }
+
+.order-confirmation-wrapper {
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+
+.p-2 {
+    padding:.5rem!important
+}
