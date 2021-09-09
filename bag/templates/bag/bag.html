@@ -219,14 +219,14 @@
           oldVal = parseInt(qtyInput.val())
           
           if (oldVal > 0) {
-          newVal = parseFloat(oldVal) - 1;
+          newVal = Math.floor(parseFloat(oldVal) - 1);
 
           } else {
 
           newVal = 0;
           }
 
-          qtyInput.val(newVal);
+          qtyInput.val(Math.floor(newVal));
       });
   </script>
 {% endblock %}
