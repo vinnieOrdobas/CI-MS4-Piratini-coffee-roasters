@@ -28,6 +28,9 @@
       <div class="divider"></div>
       <div class="row">
             <div class="col s12 l6">
+                <p class="title center-align">
+                    <strong>Order Summary ({{ product_count }})</strong>
+                </p>
                 <div class="row">
                     <div class="col s7">
                         <p class="title">
@@ -173,4 +176,8 @@
 {% endblock %}
 
 {% block postloadjs %}
+    {{block.super}}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
