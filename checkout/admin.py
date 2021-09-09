@@ -32,5 +32,4 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
-# admin.site.register(DiscountCode) #DiscountCodeAdmin)
-
+# admin.site.register(DiscountCode) DiscountCodeAdmin)

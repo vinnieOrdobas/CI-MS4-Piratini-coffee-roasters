@@ -60,9 +60,7 @@ INSTALLED_APPS = [
     'checkout',
 
     # Other apps
-    'materialize',
-    'crispy_forms',
-    'crispy_forms_materialize',
+    'materializecssform',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +75,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'piratini_coffee_roasters.urls'
 
-CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
 TEMPLATES = [
     {
@@ -95,10 +92,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
             ],
-            'builtins': [
-                'crispy_forms.templatetags.crispy_forms_tags',
-                'crispy_forms.templatetags.crispy_forms_field',
-            ]
         },
     },
 ]

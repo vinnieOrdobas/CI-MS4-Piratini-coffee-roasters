@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load materializecss %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -20,45 +21,71 @@
       <div class="row">
         <div class="center-align">
             <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-            <h3 class="">Shopping Bag</h3>
+            <h3 class="">Checkout</h3>
         </div>
       </div>
       <div class="divider"></div>
-
       <div class="row">
-          <div class="col s12 l6">
-              <p class="title">Please fill out the form below to complete your order</p>
-              <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="col s12">
-                {% csrf_token %}
-                <div class="row">
-                    <fieldset>
-                        <legend>Details</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                    </fieldset>
-                    <fieldset>
-                        <legend>Delivery</legend>
-                        {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
-                    </fieldset>
-                    <div class="row">
-                        <div class="col s12">
-                        This is an inline input field:
-                        <div class="input-field inline">
-                            <input id="email_inline" type="email" class="validate">
-                            <label for="email_inline">Email</label>
-                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+            <div class="col s12 l6 push-l3 payment-form-wrapper">
+                <p class="title center-align">Please fill out the form below to complete your order</p>
+                <div class="card">
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="col s12">
+                        {% csrf_token %}
+                        <div class="row">
+                            <fieldset>
+                                <legend>Details</legend>
+                                {{ order_form_mat.full_name|materializecss }}
+                                {{ order_form_mat.email|materializecss }}
+                            </fieldset>
+                            <fieldset>
+                                <legend>Delivery</legend>
+                                {{ order_form_mat.phone_number|materializecss }}
+                                {{ order_form_mat.country|materializecss }}
+                                {{ order_form_mat.postcode|materializecss }}
+                                {{ order_form_mat.town_or_city|materializecss }}
+                                {{ order_form_mat.street_address1|materializecss }}
+                                {{ order_form_mat.street_address2|materializecss }}
+                                {{ order_form_mat.county|materializecss }}
+                            </fieldset>
+                            <fieldset>
+                                <legend>Payment</legend>
+
+                            </fieldset>
+                            <div class="row">
+                                <div class="col s12">
+                                    {% if user.is_authenticated %}
+                                    <div class="input-field inline">
+                                        <p>
+                                            <label>
+                                                <input type="checkbox" class="filled-in" checked="checked" name="save-info" id="id-save-info">
+                                                <span>Save this delivery infromation to my profile</span>
+                                            </label>
+                                        </p>
+                                    </div>
+                                    {% else %}
+                                        <a href="">Creat an account</a> or
+                                        <a href="">login</a> to save this information.
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                                    <i class="white-text fas fa-paper-plane"></i>
+                                </button>
+                                <a href="{% url 'products' %}" class="btn">
+                                    <span class="icon">
+                                      <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title">Keep Shopping</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-              </form>
-          </div>
-      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
   </div>
 
   <!-- Scroll up button -->
