@@ -40,7 +40,13 @@
                 {% for item in bag_items %}
                   <tr>
                     <td>
-                      <img src="{{ item.product.image.url }}" alt="" class="circle responsive-img bag-img">
+                      <a href="{% url 'product_detail' item.product.id %}">
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" alt="" class="circle responsive-img bag-img">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="" class="circle responsive-img bag-img">
+                        {% endif %}
+                    </a>
                     </td>
                     <td>
                       <p><strong>{{ item.product.card_name }}</strong></p>
@@ -92,7 +98,7 @@
                         <a href="{% url 'checkout' %}" class="btn">
                           <span class="title">Secure Checkout</span>
                           <span class="icon prefix">
-                            <i class="fas fa-lock"></i>
+                            <i class="fas fa-lock white-text"></i>
                           </span>
                         </a>
                       </div>
@@ -105,7 +111,7 @@
                       <div class="col s9">
                         <a href="{% url 'products' %}" class="btn">
                           <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
+                            <i class="fas fa-chevron-left white-text"></i>
                           </span>
                           <span class="title">Keep Shopping</span>
                         </a>
