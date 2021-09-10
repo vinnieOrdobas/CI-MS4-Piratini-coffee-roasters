@@ -1,7 +1,10 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+
 from products.models import Product
+from discounts.models import Discount
+from discounts.forms import DiscountApplyForm
 
 
 def bag_contents(request):
@@ -10,6 +13,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    discount_form = DiscountApplyForm()
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -22,13 +26,22 @@ def bag_contents(request):
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
+        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
         free_delivery_delta = 0
 
-    grand_total = delivery + total
+    discount_id = request.session.get('discount_id')
+
+    if discount_id:
+        discount = Discount.objects.get(id=discount_id)
+        discount_effect = total * Decimal(discount.discount / 100)
+    else:
+        discount = None
+        discount_effect = 0
+
+    grand_total = delivery + total - discount_effect
 
     context = {
         'bag_items': bag_items,
@@ -37,6 +50,8 @@ def bag_contents(request):
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
+        'discount_form': discount_form,
+        'discount': discount_effect,
         'grand_total': grand_total,
     }
 
