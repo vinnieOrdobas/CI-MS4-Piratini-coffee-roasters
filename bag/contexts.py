@@ -41,6 +41,7 @@ def bag_contents(request):
     else:
         discount = None
         discount_effect = 0
+        discount_percentage = None
 
     grand_total = delivery + total - discount_effect
 
