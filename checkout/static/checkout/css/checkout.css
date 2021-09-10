@@ -39,17 +39,6 @@
     padding:.5rem!important
 }
 
-select, 
-select option {
-    color: black;
-    border: 1px solid black;
-}
-
-select:invalid,
-select option[value=""] {
-    color: gray !important
-}
-
 #loading-overlay {
     display: none;
     position: fixed;
