@@ -36,6 +36,7 @@ def bag_contents(request):
 
     if discount_id:
         discount = Discount.objects.get(id=discount_id)
+        discount_percentage = discount.discount
         discount_effect = total * Decimal(discount.discount / 100)
     else:
         discount = None
@@ -52,6 +53,7 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'discount_form': discount_form,
         'discount': discount_effect,
+        'discount_percentage': discount_percentage,
         'grand_total': grand_total,
     }
 

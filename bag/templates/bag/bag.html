@@ -89,7 +89,7 @@
                     <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
                     <h6><strong>Delivery: €{{ delivery|floatformat:2 }}</strong></h6>
                     {% if discount > 0 %}
-                      <h6><strong>Discount: €{{ discount|floatformat:2 }}</strong></h6>
+                      <h6><strong>Discount: {{ discount_percentage }}% <span class="title red-text">OFF</span></strong></h6>
                     {% else %}
                       <h6><strong>Discount: € 0</strong></h6>
                     {% endif %}

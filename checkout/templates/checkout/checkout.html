@@ -71,11 +71,13 @@
                     <div class="col s7">
                         <p class="title">Order Total:</p>
                         <p class="title">Delivery:</p>
+                        <p class="title">Discount:</p>
                         <p class="title">Grand Total:</p>
                     </div>
                     <div class="col s3 right">
                         <p>${{ total|floatformat:2 }}</p>
                         <p>${{ delivery|floatformat:2 }}</p>
+                        <p>{{ discount_percentage }}% <span class="title red-text">OFF</span></strong></p>
                         <p><strong>${{ grand_total|floatformat:2 }}</strong></p>
                     </div>
                 </div>
