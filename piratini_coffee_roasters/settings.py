@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'discounts',
+    'profiles',
 
     # Other apps
     'materializecssform',
