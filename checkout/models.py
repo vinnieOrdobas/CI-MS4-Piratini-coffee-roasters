@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal
 
 from django.db import models
 from django.db.models import Sum
@@ -7,6 +8,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Product
+from discounts.models import Discount
 
 
 class Order(models.Model):
@@ -22,6 +24,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    discount = models.ForeignKey(Discount, null=True, blank=True, on_delete=models.SET_NULL)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
@@ -41,6 +44,13 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
+    def save_discount(self, discount):
+        """
+        Saves discount to order
+        """
+        self.discount = discount
+        self.save()
+
     def update_total(self):
         """
         Update grand total each time a line item is added, accounting for delivery costs.
@@ -51,7 +61,14 @@ class Order(models.Model):
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+
+        if self.discount:
+            discount_percentage = self.discount.discount
+            discount_value = total * Decimal(discount_percentage / 100)
+        else:
+            discount_value = 0
+
+        self.grand_total = self.order_total + self.delivery_cost - discount_value
         self.save()
 
     def __str__(self):

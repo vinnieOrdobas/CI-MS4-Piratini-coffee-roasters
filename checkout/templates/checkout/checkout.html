@@ -71,11 +71,17 @@
                     <div class="col s7">
                         <p class="title">Order Total:</p>
                         <p class="title">Delivery:</p>
+                        {% if discount %}
+                            <p class="title">Discount:</p>
+                        {% endif %}
                         <p class="title">Grand Total:</p>
                     </div>
                     <div class="col s3 right">
                         <p>${{ total|floatformat:2 }}</p>
                         <p>${{ delivery|floatformat:2 }}</p>
+                        {% if discount %}
+                        <p>{{ discount.discount }}% <span class="title red-text">off</span></p>
+                        {% endif %}
                         <p><strong>${{ grand_total|floatformat:2 }}</strong></p>
                     </div>
                 </div>

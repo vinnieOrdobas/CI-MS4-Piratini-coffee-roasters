@@ -23,7 +23,6 @@ def bag_contents(request):
 
     if discount_id:
         discount = get_discount(discount_id)
-        request.session['discount_id'] = None
     else:
         discount = False
 

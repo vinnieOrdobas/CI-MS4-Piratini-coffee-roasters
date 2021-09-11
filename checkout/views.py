@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import OrderFormMat
 from .models import Order, OrderLineItem
 from products.models import Product
-from bag.contexts import bag_contents
+from bag.contexts import bag_contents, get_discount
 
 import stripe
 import json
@@ -39,6 +39,14 @@ def checkout(request):
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
+        discount_id = request.session.get('discount_id')
+        if discount_id:
+            discount = get_discount(discount_id)
+            request.session['discount_id'] = None
+            print(discount)
+        else:
+            discount = None
+        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -56,6 +64,10 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            if discount:
+                order.save_discount(discount)
+            else:
+                order.discount = None
             order.save()
             for item_id, item_data in bag.items():
                 try:
