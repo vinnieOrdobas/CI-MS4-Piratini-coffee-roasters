@@ -97,6 +97,7 @@ class StripeWH_Handler:
             except Exception as e:
                 if order:
                     order.delete()
+                print(e)
                 return HttpResponse(content=f'Webhook received: {event["type"]} | ERROR: {e}',
                                     status=500)
 

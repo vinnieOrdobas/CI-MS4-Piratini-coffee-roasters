@@ -52,6 +52,7 @@ def checkout(request):
         }
         order_form = OrderFormMat(form_data)
         if order_form.is_valid():
+            print("Order Form", order_form)
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
