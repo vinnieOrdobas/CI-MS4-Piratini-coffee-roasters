@@ -71,13 +71,11 @@
                     <div class="col s7">
                         <p class="title">Order Total:</p>
                         <p class="title">Delivery:</p>
-                        <p class="title">Discount:</p>
                         <p class="title">Grand Total:</p>
                     </div>
                     <div class="col s3 right">
                         <p>${{ total|floatformat:2 }}</p>
                         <p>${{ delivery|floatformat:2 }}</p>
-                        <p>{{ discount_percentage }}% <span class="title red-text">OFF</span></strong></p>
                         <p><strong>${{ grand_total|floatformat:2 }}</strong></p>
                     </div>
                 </div>
@@ -96,12 +94,12 @@
                             <fieldset>
                                 <legend>Delivery</legend>
                                 {{ order_form_mat.phone_number|materializecss }}
-                                {{ order_form_mat.country|materializecss }}
-                                {{ order_form_mat.postcode|materializecss }}
-                                {{ order_form_mat.town_or_city|materializecss }}
                                 {{ order_form_mat.street_address1|materializecss }}
                                 {{ order_form_mat.street_address2|materializecss }}
+                                {{ order_form_mat.town_or_city|materializecss }}
                                 {{ order_form_mat.county|materializecss }}
+                                {{ order_form_mat.postcode|materializecss }}
+                                {{ order_form_mat.country|materializecss }}
                             </fieldset>
                             <div class="row">
                                 <div class="col s12">
