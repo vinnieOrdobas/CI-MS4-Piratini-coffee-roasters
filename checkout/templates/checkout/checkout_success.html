@@ -176,6 +176,17 @@
                   <p>{{ order.delivery_cost }}</p>
                 </div>
               </div>
+              
+              {% if order.discount %}
+                <div class="row">
+                  <div class="col s12 m4">
+                    <p>Discount</p>
+                  </div>
+                  <div class="col s12 m8 right-align">
+                    <p>{{ order.discount.discount }}% <span class="title red-text">OFF</span></p>
+                  </div>
+                </div>
+              {% endif %}
 
               <div class="row">
                 <div class="col s12 m4">

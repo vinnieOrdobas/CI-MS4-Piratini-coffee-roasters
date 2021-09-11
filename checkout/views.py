@@ -42,8 +42,7 @@ def checkout(request):
         discount_id = request.session.get('discount_id')
         if discount_id:
             discount = get_discount(discount_id)
-            request.session['discount_id'] = None
-            print(discount)
+
         else:
             discount = None
         
@@ -133,6 +132,9 @@ def checkout_success(request, order_number):
     
     if 'bag' in request.session:
         del request.session['bag']
+
+    if 'discount_id' in request.session:
+        del request.session['discount_id']
     
     template = 'checkout/checkout_success.html'
     context = {

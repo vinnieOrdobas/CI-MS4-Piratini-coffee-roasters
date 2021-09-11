@@ -64,7 +64,7 @@ class Order(models.Model):
 
         if self.discount:
             discount_percentage = self.discount.discount
-            discount_value = total * Decimal(discount_percentage / 100)
+            discount_value = self.order_total * Decimal(discount_percentage / 100)
         else:
             discount_value = 0
 
