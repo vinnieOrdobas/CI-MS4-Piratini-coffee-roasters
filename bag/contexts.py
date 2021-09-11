@@ -3,6 +3,14 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+from discounts.models import Discount
+from discounts.forms import DiscountApplyForm
+
+
+def get_discount(discount_id):
+    discount = Discount.objects.get(pk=discount_id)
+    return discount
+
 
 def bag_contents(request):
 
@@ -10,6 +18,14 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    discount_form = DiscountApplyForm()
+    discount_id = request.session.get('discount_id')
+
+    if discount_id:
+        discount = get_discount(discount_id)
+        request.session['discount_id'] = None
+    else:
+        discount = False
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -28,7 +44,13 @@ def bag_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
-    grand_total = delivery + total
+    if discount:
+        discount_percentage = discount.discount
+        discount_value = total * Decimal(discount_percentage / 100)
+    else:
+        discount_value = 0
+
+    grand_total = delivery + total - discount_value
 
     context = {
         'bag_items': bag_items,
@@ -38,6 +60,8 @@ def bag_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'discount_form': discount_form,
+        'discount': discount,
     }
 
     return context

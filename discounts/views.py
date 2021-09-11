@@ -26,4 +26,3 @@ def discount_apply(request):
             request.session['discount_id'] = None
             messages.error(request, 'Discount code does not exist or is not valid anymore.')
     return redirect('view_bag')
-

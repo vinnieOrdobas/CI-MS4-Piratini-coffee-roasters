@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
+{% load materializecss %}
 
 {% block page_header %}
   <div class="section">
@@ -86,6 +87,9 @@
                 <tr>
                   <td colspan="5" class="right-align">
                     <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
+                    {% if discount %}
+                      <h6><strong>Discount: {{ discount.discount }}% OFF</strong></h6>
+                    {% endif %}
                     <h6><strong>Delivery: €{{ delivery|floatformat:2 }}</strong></h6>
                     <h5><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h5>
                     {% if free_delivery_delta > 0 %}
@@ -93,6 +97,27 @@
                       If you spend an additional <strong>€{{ free_delivery_delta }}</strong> you could get free delivery!
                     </p>
                     {% endif %}
+                    <div class="row">
+                      <div class="col s12">
+                        <a href="#" class="btn discount-btn">
+                          <span class="title">Add a coupon</span>
+                          <span class="icon prefix">
+                            <i class="fas fa-lock white-text"></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row right">
+                      <div class="col s12 discount-wrapper">
+                        <form action="{% url 'discount_apply' %}" method="POST" id="discount-form" class="col s6 right">
+                          {% csrf_token %}
+                          {{ discount_form|materializecss }}
+                          <button class="btn waves-effect waves-light right" type="submit" name="submit-button">Apply discount
+                            <i class="white-text fas fa-lock"></i>
+                        </button>
+                        </form>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col s12">
                         <a href="{% url 'checkout' %}" class="btn">
@@ -228,5 +253,10 @@
 
           qtyInput.val(Math.floor(newVal));
       });
+
+      $('.discount-btn').on('click', function(e) {
+        e.preventDefault()
+        $('.discount-wrapper').toggle()
+      })
   </script>
 {% endblock %}
