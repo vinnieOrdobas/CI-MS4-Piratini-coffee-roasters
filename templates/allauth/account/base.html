@@ -1,40 +1,286 @@
-<!DOCTYPE html>
-<html>
+{% load static %}
+
+<!doctype html>
+<html lang="en">
   <head>
-    <title>{% block head_title %}{% endblock %}</title>
-    {% block extra_head %}
+    <!-- Required meta tags -->
+    {% block meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="id=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+
+    {% block extra_css %}
+    {% endblock %}
+
+
+    {% block corejs %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+      <!-- Stripe -->
+      <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
+
+    {% block extra_js %}
+    {% endblock %}
+
+
+    <title>Piratini Coffee Roasters</title>
   </head>
   <body>
-    {% block body %}
-
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-nav" class="right sidenav-trigger">
+            <span class="icon right">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+          </a>
+          <a href="{% url 'home' %}" class="brand-logo left">
+            <div id="logo-image" class="logo-img-wrapper">
+            </div>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="user_dropdown"><span class="icon"><i class="fas fa-user fa-lg"></i></span></a></li>
+            <li><a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} dropdown-trigger-bag" href="#!" data-target="bag_dropdown"><span class="icon"><i class="fas fa-shopping-bag fa-lg"></i></span></a></li>
+            <li class="search-form"><a><span class="icon"><i class="fas fa-search"></i></span></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
+    <!-- Mobile Sidenav -->
+    <ul class="sidenav mobile-menu" id="mobile-nav">
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <li><a class="sidenav-item" href="#" class="dropdown-item">Store Management</a></li>
+        {% endif %}
+      <li><a class="sidenav-item" href="#!">My Profile</a></li>
+      <li><a class="sidenav-item" href="{% url 'account_logout' %}">Logout</a></li>
+    {% else %}
+      <li><a class="sidenav-item" href="{% url 'account_signup' %}">Register</a></li>
+      <li><a class="sidenav-item" href="{% url 'account_login' %}">Login</a></li>
+    {% endif %}
+      <li><a class="sidenav-item" href="{% url 'view_bag' %}">My Bag</a></li>
+      <li><a class="sidenav-item" href="{% url 'products' %}">All Products</a></li>
+      <li><a class="sidenav-item modal-trigger" href="#search_modal">Find a Product</a></li>
+      <li><a class="sidenav-item" href="{% url 'about' %}">About us</a></li>
+      <li><a class="sidenav-close sidenav-item">Close Menu</a></li>
+    </ul>
+    <!-- Search form structure -->
+    <div class="search-form-wrapper">
+      <form class="search-form-wrapper" action="{% url 'products' %}" method="GET">
+        <div class="container">
+          <div class="row">
+            <div class="input-field inline col s3">
+              <input name="search" type="text" class="validate" placeholder="Search">
+              <span class="icon prefix">
+                <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                    <i class="fas fa-search search-icon"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Search form modal -->
+    <div id="search_modal" class="modal">
+      <div class="modal-content">
+        <h4 class="text-title">Find a Product</h4>
+        <form class="mobile-search-form-wrapper" action="{% url 'products' %}" method="GET">
+          <div class="container">
+            <div class="row">
+              <div class="input-field inline col">
+                <input name="search" type="text" class="validate" placeholder="Search">
+                <span class="icon prefix">
+                  <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                    <i class="black-text fas fa-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+    <!-- User Dropdown Structure -->
+    <ul id="user_dropdown" class="dropdown-content black-text">
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <li class="dropdown-item"><a href="#">Store</a></li>
+        {% endif %}
+        <li class="dropdown-item"><a href="#!">My Profile</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
+      {% else %}
+        <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+        <li class="dropdown-item"><a href="{% url 'account_login' %}">Login</a></li>
+      {% endif %}
+    </ul>
+    <!-- Bag Dropdown Structure -->
+    <ul id="bag_dropdown" class="dropdown-content">
+      <li class="dropdown-item">
+        <a href="{% url 'view_bag' %}">
+          <div class="center-align">
+            <p class="blue-text text-darken-2">
+              {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+              {% else %}
+                $0.00
+              {% endif %}
+            </p>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <!-- Messages -->
+    {% if messages %}
+        <div class="message-container">
+          {% for message in messages %}
+            {% with message.level as level %}
+              {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+              {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+              {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+              {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </div>
     {% endif %}
 
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
+  {% block page_header %}
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+        </div>
+      </div>
     </div>
+  {% endblock %}
+
     {% block content %}
+    <div class="section">
+      <div class="container valign-wrapper">
+        <div class="row">
+          <div class="col s12">
+            {% block inner_content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
     {% endblock %}
+
+    {% block page_footer %}
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 footer-pusher" style="height: 25vh;">
+          </div>
+        </div>
+      </div>
+    </div>
     {% endblock %}
-    {% block extra_body %}
+
+    {% block postloadjs %}
     {% endblock %}
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="container footer-container hide-on-small-only">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="black-text title center-align">Piratini Coffee Roasters Co.</h5>
+            <div class="logo-footer-wrapper">
+            </div>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <h5 class="black-text title ">Sign Up for Updates</h5>
+                  <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                    <button class="btn-floating red lighten-3 waves-effect waves-light prefix" type="submit" name="action">
+                        <i class="fas fa-paper-plane white-text right"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>          
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container black-text">
+          © 2021 Copyrights - Vinnie Ordobas
+          </div>
+          <div class="card-action center-align icon-footer">
+            <a href="https://vinumjournal.com/wp/" target="_blank" class="btn-floating btn waves-effect light-green darken-4 waves-light tooltipped" data-position="top" data-tooltip="Check my Portfolio here!" title="My Portfolio"><i class="fas fa-link fa-2x"></i></a>
+            <a href="https://github.com/vinnieOrdobas" target="_blank" class="btn-floating btn waves-effect blue-grey darken-2 waves-light" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/vinnie-ordobas/" target="_blank" class="btn-floating btn waves-effect light-blue darken-4 waves-light" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-container hide-on-med-and-up">
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card brown lighten-4">
+              <div class="card-content white-text center-align">
+                <h5 class="black-text title">Sign up for updates</h5>
+                <form class="mobile-search-form-wrapper" action="">
+                  <div class="container">
+                    <div class="row mobile-form">
+                      <div class="input-field inline col s8 push-s2">
+                        <input id="search-mobile" type="text" class="validate black-text" placeholder="Email">
+                        <span class="icon prefix">
+                          <button class="btn-floating waves-effect red lighten-3 waves-light transparent" type="submit" name="action">
+                            <i class="white-text fas fa-paper-plane"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="brand">
+                  <h5 class="black-text title">Piratini Coffee Roasters Co.</h5>
+                  <div class="logo-footer-wrapper-sml"></div>
+                </div>
+              </div>
+              <div class="card-action">
+                <div class="section black-text center-align">
+                  © 2021 Copyrights - Vinnie Ordobas
+                  <div class="center-align inline social">
+                    <a href="https://vinumjournal.com/wp/" target="_blank" class="btn-floating btn waves-effect light-green darken-4 waves-light tooltipped" data-position="top" data-tooltip="Check my Portfolio here!" title="My Portfolio"><i class="fas fa-link fa-2x"></i></a>
+                    <a href="https://github.com/vinnieOrdobas" target="_blank" class="btn-floating btn waves-effect blue-grey darken-2 waves-light" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/vinnie-ordobas/" target="_blank" class="btn-floating btn waves-effect light-blue darken-4 waves-light" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
