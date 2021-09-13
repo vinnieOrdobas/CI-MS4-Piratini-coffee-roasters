@@ -21,7 +21,7 @@
       <div class="row">
         <div class="center-align">
             <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-            <h3 class="">Profile</h3>
+            <h3 class="">My Profile</h3>
         </div>
       </div>
       <div class="divider"></div>
@@ -40,7 +40,38 @@
         </div>
         <div class="col s12 m6 l4 order-history">
           <h5 class="center">Order history</h5>
-          {{ orders }}
+          <table>
+            <thead>
+              <tr>
+                  <th>Order Number</th>
+                  <th>Date</th>
+                  <th>Items</th>
+                  <th>Order total</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              {% for order in orders %}
+              <tr>
+                <td>
+                  <a href="{% url 'order_history' order.order_number %}"
+                    title="{{ order.order_number }}">
+                    {{ order.order_number|truncatechars:6 }}
+                  </a>
+                </td>
+                <td>{{ order.date }}</td>
+                <td>
+                  <ul class="collection">
+                    {% for item in order.lineitems.all %}
+                      <li><span>{{ item.product.name }} x{{ item.quantity }}</span></li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td>${{ order.grand_total }}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
         </div>
       </div>
       <div class="divider"></div>
@@ -63,8 +94,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-  {{ block.super }}
 {% endblock %}
