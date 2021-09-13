@@ -1,3 +1,11 @@
-.main-wrapper {
-    margin-top: 18vh;
+.order-history {
+    margin-top: 20px;
+}
+
+label {
+    display: none;
+}
+
+.selector-wrapper label {
+    display: block;
 }
