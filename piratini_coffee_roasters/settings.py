@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'checkout',
     'discounts',
     'profiles',
+    'wish_list',
 
     # Other apps
     'materializecssform',

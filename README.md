@@ -247,14 +247,13 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 ### Bugs and turnarounds
 
-> - Sidenav trigger icon disappearing on small screens for page products.html. The "about-card" div element had the clas "offset-s6" which pushed the sidenav trigger button to the outskirts of the view port. Adjusted the issue by putting the menu items on a higher z-index value.
-> - Control buttons for bag.html and product_detail.html weren't changing the quantity in the quantity input box. Followed this [**Tutorial - Number Increment Buttons with jQuery**](https://css-tricks.com/number-increment-buttons/) to solve the issue and create own JavaScript function.
-> - OrderLineItem model not able to calculate price and saving it - Django error: "no such column: checkout_orderlineitem.lineitem_total". Found typo on the function save in the OrderLineItem model "self.lineitems_total = self.product.price * self.quantity". Updated "self.lineitems_total" to "self.lineitem_total" and fixed the bug.
-> - OrderLineItem model (order_line_item) wouldn't save, due to a TypeError: "unsupported operand types for * : 'float' and  'decimal'". Variable settings.STANDARD_DELIVERY_PERCENTAGE had the value of 0.1(transforming it in a float). Changed to integer 10. 
-> - After creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code" - Something to do with the DB's integrity. Dumped products/collections and wiped the DB to make it functional again.
+> - Sidenav trigger icon in "base.html" disappearing on small screens for page products.html. The "about-card" div element had the clas "offset-s6" which pushed the sidenav trigger button to the outskirts of the view port. Adjusted the issue by putting the menu items on a higher z-index value.
+> - Control buttons for "bag.html" and "product_detail.html" weren't changing the quantity in the quantity input box. Followed this [**Tutorial - Number Increment Buttons with jQuery**](https://css-tricks.com/number-increment-buttons/) to solve the issue and create own JavaScript function.
+> - OrderLineItem model in "checkout/models.py" not calculating price and saving it - Django error: "no such column: checkout_orderlineitem.lineitem_total". Found typo on the function save in the OrderLineItem model "self.lineitems_total = self.product.price * self.quantity". Updated "self.lineitems_total" to "self.lineitem_total" and fixed the bug.s
+> - OrderLineItem model (order_line_item) not saving, due to a TypeError: "unsupported operand types for * : 'float' and  'decimal'". Variable settings.STANDARD_DELIVERY_PERCENTAGE had the value of 0.1(transforming it in a float). Changed to integer 10. 
+> - In "checkout/webhook_handler.py" - creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code" - Something to do with the DB's integrity. Dumped products/collections and wiped the DB to make it functional again.
 > - When sending confirmation email after the order has been processed, Django throws the error: django.template.exceptions.TemplateDoesNotExist: checkout/confirmation_emails/confirmation_email_subject.txt. Moved folder "confirmation_emails" to checkout/templates/checkout and fixed the bug.
-> - Profile default information gets saved with 
-
+> - WishList model unable to add products via ManyToMany field.
 ---
 
 ### Code validity
