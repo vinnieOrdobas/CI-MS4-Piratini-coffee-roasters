@@ -30,7 +30,7 @@
           <h5 class="center">Default Information</h5>
           <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
             {% csrf_token %}
-            {{ form|materializecss}}
+            {{ form|materializecss }}
             <div class="btn-wrapper center">
               <button class="btn waves-effect waves-light" type="submit" name="action">Update
                 <i class="white-text fas fa-paper-plane"></i>
