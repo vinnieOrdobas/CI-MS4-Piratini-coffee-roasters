@@ -12,10 +12,4 @@ class WishList(models.Model):
     products = models.ManyToManyField(Product, related_name='products')
 
     def __str__(self):
-        return f'{self.user_profile} Wishlist'
-
-    def add_product(self,item_id):
-        product = Product.objects.get(pk=item_id)
-        
-        self.products.add(product)
-        self.save()
+        return f'Default wishlist belonging to {user_profile}'

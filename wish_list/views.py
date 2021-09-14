@@ -13,20 +13,12 @@ def add_to_wish_list(request, item_id):
     Add a product to the wishlist
     """
 
-    product = Product.objects.get(pk=item_id)
     profile = UserProfile.objects.get(user=request.user)
-    redirect_url = request.POST.get('redirect_url_wish')
- 
-    if profile.wish_list:
+    product = Product.objects.get(pk=item_id)
 
-        # profile.wish_list.add_product(item_id)
-        print(profile.wish_list)
-    
-    else:
-        wish_list = WishList(user_profile=profile)
-        profile.wish_list = wish_list
-        profile.save()
-        wish_list.add_product(product)
+    wish_list = WishList(user_profile=profile)
+    wish_list.save()
+    wish_list.products.add(product)
 
     messages.success(request, f'{product.card_name} added to your wish list.')
 
