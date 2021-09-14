@@ -234,6 +234,8 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml
 > - [**Django forms**](https://www.youtube.com/watch?v=qte0MSKClVM)
 > - [**Django by Example: Creating a Coupon System**](https://www.youtube.com/watch?v=_dSCGMJcoe4)
+> - [**Python Django Ecommerce Customer Wish List**](https://www.youtube.com/watch?v=OgA0TTKAtqQ)
+
 
 
 
