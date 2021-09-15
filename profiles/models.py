@@ -35,11 +35,12 @@ class Membership(models.Model):
     def __str__(self):
         return f'Membership number {self.number} belonging to {self.user_profile}'
 
-    def _generate_order_number(self):
+    def generate_membership_number(self):
         """
         Generate a random, unique membership number using UUID
         """
         self.number = uuid.uuid4().hex.upper()
+        self.save()
 
 
 @receiver(post_save, sender=User)

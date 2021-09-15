@@ -7,7 +7,7 @@ from .forms import OrderFormMat
 from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Membership
 from bag.contexts import bag_contents, get_discount
 
 import stripe
@@ -152,7 +152,7 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-        
+
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -170,6 +170,15 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         A confirmation email will be sent to {order.email}.')
     
+    bag = request.session.get('bag', {})
+
+    for item_id in bag.keys():
+        product = Product.objects.get(id=item_id)
+        if product.membership:
+            membership = Membership(user_profile=profile)
+            membership.generate_membership_number()
+            membership.product.add(product)
+
     if 'bag' in request.session:
         del request.session['bag']
 
