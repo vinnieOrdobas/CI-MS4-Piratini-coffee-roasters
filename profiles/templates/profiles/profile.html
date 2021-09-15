@@ -124,9 +124,43 @@
                   </div>
                 </div>
                 <div class="collapsible-body">
-                  {% for product in wish_list.products.all %}
-                    {{ product }}
-                  {% endfor %}
+                  {% if wish_list %}
+                    <div class="responsive-table striped">
+                      <table>
+                          <thead>
+                            <tr>
+                              <th scope="col">Product Info</th>
+                              <th scope="col"></th>
+                              <th scope="col">Collection</th>
+                              <th scope="col">Price</th>
+                            </tr>
+                          </thead>
+                          {% for product in wish_list.products.all %}
+                            <tr>
+                              <td>
+                                <a href="{% url 'product_detail' product.id %}">
+                                  {% if product.image %}
+                                      <img src="{{ product.image.url }}" alt="" class="circle responsive-img bag-img">
+                                  {% else %}
+                                      <img src="{{ MEDIA_URL }}noimage.png" alt="" class="circle responsive-img bag-img">
+                                  {% endif %}
+                                </a>
+                              </td>
+                              <td>
+                                <p><strong>{{ product.card_name }}</strong></p>
+                                <p>SKU: {{ product.sku|upper }}</p>
+                              </td>
+                              <td>
+                                <a href="{% url 'products' %}?collection={{ product.collection.name }}">
+                                  {{ product.collection.friendly_name }}
+                                </a>
+                              </td>
+                              <td>€{{ product.price }}</td>
+                            </tr>
+                          {% endfor %}
+                      </table>
+                    </div>
+                  {% endif %}
                 </div>
               </li>
           </ul>
