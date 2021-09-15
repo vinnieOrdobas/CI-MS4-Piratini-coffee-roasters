@@ -253,7 +253,9 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - OrderLineItem model (order_line_item) not saving, due to a TypeError: "unsupported operand types for * : 'float' and  'decimal'". Variable settings.STANDARD_DELIVERY_PERCENTAGE had the value of 0.1(transforming it in a float). Changed to integer 10. 
 > - In "checkout/webhook_handler.py" - creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code" - Something to do with the DB's integrity. Dumped products/collections and wiped the DB to make it functional again.
 > - When sending confirmation email after the order has been processed, Django throws the error: django.template.exceptions.TemplateDoesNotExist: checkout/confirmation_emails/confirmation_email_subject.txt. Moved folder "confirmation_emails" to checkout/templates/checkout and fixed the bug.
-> - WishList model unable to add products via ManyToMany field.
+> - WishList model unable to add products via ManyToMany field in checkout_success view. Used the method profile.membership.get() to circumvent the issue and add the product.
+> - Unable to render proper buttons in product_details.html
+
 ---
 
 ### Code validity

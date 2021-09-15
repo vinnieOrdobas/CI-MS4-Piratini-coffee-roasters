@@ -4,8 +4,7 @@ from django.db.models import Q
 from .models import Product, Collection
 from django.db.models.functions import Lower
 
-# Create your views here.
-
+from profiles.models import UserProfile
 
 def all_products(request):
     """
@@ -68,12 +67,18 @@ def product_detail(request, product_id):
     A view to show individual product details
     """
 
+    user = None
+    
+    if request.user.is_authenticated:
+        user = UserProfile.objects.get(user=request.user)
+
     product = get_object_or_404(Product, pk=product_id)
     collections = Collection.objects.all()
 
     context = {
         'product': product,
-        'collections': collections
+        'collections': collections,
+        'user': user
     }
 
     return render(request, 'products/product_detail.html', context)

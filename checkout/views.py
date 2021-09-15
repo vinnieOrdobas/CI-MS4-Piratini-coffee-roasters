@@ -169,7 +169,7 @@ def checkout_success(request, order_number):
 
     messages.success(request, f'Order successfully processed! \
         A confirmation email will be sent to {order.email}.')
-    
+
     bag = request.session.get('bag', {})
 
     for item_id in bag.keys():
@@ -184,7 +184,7 @@ def checkout_success(request, order_number):
 
     if 'discount_id' in request.session:
         del request.session['discount_id']
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order

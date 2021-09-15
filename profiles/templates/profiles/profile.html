@@ -185,7 +185,7 @@
                       <table>
                           <thead>
                             <tr>
-                              <th scope="col">Card Number</th>
+                              <th scope="col">Number</th>
                               <th scope="col">Type</th>
                               <th scope="col">Product</th>
                               <th scope="col">Price</th>
@@ -194,13 +194,15 @@
                           {% for item in membership.product.all %}
                             <tr>
                               <td>
-                                <p><strong>{{ membership.number }}</strong></p>
-                              </td>
-                              <td>
-                                <span>{{ item.product.card_name }}</span>
+                                <p><strong>{{ membership.number|truncatechars:6 }}</strong></p>
                               </td>
                               <td>
                                 <span>Monthly</span>
+                              </td>
+                              <td>
+                                <a href="{% url 'product_detail' item.id %}">
+                                  <span>{{ item.card_name }}</span>
+                                </a>
                               </td>
                               <td>€{{ item.price }}</td>
                             </tr>
