@@ -12,4 +12,4 @@ class WishList(models.Model):
     products = models.ManyToManyField(Product, related_name='products')
 
     def __str__(self):
-        return f'Default wishlist belonging to {user_profile}'
+        return f'Default wishlist belonging to {self.user_profile}'

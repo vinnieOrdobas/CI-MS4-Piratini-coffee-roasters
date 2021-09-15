@@ -21,12 +21,14 @@ def profile(request):
             messages.success(request, 'Profile updated successfully')
 
     orders = profile.orders.all()
+    wish_list = profile.wish_list.get()
     form = UserProfileForm(instance=profile)
 
     template = 'profiles/profile.html'
     context = {
         'orders': orders,
         'form': form,
+        'wish_list': wish_list,
     }
 
     return render(request, template, context)
