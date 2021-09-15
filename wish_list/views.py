@@ -15,6 +15,7 @@ def add_to_wish_list(request, item_id):
 
     profile = UserProfile.objects.get(user=request.user)
     product = Product.objects.get(pk=item_id)
+    redirect_url = request.POST.get('url')
 
     if profile.wish_list.exists():
         wish_list = profile.wish_list.get()
@@ -22,15 +23,12 @@ def add_to_wish_list(request, item_id):
             messages.warning(request, f'{product.card_name} already on your wish list!')
         else:
             wish_list.products.add(product)
+            messages.success(request, f'{product.card_name} added to your wish list.')
 
-    else:  
+    else:
         wish_list = WishList(user_profile=profile)
         wish_list.save()
         wish_list.products.add(product)
+        messages.success(request, f'{product.card_name} added to your wish list.')
 
-    for product in wish_list.products.all():
-        print(product.name)
-
-    messages.success(request, f'{product.card_name} added to your wish list.')
-
-    return redirect('view_bag')
+    return redirect(redirect_url)
