@@ -34,6 +34,7 @@ class Product(models.Model):
     collection = models.ForeignKey('Collection', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
+    membership = models.BooleanField(default=False)
     card_name = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -49,11 +50,3 @@ class Product(models.Model):
 
     def get_tags(self):
         return [self.tags]
-
-
-class Membership(Product):
-    # user = models.ForeignKey('User', on_delete=models.CASCADE)
-    is_membership = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name

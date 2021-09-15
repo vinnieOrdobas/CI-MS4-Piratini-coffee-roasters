@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Membership, Collection, Tags
+from .models import Product, Collection, Tags
 
 # Register your models here.
 
@@ -23,16 +23,6 @@ class CollectionAdmin(admin.ModelAdmin):
     )
 
 
-class MembershipAdmin(admin.ModelAdmin):
-    list_display = (
-        'sku',
-        'name',
-        'collection',
-        'price',
-        'image',
-    )
-
-
 class TagsAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -40,6 +30,5 @@ class TagsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Membership, MembershipAdmin)
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(Tags, TagsAdmin)

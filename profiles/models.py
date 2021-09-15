@@ -1,9 +1,12 @@
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from django_countries.fields import CountryField
+from products.models import Product
 
 
 class UserProfile(models.Model):
@@ -22,6 +25,21 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Membership(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name="membership")
+    product = models.ManyToManyField(Product, related_name='membership_product')
+    number = models.CharField(max_length=32, null=False, editable=False)
+
+    def __str__(self):
+        return f'Membership number {self.number} belonging to {self.user_profile}'
+
+    def _generate_order_number(self):
+        """
+        Generate a random, unique membership number using UUID
+        """
+        self.number = uuid.uuid4().hex.upper()
 
 
 @receiver(post_save, sender=User)

@@ -163,7 +163,50 @@
                   {% endif %}
                 </div>
               </li>
-          </ul>
+            </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="divider"></div>
+        <div class="col s12 m6 l4 order-history">
+          <ul class="collapsible collapsible-menu" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header active transparent">
+                  <div class="col s12">
+                    <h5 class="center">Membership</h5>
+                      <span class="icon right">
+                          <i class="fas fa-caret-down"></i>
+                      </span>
+                  </div>
+                </div>
+                <div class="collapsible-body">
+                  {% if membership %}
+                    <div class="responsive-table striped">
+                      <table>
+                          <thead>
+                            <tr>
+                              <th scope="col">Card Number</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Price</th>
+                            </tr>
+                          </thead>
+                          {% for item in membership.product.all %}
+                            <tr>
+                              <td>
+                                <p><strong>{{ membership.number }}</strong></p>
+                              </td>
+                              <td>
+                                <span>Monthly</span>
+                              </td>
+                              <td>€{{ item.price }}</td>
+                            </tr>
+                          {% endfor %}
+                      </table>
+                    </div>
+                  {% endif %}
+                </div>
+              </li>
+            </ul>
         </div>
       </div>
       <div class="divider"></div>

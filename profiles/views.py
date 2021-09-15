@@ -13,6 +13,10 @@ def profile(request):
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)
+    membership = None
+
+    if profile.membership.exists():
+        membership = profile.membership.get()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -29,6 +33,7 @@ def profile(request):
         'orders': orders,
         'form': form,
         'wish_list': wish_list,
+        'membership': membership,
     }
 
     return render(request, template, context)

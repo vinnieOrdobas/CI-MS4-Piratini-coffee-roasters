@@ -152,7 +152,7 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
+        
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
