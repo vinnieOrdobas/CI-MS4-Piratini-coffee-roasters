@@ -126,6 +126,14 @@
                         </div>
                     </div>
                     <div class="divider"></div>
+                    {% if request.user.is_superuser %}
+                        <div class="center">
+                            <small>
+                                <a href="{% url 'edit_product' product.id %}">Edit | </a>
+                                <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
+                            </small>
+                        </div>
+                    {% endif %}
                     <div class="divider"></div>
                 {% endfor %}
             </div>
@@ -168,7 +176,7 @@
                                                 <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
                                             </small>
                                         </div>
-                                    {% endif %} 
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

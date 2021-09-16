@@ -85,8 +85,8 @@ body {
     
 }
 .search-form-wrapper.open {
-    display: block;
-    z-index: 9999;
+    display: inline;
+    z-index: 999;
 }
 
 .search-icon {
