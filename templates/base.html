@@ -66,7 +66,7 @@
     <ul class="sidenav mobile-menu" id="mobile-nav">
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-          <li><a class="sidenav-item" href="#" class="dropdown-item">Store Management</a></li>
+          <li><a class="sidenav-item" href="{% url 'add_product' %}" class="dropdown-item">Store Management</a></li>
         {% endif %}
       <li><a class="sidenav-item" href="{% url 'profile' %}">My Profile</a></li>
       <li><a class="sidenav-item" href="{% url 'account_logout' %}">Logout</a></li>
@@ -124,7 +124,7 @@
     <ul id="user_dropdown" class="dropdown-content black-text">
       {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-          <li class="dropdown-item"><a href="#">Store</a></li>
+          <li class="dropdown-item"><a href="{% url 'add_product' %}">Store</a></li>
         {% endif %}
         <li class="dropdown-item"><a href="{% url 'profile' %}">My Profile</a></li>
         <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
