@@ -42,7 +42,7 @@
                                             {% for collection in collections %}
                                                 <a href="{% url 'products' %}?collection={{ collection.name }}" class="collection-item">{{ collection.friendly_name }}</a>
                                             {% endfor %}
-                                            <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships" class="collection-item">All Products</a>
+                                            <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships,hand_grinders" class="collection-item">All Products</a>
                                         </div>      
                                     </div>
                                 </div>
@@ -164,7 +164,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Delete after use -->
                         <div class="divider"></div>
                     {% endfor %}
                 </div>
