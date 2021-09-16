@@ -156,45 +156,45 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col s12">
-                                <button class="btn waves-effect waves-light">
-                                    <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="title white-text">Keep Shopping</span>
-                                    </a>
-                                </button>
-                                {% if product.membership %}
-                                    {% if request.user.is_authenticated %}
-                                        {% if user.membership %}
-                                            <a class="btn waves-effect waves-light modal-trigger"
-                                            href="#modal_user_membership">Add to bag
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </a>
-                                            <div id="modal_user_membership" class="modal">
-                                                <div class="modal-content center">
-                                                    <h5 class="title green-text darken-2">oops!</h5>
-                                                    <p>It seems like you already have a membership with us! Click <a href="{% url 'profile' %}">here</a> to see your membership details.</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="row center">
-                                                        <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">OK</a>
-                                                    </div>
+                        {% if product.membership %}
+                            {% if request.user.is_authenticated %}
+                                {% if user.membership %}
+                                <div class="row center">
+                                    <div class="col s12">
+                                        <a class="btn waves-effect waves-light modal-trigger deep-orange darken-1"
+                                        href="#modal_user_membership">Add to bag
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </a>
+                                        <div id="modal_user_membership" class="modal">
+                                            <div class="modal-content center">
+                                                <h5 class="title green-text darken-2">oops!</h5>
+                                                <p>It seems like you already have a membership with us! Click <a href="{% url 'profile' %}">here</a> to see your membership details.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="row center">
+                                                    <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">OK</a>
                                                 </div>
                                             </div>
-                                        {% else %}
-                                            <button class="btn waves-effect waves-light" type="submit">Add to bag
-                                                <i class="fas fa-shopping-bag"></i>
-                                            </button>
-                                        {% endif %}
-                                    {% else %}
-                                        <a class="btn waves-effect waves-light modal-trigger"
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="row center">
+                                    <div class="col s12">
+                                        <button class="btn waves-effect waves-light deep-orange darken-1" type="submit">Add to bag
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% else %}
+                                <div class="row center">
+                                    <div class="col s12">
+                                        <a class="btn waves-effect waves-light modal-trigger deep-orange darken-1"
                                         href="#modal_membership_product">Add to bag
                                             <i class="fas fa-shopping-bag"></i>
                                         </a>
-                                          <!-- Modal Structure -->
+                                            <!-- Modal Structure -->
                                         <div id="modal_membership_product" class="modal">
                                             <div class="modal-content center">
                                                 <h5 class="title green-text darken-2">oops!</h5>
@@ -207,15 +207,29 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {% endif %}
-                                {% else %}
-                                    <button class="btn waves-effect waves-light" type="submit">Add to bag
-                                        <i class="fas fa-shopping-bag"></i>
-                                    </button>
-                                {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                        <div class="row center">
+                            <div class="col s12">
+                                <button class="btn waves-effect waves-light deep-orange darken-1" type="submit">Add to bag
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
                             </div>
                         </div>
+                        {% endif %}
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <div class="row">
+                            <div class="col s12">
+                                <a href="{% url 'products' %}?collection=coffee_beans,accessories,brewers,memberships" class="btn">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left white-text"></i>
+                                    </span>
+                                    <span class="title white-text">Keep Shopping</span>
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
