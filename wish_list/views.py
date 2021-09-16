@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 
@@ -32,3 +32,21 @@ def add_to_wish_list(request, item_id):
         messages.success(request, f'{product.card_name} added to your wish list.')
 
     return redirect(redirect_url)
+
+
+def remove_from_wish_list(request, item_id):
+    """
+    Deletes product from the wish_list
+    """
+
+    profile = UserProfile.objects.get(user=request.user)
+    product = Product.objects.get(pk=item_id)
+
+    wish_list = profile.wish_list.get()
+    wish_list.products.remove(product)
+    wish_list.save()
+
+    messages.success(request, f'{product.card_name} removed from your wish list.')
+
+    return redirect(reverse('profile'))
+

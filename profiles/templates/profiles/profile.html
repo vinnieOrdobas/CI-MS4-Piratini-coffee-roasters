@@ -144,6 +144,11 @@
                                       <img src="{{ MEDIA_URL }}noimage.png" alt="" class="circle responsive-img bag-img">
                                   {% endif %}
                                 </a>
+                                <div class="center">
+                                  <small>
+                                      <a href="{% url 'remove_from_wish_list' product.id %}" class="red-text">Remove</a>
+                                  </small>
+                              </div>
                               </td>
                               <td>
                                 <p><strong>{{ product.card_name }}</strong></p>
