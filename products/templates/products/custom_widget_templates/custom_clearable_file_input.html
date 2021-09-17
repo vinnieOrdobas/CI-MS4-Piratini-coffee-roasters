@@ -2,7 +2,6 @@
     {% if not widget.required %}
         <div class="container">
             <input type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}"{% if widget.attrs.disabled %} disabled{% endif %}>
-            <!-- <label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label> -->
         </div>
     {% endif %}
     {{ widget.input_text }}:
