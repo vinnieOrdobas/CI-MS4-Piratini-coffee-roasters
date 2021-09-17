@@ -102,7 +102,7 @@
                         <a href="#" class="btn discount-btn">
                           <span class="title">Add a coupon</span>
                           <span class="icon prefix">
-                            <i class="fas fa-lock white-text"></i>
+                            <i class="fas fa-tag white-text"></i>
                           </span>
                         </a>
                       </div>
@@ -112,9 +112,8 @@
                         <form action="{% url 'discount_apply' %}" method="POST" id="discount-form" class="col s6 right">
                           {% csrf_token %}
                           {{ discount_form|materializecss }}
-                          <button class="btn waves-effect waves-light right" type="submit" name="submit-button">Apply discount
-                            <i class="white-text fas fa-lock"></i>
-                        </button>
+                          <button class="btn waves-effect waves-light deep-orange darken-4" type="submit" name="submit-button">Apply discount
+                          </button>
                         </form>
                       </div>
                     </div>
