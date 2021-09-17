@@ -396,6 +396,15 @@ input[type=text] {
     overflow: hidden;
 }
 
+.btn-file input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
 /* -- Media Queries -- */
 
 /* Container on XL screens */

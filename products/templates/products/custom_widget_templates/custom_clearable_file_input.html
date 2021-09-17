@@ -1,10 +1,15 @@
 {% if widget.is_initial %}
+    <p>{{ widget.initial_text }}:</p>
+    <a href="{{ widget.value.url }}">
+        <img width="96" height="96" src="{{ widget.value.url }}" class="circle responsive-img">
+    </a>
     {% if not widget.required %}
         <div class="container">
             <input type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}"{% if widget.attrs.disabled %} disabled{% endif %}>
+            <label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
         </div>
     {% endif %}
-    {{ widget.input_text }}:
+    {{ widget.input_text }}
 {% endif %}
-<input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+ <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 <strong><p class="red-text" id="filename"></p></strong>
