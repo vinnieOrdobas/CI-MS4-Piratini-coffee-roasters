@@ -389,6 +389,13 @@ input[type=text] {
     margin-top: 21vh;
 }
 
+/* Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
 /* -- Media Queries -- */
 
 /* Container on XL screens */
