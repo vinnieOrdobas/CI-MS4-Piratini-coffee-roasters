@@ -16,9 +16,13 @@ def profile(request):
 
     profile = get_object_or_404(UserProfile, user=request.user)
     membership = None
+    wish_list = None
 
     if profile.membership.exists():
         membership = profile.membership.get()
+
+    if profile.wish_list.exists():
+        membership = profile.wish_list.get()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -31,7 +35,6 @@ def profile(request):
         form = UserProfileForm(instance=profile)
 
     orders = profile.orders.all()
-    wish_list = profile.wish_list.get()
 
     template = 'profiles/profile.html'
     context = {
