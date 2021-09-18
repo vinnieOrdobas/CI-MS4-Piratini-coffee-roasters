@@ -9,3 +9,5 @@ node_modules/
 *.sqlite3
 *.pyc
 *.env
+*.db.json
+*.db1.json

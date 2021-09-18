@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
 import os
+import dj_database_url
 from pathlib import Path
 
 # importing the load_dotenv from the python-dotenv module
@@ -128,11 +130,15 @@ WSGI_APPLICATION = 'piratini_coffee_roasters.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://vuyamievxdgszj:63a1124225a095de2ec1aab8e9d9553c0d7e876daac60b98a58b778130bf2e3e@ec2-52-208-221-89.eu-west-1.compute.amazonaws.com:5432/d2gl1dk6mn5iik')
 }
 
 
