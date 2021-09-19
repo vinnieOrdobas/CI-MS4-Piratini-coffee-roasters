@@ -1,1 +1,1 @@
-web: gunicorn piratini_coffee_roasters.wsgi:application
+web: gunicorn piratini_coffee_roasters.wsgi.application
