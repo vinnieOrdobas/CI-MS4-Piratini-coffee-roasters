@@ -35,7 +35,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ci-ms4-piratini-co.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -130,16 +130,17 @@ WSGI_APPLICATION = 'piratini_coffee_roasters.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE)URL'))
     }
-}
-
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://vuyamievxdgszj:63a1124225a095de2ec1aab8e9d9553c0d7e876daac60b98a58b778130bf2e3e@ec2-52-208-221-89.eu-west-1.compute.amazonaws.com:5432/d2gl1dk6mn5iik')
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
