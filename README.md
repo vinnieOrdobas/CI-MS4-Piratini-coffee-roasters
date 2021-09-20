@@ -254,7 +254,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - In "checkout/webhook_handler.py" - creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code" - Something to do with the DB's integrity. Dumped products/collections and wiped the DB to make it functional again.
 > - When sending confirmation email after the order has been processed, Django throws the error: django.template.exceptions.TemplateDoesNotExist: checkout/confirmation_emails/confirmation_email_subject.txt. Moved folder "confirmation_emails" to checkout/templates/checkout and fixed the bug.
 > - WishList model unable to add products via ManyToMany field in checkout_success view. Used the method profile.membership.get() to circumvent the issue and add the product.
-> - Unable to render proper buttons in product_details.html
+> - Getting 500 server error when trying to send confirmation emails.
 
 ---
 
