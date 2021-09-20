@@ -1,5 +1,8 @@
 # Piratini Coffee Roasters
 
+Link to deployed website [**here**](https://ci-ms4-piratini-co.herokuapp.com/).
+
+
 An e-commerce website that features speciality coffee beans, collections of brewing accessories and a subscription service for monthly deliveries - Piratini Coffee Roasters is a company that believes in sustainability and working with nature.
 
 ## Table of Contents
@@ -231,10 +234,10 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - [Grid Critters](https://gridcritters.com/) - To learn CSS Grid technology.
 > - [Markdown Tutorial](https://www.markdowntutorial.com/) - Used to learn Markdown.
 > - Code Institute **SLACK Channel** - Assistance.
-> - https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml
-> - [**Django forms**](https://www.youtube.com/watch?v=qte0MSKClVM)
-> - [**Django by Example: Creating a Coupon System**](https://www.youtube.com/watch?v=_dSCGMJcoe4)
-> - [**Python Django Ecommerce Customer Wish List**](https://www.youtube.com/watch?v=OgA0TTKAtqQ)
+> - [**Creating a Toggled Search Bar**](https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml) - To create navbar **search box**
+> - [**Django forms with materializecss**](https://www.youtube.com/watch?v=qte0MSKClVM) - To use **materializecss** filter on Django forms
+> - [**Django by Example: Creating a Coupon System**](https://www.youtube.com/watch?v=_dSCGMJcoe4) - Insights on how to create **discounts app**
+> - [**Python Django Ecommerce Customer Wish List**](https://www.youtube.com/watch?v=OgA0TTKAtqQ) - Insights on how to create **wishlist app**
 
 
 
@@ -249,12 +252,12 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 > - Sidenav trigger icon in "base.html" disappearing on small screens for page products.html. The "about-card" div element had the clas "offset-s6" which pushed the sidenav trigger button to the outskirts of the view port. Adjusted the issue by putting the menu items on a higher z-index value.
 > - Control buttons for "bag.html" and "product_detail.html" weren't changing the quantity in the quantity input box. Followed this [**Tutorial - Number Increment Buttons with jQuery**](https://css-tricks.com/number-increment-buttons/) to solve the issue and create own JavaScript function.
-> - OrderLineItem model in "checkout/models.py" not calculating price and saving it - Django error: "no such column: checkout_orderlineitem.lineitem_total". Found typo on the function save in the OrderLineItem model "self.lineitems_total = self.product.price * self.quantity". Updated "self.lineitems_total" to "self.lineitem_total" and fixed the bug.s
+> - OrderLineItem model in "checkout/models.py" not calculating price and saving it - Django error: "no such column: checkout_orderlineitem.lineitem_total". Found typo on the function save in the OrderLineItem model "self.lineitems_total = self.product.price * self.quantity". Updated "self.lineitems_total" to "self.lineitem_total" and fixed the bug.
 > - OrderLineItem model (order_line_item) not saving, due to a TypeError: "unsupported operand types for * : 'float' and  'decimal'". Variable settings.STANDARD_DELIVERY_PERCENTAGE had the value of 0.1(transforming it in a float). Changed to integer 10. 
-> - In "checkout/webhook_handler.py" - creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code" - Something to do with the DB's integrity. Dumped products/collections and wiped the DB to make it functional again.
+> - In "checkout/webhook_handler.py" - creating the discount code and applying to the order model, webhook kept spitting error: "ERROR: NOT NULL constraint failed: checkout_order.discount_code". Dumped products/collections and wiped the DB to make it functional again.
 > - When sending confirmation email after the order has been processed, Django throws the error: django.template.exceptions.TemplateDoesNotExist: checkout/confirmation_emails/confirmation_email_subject.txt. Moved folder "confirmation_emails" to checkout/templates/checkout and fixed the bug.
 > - WishList model unable to add products via ManyToMany field in checkout_success view. Used the method profile.membership.get() to circumvent the issue and add the product.
-> - Getting 500 server error when trying to send confirmation emails.
+> - Getting 500 server error when trying to send confirmation emails. Fixed the bug by resetting App profile on Gmail.com.
 
 ---
 
