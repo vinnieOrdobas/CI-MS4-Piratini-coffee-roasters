@@ -92,14 +92,14 @@
                                 </form>
                             {% else %}
                                 <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped modal-trigger"
-                                data-position="top" data-tooltip="Add to Wish List" href="#wish_list_{{ product.name }}">
+                                data-position="top" data-tooltip="Add to Wish List" href="#modal_wish_list{{ product_name }}">
                                     <i class="fas fa-heart"></i>
                                 </a>
-                                <!-- Modal Structure -->
-                                <div id="wish_list_{{ product.name }}" class="modal">
+                                    <!-- Modal Structure -->
+                                <div id="modal_wish_list{{ product_name }}" class="modal">
                                     <div class="modal-content center">
                                         <h5 class="title green-text darken-2">oops!</h5>
-                                        <a href="">Create an account</a> or
+                                        <a href="">Creat an account</a> or
                                         <a href="">login</a> to add {{ product.card_name }} to your wish list.
                                     </div>
                                     <div class="modal-footer">

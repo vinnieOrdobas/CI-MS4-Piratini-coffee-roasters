@@ -110,13 +110,13 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 #### 4. Skeleton
 
-> - [Wire frames](assets/docs/wireframes.pdf): E-commerce website .
+> - [Wire frames](assets/docs/wireframes.pdf): E-commerce website with products section, collections section, profile and checkout.
 >
-> - Home, Login, Profile, Teams and Training.
+> - Custom apps: Discount codes, Membership and Wish list.
 >
-> - Navigation bar - Links to each page.
+> - Navigation bar - Links to each app/section of the website.
 >
-> - Connected to external database (powered by MongoDB).
+> - Connected to external database (powered by PostgreSQL).
 
 ---
 
