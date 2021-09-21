@@ -122,7 +122,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 #### 5. Surface
 
-> - I have used earth/warm tones to convey a natural layout. As inspiration, I've used [**Darko Mihajlovski's Behance Coffee Shop Website Moodboard**](https://www.behance.net/collection/186391225/Coffee-Shop-Website-Inspiration) as inspiration for this project.
+> - I have used earth/warm tones to convey a natural layout. As inspiration, I've used [Darko Mihajlovski's Behance Coffee Shop Website Moodboard](https://www.behance.net/collection/186391225/Coffee-Shop-Website-Inspiration) as inspiration for this project.
 >
 > ##### Colours
 >
@@ -142,18 +142,15 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 > - Designed with HTML5, CSS3, Python, Django, JavaScript and Materialize.
 > - Navigation bar allows users to engage with the system in a seamless, easy way.
-> - 
-> - Connected to [MongoDB](https://www.mongodb.com/) Database/API
-> - Register/sign-in functions to access the system.
-> - Access tier based system to give users different experiences depending on their access level.
-> - Profile page describing each user, with training folder attached.
-> - CRUD functions wired to the database (MongoDB), ability to edit teams/trainings.
+> - Easy access to products/collections, via search bar or sorting methods.
+> - In-app communication via toasts.
+> - Register/sign-in functions to and user profile to easily access order history, wish list, membership card and default shipping information.
+> - Fully functioning checkout system powered by [Stripe](https://stripe.com/ie).
+> - Store management functionalities to add/edit/remove products, collections and discount codes.
 
 #### Features to implement
 
-> - Metrics page to further enhance KDD.
-> - In-app communication, such as messages/requests.
-
+> - Subscription system to handle membership payments.
 ---
 
 ### Technologies Used
@@ -170,9 +167,11 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 ##### 2. Integrations
 
+> - [Django](https://www.djangoproject.com/) - Python Framework
+>
 > - [Materialize](https://materializecss.com/) - Classes for the overall layout of the website
 >
-> - [MongoDB](https://www.mongodb.com/) - Database
+> - [PostgreSQL](https://www.postgresql.org/) - External Database
 >
 > - [FontAwesome](https://fontawesome.com/) - Card Icons, footer social media links
 >
@@ -180,9 +179,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 >
 > - [jQuery](https://jquery.com/) - JavaScript Library
 >
-> - [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Python Library
->
-> - [PyMongo](https://pymongo.readthedocs.io/en/stable/) - Python Library/Integration with MongoDB
+> - [Stripe](https://stripe.com/ie) - Payment infrastructure
 
 ##### 3. Workspace, version control and Repository storage
 
@@ -268,7 +265,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 This project has been deployed on Heroku following this process:
 
 > - All code was written on VS Code, an IDE.
-> - The code was then pushed to GitHub where it is stored in my [Repository](https://github.com/vinnieOrdobas/Code-Institute-MS3-team-tracker).
+> - The code was then pushed to GitHub where it is stored in my [Repository](https://github.com/vinnieOrdobas/CI-MS4-Piratini-coffee-roasters).
 > - Navigate to [Heroku](https://www.heroku.com/) and login.
 > - On the dashboard, click on the 'New' button and select 'Create new app'.
 > - Enter the app name and select a region.
@@ -289,27 +286,18 @@ Follow this steps:
 1. Install the [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki).
 2. After installation, restart the browser.
 3. Log into [Gitpod](https://www.gitpod.io/) with your gitpod account.
-4. Navigate to the [Project GitHub repository](https://github.com/vinnieOrdobas/Code-Institute-MS3-team-tracker).
+4. Navigate to the [Project GitHub repository](https://github.com/vinnieOrdobas/CI-MS4-Piratini-coffee-roasters).
 5. Click the green button "Gitpod" in the top right corner of the repository.
 6. This will create a gitpod workspace with the code from github where you can work locally.
 
 To work on the project within a local IDE (such as VScode):
 
-1. Follow this link to the [Project GitHub repository](https://github.com/vinnieOrdobas/Code-Institute-MS3-team-tracker).
+1. Follow this link to the [Project GitHub repository](https://github.com/vinnieOrdobas/CI-MS4-Piratini-coffee-roasters).
 2. Under the repository name, click "Clone or download".
 3. In the Clone with HTTPs section, copy the clone URL for the repository.
 4. In your local IDE open the terminal.
 5. Change the current working directory to the location where you want the cloned directory to ve made.
 6. Type "git clone" on your terminal, then paste the URL of the project.
-
-### Installation
-
-To install the app, follow this steps:
-
-> - Follow this tutorial to create a MongoDB Cluster [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
-> - After creating the database navegate to Heroku, log in, go to your dashboard and to the project you just cloned and deployed. Go to the Settings tab, click on "Reveal Config Vars" and add the IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY AND KEY.
->
-> - After logging in to your database in the Mongo website, navegate to the user you want to give the "System Administrator" level of access and add a field called "admin" with the value of True.
 
 ### Credits
 
@@ -318,6 +306,9 @@ To install the app, follow this steps:
 >
 > - Icons rendered by [Font Awesome](https://fontawesome.com/)
 >
+> - Pictures taken from [Shopify Burst](https://burst.shopify.com/)
+>
+> - Layout based on Shopify's [Narrative Theme](https://themes.shopify.com/themes/narrative/styles/earthy?price%5B%5D=free&surface_inter_position=1&surface_intra_position=3&surface_type=all)
 >
 > ##### Content
 >
@@ -331,7 +322,6 @@ To install the app, follow this steps:
 >
 > - **Victor Miclovich**, my Mentor, for his insights, composure and experience. His invaluable assistance helped make this project reality.
 > - **Anderson Gonçalves** for taking the time to meet me and talk about this project, for tips and incredible insights, but above all, for his friendship.
-> - **Camila Severo de Araujo Leite (Camichu)** for her overall help on creating the app, pointing out features and layout of the website.
 > - **CI Mentors** for helping me identify and define problems.
 > - **CI staff** for their care and affableness, and for always make sure I was in the right path.
 > - **Slack Community** for their help with my code, for support and to make me feel part of the community.

@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="id=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name='description' content="Piratini Coffee Roasters and Co.">
     {% endblock %}
 
     {% block extra_meta %}
@@ -50,12 +51,12 @@
     <div class="navbar-fixed">
       <nav class="transparent z-depth-0">
         <div class="nav-wrapper">
-          <a href="#" data-target="mobile-nav" class="right sidenav-trigger">
+          <a aria-label="Menu" data-target="mobile-nav" class="right sidenav-trigger">
             <span class="icon right">
               <i class="fas fa-ellipsis-v"></i>
             </span>
           </a>
-          <a href="{% url 'home' %}" class="brand-logo left">
+          <a href="{% url 'home' %}" class="brand-logo left" aria-label="Home Page">
             <div id="logo-image" class="logo-img-wrapper">
             </div>
           </a>
@@ -94,7 +95,7 @@
             <div class="input-field inline col s3">
               <input name="search" type="text" class="validate" placeholder="Search">
               <span class="icon prefix">
-                <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action" aria-label="Search Item">
                     <i class="fas fa-search search-icon"></i>
                 </button>
               </span>
@@ -113,7 +114,7 @@
               <div class="input-field inline col">
                 <input name="search" type="text" class="validate" placeholder="Search">
                 <span class="icon prefix">
-                  <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action">
+                  <button class="btn-floating waves-effect waves-light transparent" type="submit" name="action" aria-label="Search Item">
                     <i class="black-text fas fa-search"></i>
                   </button>
                 </span>
@@ -203,7 +204,7 @@
                   <div class="input-field col s12">
                     <input id="email" type="email" class="validate">
                     <label for="email">Email</label>
-                    <button class="btn-floating red lighten-3 waves-effect waves-light prefix" type="submit" name="action">
+                    <button class="btn-floating red lighten-3 waves-effect waves-light prefix" type="submit" name="action" aria-label="Sign-up for Newsletter">
                         <i class="fas fa-paper-plane white-text right"></i>
                     </button>
                   </div>
@@ -235,7 +236,7 @@
                       <div class="input-field inline col s8 push-s2">
                         <input id="search-mobile" type="text" class="validate black-text" placeholder="Email">
                         <span class="icon prefix">
-                          <button class="btn-floating waves-effect red lighten-3 waves-light transparent" type="submit" name="action">
+                          <button class="btn-floating waves-effect red lighten-3 waves-light transparent" type="submit" name="action" aria-label="Signup Newsletter">
                             <i class="white-text fas fa-paper-plane"></i>
                           </button>
                         </span>
