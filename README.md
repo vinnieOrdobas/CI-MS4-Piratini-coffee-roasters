@@ -258,6 +258,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - When sending confirmation email after the order has been processed, Django throws the error: django.template.exceptions.TemplateDoesNotExist: checkout/confirmation_emails/confirmation_email_subject.txt. Moved folder "confirmation_emails" to checkout/templates/checkout and fixed the bug.
 > - WishList model unable to add products via ManyToMany field in checkout_success view. Used the method profile.membership.get() to circumvent the issue and add the product.
 > - Getting 500 server error when trying to send confirmation emails. Fixed the bug by resetting App profile on Gmail.com.
+> - Wish list icon on products page not adding products to the wish list/triggering login required modal. Changed the ID and the action button to fix the issue.
 
 ---
 

@@ -154,7 +154,31 @@
                                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                         </a>
                                     {% endif %}
-                                <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List"><i class="fas fa-heart"></i></a>
+                                    {% if request.user.is_authenticated %}
+                                        <form action="{% url 'add_to_wish_list' product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List" type="submit"><i class="fas fa-heart"></i></button>
+                                            <input type="hidden" name="url" value="{{ request.path }}">
+                                        </form>
+                                    {% else %}
+                                        <a class="btn-floating halfway-fab waves-effect waves-light red tooltipped modal-trigger"
+                                        data-position="top" data-tooltip="Add to Wish List" href="#modal_wish_list_lg{{ product_name }}">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                            <!-- Modal Structure -->
+                                        <div id="modal_wish_list_lg{{ product_name }}" class="modal">
+                                            <div class="modal-content center">
+                                                <h5 class="title green-text darken-2">oops!</h5>
+                                                <a href="">Creat an account</a> or
+                                                <a href="">login</a> to add {{ product.card_name }} to your wish list.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="row center">
+                                                    <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">OK</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <div class="card-content center-align">
                                     <p class="product-name"><strong>{{ product.card_name }}</strong></p>
