@@ -1,3 +1,14 @@
+/* Typography */
+
+body {
+    font-family: 'Arvo', serif;
+    background-color: #EAE7E0;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
 
 /* Acessories */
 .icon {
@@ -46,19 +57,6 @@
     top: 72px;
     right: 15px;
     z-index: 99999999999;
-}
-
-
-/* Typography */
-
-.title {
-    text-transform: uppercase;
-}
-
-/* Body */
-
-body {
-    background-color: #EAE7E0;
 }
 
 /* Navbar Elements */

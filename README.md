@@ -122,45 +122,27 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 #### 5. Surface
 
-> I've used Windows 98 layout as an inspiration, specially the colour scheme - the contrast between royal blue and pastel tones, which relates to user's experience of simplicity.
+> - I have used earth/warm tones to convey a natural layout. As inspiration, I've used [**Darko Mihajlovski's Behance Coffee Shop Website Moodboard**](https://www.behance.net/collection/186391225/Coffee-Shop-Website-Inspiration) as inspiration for this project.
 >
 > ##### Colours
 >
-> - For the navigation bar I've opted for a blue-grey tonality(#455a64) to create a contrast with the mild palettes I've used for the background.
-> - For collapsible headers, profile cards, control panels and team cards I've chosen a darker blue-grey tone (#263238)
-> - For body text, I've used a combination of shades of black for mild coloured backgrounds - white for darker backgrounds.
-> - For the buttons in the control panel, please refer to the table below:
+> - To contrast with the background and the slideshow, I've opted for a transparent background navbar and collapsibles with a strong colour for icons as contrast. (#bf360c)
+> - For body text, I've used a neutral black to contrast with the mild background tone (#EAE7E0).
+> - For the footer, I've opted for a mild brown for warmth and a natural feeling (#D7CCC8).
 
-| Button      | Colour |
-|    :----:   |    :----:   |
-| Add Team      | #4caf50       |
-| Add Training   | #4caf50        |
-| Add Team   | #4caf50        |
-| Add Cycle   | #4caf50        |
-| Enroll Student   | #f57f17        |
-| Get Student List  | #9575cd        |
-| Get Training Description   | #fbc02d        |
-| Edit Training   | #2196f3        |
-| Edit Cycle   | #2196f3        |
-| Delete Training   | #f44336        |
-| Delete Cycle   | #f44336        |
-| Mark as Complete   | #4caf50        |
-| Mark as Incomplete   | #f9a825        |
-| Change access level   | #f9a825        |
-| See Student's certifications   | #4caf50         |  
 ---
 
 > #### Typography
 >
-> - "Nunito" font (with fall-back font of Sans-Serif) for body content and titles.
+> - "Arvo" font (with fall-back font of serif) for body content and titles.
 
 ### Features
 
 #### Existing Features
 
-> - Designed with HTML5, CSS3, Python, JavaScript and Materialize.
-> - Navigation bar provides users the ability to engage with the system.
-> - Landing page describing the project.
+> - Designed with HTML5, CSS3, Python, Django, JavaScript and Materialize.
+> - Navigation bar allows users to engage with the system in a seamless, easy way.
+> - 
 > - Connected to [MongoDB](https://www.mongodb.com/) Database/API
 > - Register/sign-in functions to access the system.
 > - Access tier based system to give users different experiences depending on their access level.
