@@ -22,7 +22,7 @@ def profile(request):
         membership = profile.membership.get()
 
     if profile.wish_list.exists():
-        membership = profile.wish_list.get()
+        wish_list = profile.wish_list.get()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -30,7 +30,9 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.') 
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.'
+            ) 
     else:
         form = UserProfileForm(instance=profile)
 

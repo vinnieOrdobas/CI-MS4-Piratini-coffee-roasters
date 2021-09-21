@@ -1,6 +1,6 @@
 # Piratini Coffee Roasters
 
-Link to deployed website [**here**](https://ci-ms4-piratini-co.herokuapp.com/).
+## [**LIVE DEMO**](https://ci-ms4-piratini-co.herokuapp.com/)
 
 
 An e-commerce website that features speciality coffee beans, collections of brewing accessories and a subscription service for monthly deliveries - Piratini Coffee Roasters is a company that believes in sustainability and working with nature.
@@ -94,7 +94,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 > The objective is to reach the threshold version of the app with enough usability - the Minimum viable product (MVP), that includes:
 >
-> - Authentication system for user to login/logout and sign-up - personalised profile with order history and personal information.
+> - Authentication system for user to login/logout and sign-up - personalised profile with order history, wishlist and personal information.
 > - Checkout system for users to securely pay for their items and arrange delivery.
 > - The abliity to add/edit/delete products by the store owner to keep the store up-to-date.
 > - Showcase products, collections and subscription services on the landing page through a visual narrative of the brand.
@@ -110,7 +110,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 #### 4. Skeleton
 
-> - [Wire frames](assets/docs/wireframes.pdf): Web app categorised in five different clusters.
+> - [Wire frames](assets/docs/wireframes.pdf): E-commerce website .
 >
 > - Home, Login, Profile, Teams and Training.
 >
