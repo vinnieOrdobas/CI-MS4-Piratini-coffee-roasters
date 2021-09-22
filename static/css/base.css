@@ -87,6 +87,10 @@ body {
     z-index: 999;
 }
 
+#close-search-form {
+    cursor: pointer;
+}
+
 .search-icon {
     color: #f4511e !important;
 }
@@ -306,7 +310,11 @@ body {
 }
 
 .product-name {
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.product-name-detail {
+    font-size: 25px;
 }
 
 .cards-container-sml {

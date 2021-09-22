@@ -91,6 +91,9 @@
     <div class="search-form-wrapper">
       <form class="search-form-wrapper" action="{% url 'products' %}" method="GET">
         <div class="container">
+          <a class="icon" id="close-search-form">
+            <i class="fas fa-times-circle"></i>
+          </a>
           <div class="row">
             <div class="input-field inline col s3">
               <input name="search" type="text" class="validate" placeholder="Search">
@@ -145,15 +148,19 @@
       <li class="dropdown-item">
         <a href="{% url 'view_bag' %}">
           <div class="center-align">
-            <p class="blue-text text-darken-2">
+            <p>
               {% if grand_total %}
-                ${{ grand_total|floatformat:2 }}
+                Bag
+                €{{ grand_total|floatformat:2 }}
               {% else %}
-                $0.00
+                View bag
               {% endif %}
             </p>
           </div>
         </a>
+        {% if grand_total %}
+          <a href="{% url 'checkout' %}">Checkout</a>
+        {% endif %}
       </li>
     </ul>
     <!-- Messages -->
