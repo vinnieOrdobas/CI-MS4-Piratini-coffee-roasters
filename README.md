@@ -151,6 +151,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 #### Features to implement
 
 > - Subscription system to handle membership payments.
+> - Search based on product's tags.
 ---
 
 ### Technologies Used
