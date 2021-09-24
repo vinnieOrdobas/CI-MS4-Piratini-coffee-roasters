@@ -19,7 +19,7 @@
         <div class="row">
             <div class="center-align">
                 <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-                <h3 class="">{{ product.collection.friendly_name }}</h3>
+                <h1 class="h3">{{ product.collection.friendly_name }}</h1>
             </div>
             <div class="col s12">
                 <div class="col s9 m6 l4 push-l4">
@@ -67,7 +67,7 @@
                                 {% if request.user.is_authenticated %}
                                     <form action="{% url 'add_to_wish_list' product.id %}" method="POST">
                                         {% csrf_token %}
-                                        <button class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List" type="submit"><i class="fas fa-heart"></i></button>
+                                        <button class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List" type="submit" value="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <input type="hidden" name="url" value="{{ request.path }}">
                                     </form>
                                 {% else %}
@@ -160,6 +160,7 @@
                                     </div>
                                     <div class="input-field">
                                         <input id="id_qty_{{ item.item_id }}" name="quantity" type="number" value="1" min="1" max="99" data-item_id="{{ item.item_id }}" class="browser-default validate qty-input">
+                                        <label for="id_qty_{{ item.item_id }}" style="display: none;">Quantity</label>
                                     </div>
                                 </div>
                             </div>
