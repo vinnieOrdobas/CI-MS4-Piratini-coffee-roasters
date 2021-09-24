@@ -177,7 +177,7 @@ body {
     margin: auto;
 }
 
-.carousel-content h2 {
+.carousel-content h1 {
     color: #D7CCC8;
     font-size: 40px !important;
     -webkit-text-stroke: 1px black;
@@ -185,6 +185,7 @@ body {
 
 .shop-now {
     margin-top: 25px;
+    border: 0.25px solid black;
 }
 
 /* Card section */
@@ -319,6 +320,12 @@ body {
 
 .cards-container-sml {
     padding-left: 50px;
+}
+
+.h3 {
+    font-size: 2.92rem;
+    line-height: 110%;
+    margin: 1.9466666667rem 0 1.168rem 0;
 }
 
 /* Bag */

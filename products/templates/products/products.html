@@ -19,7 +19,7 @@
         <div class="row">
             <div class="center-align">
                 <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-                <h3 class="">Products</h3>
+                <h1 class="h3">Products</h1>
             </div>
         </div>
         <div class="row">
@@ -63,8 +63,8 @@
                             <option value="collection_asc" {% if current_sorting == 'collection_asc' %}selected{% endif %}>Collection (A-Z)</option>
                             <option value="collection_desc" {% if current_sorting == 'collection' %}selected{% endif %}>Collection (Z-A)</option>
                         </select>
-                        <label>Sorting</label>
-                      </div>
+                        <label for="sort-selector" class="black-text">Sorting</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
                             {% if request.user.is_authenticated %}
                                 <form action="{% url 'add_to_wish_list' product.id %}" method="POST">
                                     {% csrf_token %}
-                                    <button class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="fas fa-heart"></i></button>
+                                    <button class="btn-floating halfway-fab waves-effect waves-light red" type="submit" value="Add to Wishlist"><i class="fas fa-heart"></i></button>
                                     <input type="hidden" name="url" value="{{ request.path }}">
                                 </form>
                             {% else %}
@@ -127,10 +127,10 @@
                     </div>
                     <div class="divider"></div>
                     {% if request.user.is_superuser %}
-                        <div class="center-align">
+                        <div class="center">
                             <small>
-                                <a href="{% url 'edit_product' product.id %}">Edit | </a>
-                                <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
+                                <a href="{% url 'edit_product' product.id %}" class="white-text btn-small">Edit</a>
+                                <a href="{% url 'delete_product' product.id %}" class="white-text btn-small">Remove</a>
                             </small>
                         </div>
                     {% endif %}
@@ -157,7 +157,7 @@
                                     {% if request.user.is_authenticated %}
                                         <form action="{% url 'add_to_wish_list' product.id %}" method="POST">
                                             {% csrf_token %}
-                                            <button class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List" type="submit"><i class="fas fa-heart"></i></button>
+                                            <button class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-position="top" data-tooltip="Add to Wish List" type="submit" value="Add to Wish List"><i class="fas fa-heart"></i></button>
                                             <input type="hidden" name="url" value="{{ request.path }}">
                                         </form>
                                     {% else %}
@@ -196,7 +196,7 @@
                                     {% if request.user.is_superuser %}
                                         <div class="center">
                                             <small>
-                                                <a href="{% url 'edit_product' product.id %}">Edit | </a>
+                                                <a href="{% url 'edit_product' product.id %}" class="black-text">Edit | </a>
                                                 <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
                                             </small>
                                         </div>
