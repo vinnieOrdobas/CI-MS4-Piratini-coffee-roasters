@@ -22,7 +22,7 @@
       <div class="row">
         <div class="center-align">
             <hr class="hr-text" style="margin:auto"> <!-- inline CSS styling-->
-            <h3 class="">Checkout</h3>
+            <h1 class="h3">Checkout</h1>
         </div>
       </div>
       <div class="divider"></div>
@@ -49,9 +49,9 @@
                         <div class="col s2">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image %}
-                                    <img src="{{ item.product.image.url }}" alt="" class="circle responsive-img bag-img">
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="circle responsive-img bag-img">
                                 {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="" class="circle responsive-img bag-img">
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="circle responsive-img bag-img">
                                 {% endif %}
                             </a>
                         </div>

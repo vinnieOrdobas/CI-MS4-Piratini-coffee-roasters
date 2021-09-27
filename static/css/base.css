@@ -9,6 +9,10 @@ body {
     text-transform: uppercase;
 }
 
+label {
+    color: black;
+}
+
 
 /* Acessories */
 .icon {

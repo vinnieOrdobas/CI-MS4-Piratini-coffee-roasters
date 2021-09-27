@@ -116,7 +116,6 @@ An e-commerce website that features speciality coffee beans, collections of brew
 >
 > - Navigation bar - Links to each app/section of the website.
 >
-> - Connected to external database (powered by PostgreSQL).
 
 ---
 
@@ -181,6 +180,12 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - [jQuery](https://jquery.com/) - JavaScript Library
 >
 > - [Stripe](https://stripe.com/ie) - Payment infrastructure
+>
+> - [Amazon Web Services](https://www.aws.com/) - Used to host project static and media files on production
+>
+> - [materialize-css-form](https://github.com/kalwalkden/django-materializecss-form) - Django package to handle project forms with MaterializeCSS
+>
+> - [dbdiagram.io](https://dbdiagram.io/) - Used to create data_model.md file
 
 ##### 3. Workspace, version control and Repository storage
 
@@ -214,10 +219,10 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - [Grid Critters](https://gridcritters.com/) - To learn CSS Grid technology.
 > - [Markdown Tutorial](https://www.markdowntutorial.com/) - Used to learn Markdown.
 > - Code Institute **SLACK Channel** - Assistance.
-> - [**Creating a Toggled Search Bar**](https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml) - To create navbar **search box**
-> - [**Django forms with materializecss**](https://www.youtube.com/watch?v=qte0MSKClVM) - To use **materializecss** filter on Django forms
-> - [**Django by Example: Creating a Coupon System**](https://www.youtube.com/watch?v=_dSCGMJcoe4) - Insights on how to create **discounts app**
-> - [**Python Django Ecommerce Customer Wish List**](https://www.youtube.com/watch?v=OgA0TTKAtqQ) - Insights on how to create **wishlist app**
+> - [Creating a Toggled Search Bar](https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml) - To create navbar **search box**
+> - [Django forms with materializecss](https://www.youtube.com/watch?v=qte0MSKClVM) - To use **materializecss** filter on Django forms
+> - [Django by Example: Creating a Coupon System](https://www.youtube.com/watch?v=_dSCGMJcoe4) - Insights on how to create **discounts app**
+> - [Python Django Ecommerce Customer Wish List](https://www.youtube.com/watch?v=OgA0TTKAtqQ) - Insights on how to create **wishlist app**
 
 
 
@@ -270,185 +275,27 @@ This project has been deployed on Heroku following this process:
 > - Navigate to [Heroku](https://www.heroku.com/) and login.
 > - On the dashboard, click on the 'New' button and select 'Create new app'.
 > - Enter the app name and select a region.
-> - Under the 'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file. This includes the IP, Port, Secret key, PostgreSQL name and URI, as well as mail settings for Gmail.
+> - On the project resources tab, provision a new PostgreSQL database for this project.
+> - Navigate to [Stripe](https://www.stripe.com) and register to get a Public Key, a Secret Key and a Webhook Secret
+> - Create an account on Amazon AWS and add a new S3 bucket for this project, get an user access ID and Access key.
+> - Under the 'Settings' tab, click on 'Config Vars' and add the following variables:
+```
+DISABLE_COLLECTSTATIC=1
+SECRET_KEY=<your_project_key>
+STRIPE_PUBLIC_KEY=<your_personal_public_key>
+STRIPE_SECRET_KEY=<your_personal_secret_key>
+STRIPE_WH_SECRET=<your_personal_webhook_key>
+EMAIL_HOST_PASS=<your_email_password>
+EMAIL_HOST=<your_email_address>
+USE_AWS= True
+AWS_ACCESS_KEY_ID=<your_aws_user_access_id>
+AWS_SECRET_ACCESS_KEY=<your_aws_user_access_password>
+DATABASE_URL=<your_heroku_postgres_uri>
+```
+> - On your `settings.py` file, in the `ALLOWED_HOSTS` array add your Heroku project URL as a string.
 > - In the menu select the 'Deploy' option.
 > - Under 'Deployment method' select the GitHub option to connect to your GitHub repository. Ensure GitHub username is selected and use the search function to find the relevant repository.
 > - Select Automatic deploys from the main branch and click 'Deploy Branch'.
-
-To deploy the app to Heroku from its [GitHub repository](https://github.com/Edb83/moose-juice), the following steps were taken:
-<!-- 1. **Commit** and **Push** the files to GitHub -->
-2. **Log In** to [Heroku](https://id.heroku.com/login)
-3. Select **Create new app** from the dropdown in the Heroku dashboard
-4. Choose a unique name ('moose-juice') for the app and the location nearest to you
-5. Under **Resources** search for and add **Heroku Postgres** to your app
-6. In your CLI install **dj_database_url** and **psycopg2** so that you can use Postgres on your deployed site
-```
-pip3 install dj_database_url
-pip3 install psycopg2
-```
-7. Log into Heroku via the CLI
-```
-heroku login -i
-```
-8. Migrate the database into Postgres
-```
-heroku run python manage.py migrate
-```
-9. Create a new superuser and fill in your details:
-```
-python manage.py createsuperuser
-```
-10. Install gunicorn
-```
-pip3 install gunicorn
-```
-11. Freeze the app's requirements
-```
-pip3 freeze > requirements.txt
-```
-11. Create a file called **Procfile** and include the following, making sure not to leave a blank line after it:
-```
-web: gunicorn moose_juice.wsgi:application
-```
-12. Disable Heroku's static file collection (temporarily)
-```
-heroku config:set DISABLE_COLLECTSTATIC=1 --app moose-juice
-```
-13. Add the hostname of your Heroku app to settings.py
-```
-ALLOWED_HOSTS = ['moose-juice.herokuapp.com', 'localhost']
-```
-14. Back in Heroku, select the **Deploy** tab and under **Deployment method** choose GitHub
-15. In **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**
-16. Go to the **Settings** tab and under **Config Vars** choose **Reveal Config Vars**
-17. Enter the following keys and values, some of which will different from those in your env.py:
-
-|**Key**|**Value**|
-|:-----|:-----|
-|AWS_ACCESS_KEY_ID|`<your variable here>`|
-|AWS_SECRET_ACCESS_KEY|`<your variable here>`|
-|DATABASE_URL|`<added by Heroku when Postgres installed>`|
-|DISABLE_COLLECTSTATIC|`1` NB this variable will be deleted later|
-|EMAIL_HOST_PASS|`<your variable here>`|
-|EMAIL_HOST_USER|`<your variable here>`|
-|SECRET_KEY|`<your variable here>`|
-|STRIPE_PUBLIC_KEY|`<your variable here>`|
-|STRIPE_SECRET_KEY|`<your variable here>`|
-|STRIPE_WH_SECRET|`<different from env.py>`|
-|USE_AWS|True|
-
-18. Go back to the **Deploy** tab and under **Automatic deploys** choose **Enable Automatic Deploys**
-19. Back in your GitPod CLI add, commit and push your changes and Heroku will automatically deploy your app
-```
-git add .
-git commit -m "Initial commit"
-git push
-```
-20. Your deployed site can be launched by clicking **Open App** from its page within Heroku.
-
-</details>
-
-<p>
-
-<details>
-<summary>Setting up an S3 Bucket</summary>
-<p>
-
-1. Create an [Amazon AWS](aws.amazon.com) account
-2. Search for **S3** and create a new bucket
-- Allow public access
-- Acknowledge
-3. Under **Properties > Static** website hosting
-- Enable
-- Index.html as index document
-- Save
-4. Under **Permissions > CORS** use:
-```
-		[
-  {
-      "AllowedHeaders": [
-          "Authorization"
-      ],
-      "AllowedMethods": [
-          "GET"
-      ],
-      "AllowedOrigins": [
-          "*"
-      ],
-      "ExposeHeaders": []
-  }
-]
-```
-5. Under **Permissions > Bucket Policy**:
-- Generate Bucket Policy and take note of **Bucket ARN**
-- Chose **S3 Bucket Policy** as Type of Policy
-- For **Principal**, enter `*`
-- Enter **ARN** noted above
-- **Add Statement**
-- **Generate Policy**
-- Copy **Policy JSON Document**
-- Paste policy into **Edit Bucket policy** on the previous tab
-- Save changes
-
-6. Under **Access Control List (ACL)**:
-- For **Everyone (public access)**, tick **List**
-- Accept that everyone in the world may access the Bucket
-- Save changes
-
-</details>
-<p>
-<details>
-<summary>Setting up AWS IAM (Identity and Access Management)</summary>
-<p>
-
-1. From the **IAM dashboard** within AWS, select **User Groups**:
-- Create new group e.g. `manage-moose-juice`
-- Click through without adding a policy
-- **Create Group**
-2. Select **Policies**:
-- Create policy
-- Under **JSON** tab, click **Import managed policy**
-- Choose **AmazongS3FullAccess**
-- Edit the resource to include the **Bucket ARN** noted earlier when creating the Bucket Policy:
-```
-			"Resource": [
-			                "arn:aws:s3:::moose-juice",
-			                "arn:aws:s3:::moose-juice/*"
-            ]
-```
-- Click **next step** and go to **Review policy**
-- Give the policy a name e.g. `moose-juice-policy` and description
-- **Create policy**
-3. Go back to **User Groups** and choose the group created earlier
-- Under **Permissions > Add permissions**, choose **Attach Policies** and select the one just created
-- **Add permissions**
-4. Under **Users**:
-- Choose a user name e.g. `moose-juice-staticfiles-user`
-- Select **Programmatic access** as the **Access type**
-- Click Next
-- Add the user to the Group just created
-- Click Next and **Create User**
-5. **Download the `.csv` containing the access key and secret access key. This will NOT be available to download again**
-
-</details>
-<p>
-<details>
-<summary>Hooking Django up to S3</summary>
-<p>
-
-1. Install boto3 and django-storages
-```
-pip3 install boto3
-pip3 install django-storages
-pip3 freeze > requirements.txt
-```
-2. Add the values from the `.csv` you downloaded to your Heroku Cvars under Settings:
-```
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-```
-3. Delete the `DISABLE_COLLECTSTATIC` variable from your Cvars and deploy your Heroku app
-4. With your S3 bucket now set up, you can create a new folder called `media` (at the same level as the newly added `static` folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
 
 #### How to run this project locally
 
@@ -459,13 +306,35 @@ To clone this project into your IDE you will need:
 
 Follow this steps:
 
-1. Install the [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki).
+1. Install [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki).
 2. After installation, restart the browser.
 3. Log into [Gitpod](https://www.gitpod.io/) with your gitpod account.
 4. Navigate to the [Project GitHub repository](https://github.com/vinnieOrdobas/CI-MS4-Piratini-coffee-roasters).
 5. Click the green button "Gitpod" in the top right corner of the repository.
-6. This will create a gitpod workspace with the code from github where you can work locally.
-
+6. On the terminal, install Django with the follow command:
+```
+pip3 install django
+```
+7. Install project dependencies by running the command:
+```
+pip3 install -r requirements.txt
+```
+8. Add the below environment variables to run the project:
+   ```
+   DEVELOPMENT=True
+   STRIPE_PUBLIC_KEY=<your_personal_public_key>
+   STRIPE_SECRET_KEY=<your_personal_secret_key>
+   STRIPE_WH_SECRET=<your_personal_webhook_key>
+   ```
+9. Create project models and database by running the following commands:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+10. Run server locally with the following command:
+```
+python3 manage.py runserver
+```
 To work on the project within a local IDE (such as VScode):
 
 1. Follow this link to the [Project GitHub repository](https://github.com/vinnieOrdobas/CI-MS4-Piratini-coffee-roasters).
@@ -474,7 +343,30 @@ To work on the project within a local IDE (such as VScode):
 4. In your local IDE open the terminal.
 5. Change the current working directory to the location where you want the cloned directory to ve made.
 6. Type "git clone" on your terminal, then paste the URL of the project.
-
+7. On the terminal, install Django with the follow command:
+```
+pip3 install django
+```
+8. Install project dependencies by running the command:
+```
+pip3 install -r requirements.txt
+```
+9. Add the below environment variables to run the project:
+   ```
+   DEVELOPMENT=True
+   STRIPE_PUBLIC_KEY=<your_personal_public_key>
+   STRIPE_SECRET_KEY=<your_personal_secret_key>
+   STRIPE_WH_SECRET=<your_personal_webhook_key>
+   ```
+10. Create project models and database by running the following commands:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+11. Run server locally with the following command:
+```
+python3 manage.py runserver
+```
 ### Credits
 
 > #### Media
@@ -486,6 +378,8 @@ To work on the project within a local IDE (such as VScode):
 >
 > - Layout based on Shopify's [Narrative Theme](https://themes.shopify.com/themes/narrative/styles/earthy?price%5B%5D=free&surface_inter_position=1&surface_intra_position=3&surface_type=all)
 >
+> - Product images [Cafe Especial Brasil](https://cafeespecialbrasil.net.br/), [Coffee Mais](https://coffeemais.com/), [MelhorCafe](https://melhorcafe.com/), [CoffeeShop.ie](https://www.coffeeshop.ie/), [BREWBOXCOFFEE](https://www.brewboxcoffee.ie/)
+
 > ##### Content
 >
 > - Text content was written by me.
