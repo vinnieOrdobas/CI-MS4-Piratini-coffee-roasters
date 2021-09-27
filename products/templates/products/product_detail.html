@@ -111,7 +111,7 @@
                             {% if request.user.is_superuser %}
                                 <div class="center">
                                     <small>
-                                        <a href="{% url 'edit_product' product.id %}">Edit | </a>
+                                        <a href="{% url 'edit_product' product.id %}" class="black-text">Edit | </a>
                                         <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
                                     </small>
                                 </div>
@@ -167,7 +167,7 @@
                         </div>
                         {% if product.membership %}
                             {% if request.user.is_authenticated %}
-                                {% if user.membership %}
+                                {% if user.membership.exists %}
                                 <div class="row center">
                                     <div class="col s12">
                                         <a class="btn waves-effect waves-light modal-trigger deep-orange darken-1"

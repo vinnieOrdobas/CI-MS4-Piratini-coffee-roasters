@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Discount
-from .forms import DiscountApplyForm
+from .forms import DiscountApplyForm, DiscountForm
 
 import datetime
 

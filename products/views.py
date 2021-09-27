@@ -74,6 +74,9 @@ def product_detail(request, product_id):
 
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
+        if user.membership:
+            switch = True
+            
 
     product = get_object_or_404(Product, pk=product_id)
     collections = Collection.objects.all()
