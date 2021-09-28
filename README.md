@@ -57,8 +57,8 @@ An e-commerce website that features speciality coffee beans, collections of brew
 |**Site user**|Register for an account|Have a personal account and view my profile|
 ||Login and logout|Access my personal account information|
 ||Recover my password if needs be|Recover access to my account|
-||Receive email confirmations|Very my account registration was successful|
-||Have a personalized user profile|View my personal order history and order confirmatinos, save payment information|
+||Receive email confirmations|Verify my account registration was successful|
+||Have a personalized user profile|View my personal order history and order confirmations, save payment information|
 |**Site owner**|Add a product|Add new items to my store|
 ||Edit/update a product|Change product prices, descriptions, images and other product criteria|
 ||Delete a product|Remove items that are no longer for sale|
@@ -245,7 +245,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - Getting 500 server error when trying to send confirmation emails. Fixed the bug by resetting App profile on Gmail.com.
 > - Wish list icon on products page not adding products to the wish list/triggering login required modal. Changed the ID and the action button to fix the issue.
 > - In "product.detail.html", "Add to bag" button triggering "Membership already exists" modal even though object wasn't there. Changed the if statement to "user.membership.exists" to circumvent the issue.
-
+> - "Forgot Password" throwing Server error (500) in production - in development, allauth was unable to render materializecss filter for form as it wasn't loaded in the template.
 ---
 
 ### Code validity

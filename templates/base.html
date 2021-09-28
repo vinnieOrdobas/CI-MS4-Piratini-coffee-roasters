@@ -208,15 +208,26 @@
               <form class="col s12">
                 <div class="row">
                   <span class="black-text title" style="font-size: 1.17em; font-weight: bolder;">Sign up for updates</span>
-                  <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                  <div class="input-field col s9">
+                    <input id="email" type="email" class="validate" required>
                     <label class="black-text" for="email">Email</label>
-                    <button class="btn-floating red lighten-3 waves-effect waves-light prefix" type="submit" name="action" aria-label="Sign-up for Newsletter">
-                      <a href="" class="modal-trigger"><i class="white-text fas fa-paper-plane"></i></a>
-                    </button>
+                    <a class="btn-floating waves-effect red lighten-3 waves-light transparent modal-trigger" href="#modal_newsletter"aria-label="Signup Newsletter">
+                      <i class="white-text fas fa-paper-plane"></i>
+                    </a>
                   </div>
                 </div>
               </form>
+              <div id="modal_newsletter" class="modal">
+                <div class="modal-content center">
+                    <h5 class="title green-text darken-2">Thanks for registering!</h5>
+                    <p class="black-text">You're now registered to receive news from us! As a thank you gift, <strong>HERE</strong> is a discount code you can use to purchase products: <span class="red-text">NEWS_USER</span></p>
+                </div>
+                <div class="modal-footer">
+                    <div class="row center">
+                        <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">Close</a>
+                    </div>
+                </div>
+              </div>
             </div>          
           </div>
         </div>
@@ -237,20 +248,31 @@
             <div class="card brown lighten-4">
               <div class="card-content white-text center-align">
                 <span class="black-text title" style="font-size: 1.17em; font-weight: bolder;">Sign up for updates</span>
-                <form class="mobile-search-form-wrapper" action="GET">
+                <form class="mobile-search-form-wrapper" action="">
                   <div class="container">
                     <div class="row mobile-form">
                       <div class="input-field inline col s8 push-s2">
-                        <input id="search-mobile" type="text" class="validate black-text" placeholder="Email">
+                        <input id="email-mobile" type="email" class="validate black-text" placeholder="Email">
                         <span class="icon prefix">
-                          <button class="btn-floating waves-effect red lighten-3 waves-light transparent" type="submit" name="action" aria-label="Signup Newsletter">
-                            <a href="" class="modal-trigger"><i class="white-text fas fa-paper-plane"></i></a>
-                          </button>
+                          <a class="btn-floating waves-effect red lighten-3 waves-light transparent modal-trigger" href="#modal_newsletter_mobile"aria-label="Signup Newsletter">
+                            <i class="white-text fas fa-paper-plane"></i>
+                          </a>
                         </span>
                       </div>
                     </div>
                   </div>
                 </form>
+                <div id="modal_newsletter_mobile" class="modal">
+                  <div class="modal-content center">
+                      <h5 class="title green-text darken-2">Thanks for registering!</h5>
+                      <p class="black-text">You're now registered to receive news from us! As a thank you gift, <strong>HERE</strong> is a discount code you can use to purchase products: <span class="red-text">NEWS_USER</span></p>
+                  </div>
+                  <div class="modal-footer">
+                      <div class="row center">
+                          <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">Close</a>
+                      </div>
+                  </div>
+                </div>
                 <div class="brand">
                   <span class="black-text title">Piratini Coffee Roasters Co.</span>
                   <div class="logo-footer-wrapper-sml"></div>

@@ -112,8 +112,20 @@
                                 <div class="center">
                                     <small>
                                         <a href="{% url 'edit_product' product.id %}" class="black-text">Edit | </a>
-                                        <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
+                                        <a href="#modal_delete_product" class="red-text modal-trigger">Remove</a>
                                     </small>
+                                    <div id="modal_delete_product" class="modal">
+                                        <div class="modal-content center">
+                                            <h5 class="title red-text darken-2">Warning!</h5>
+                                            <p>Are you sure you'd like to remove this item?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="row center">
+                                                <a href="{% url 'delete_product' product.id %}" class="waves-effect waves-green darken-2 btn center">Confirm</a>
+                                                <a href="#!" class="modal-close waves-effect waves-green darken-2 btn center">Close</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endif %}
                         </div>

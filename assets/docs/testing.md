@@ -125,7 +125,7 @@ The app was thought-through with consistency in mind, regardless of where the us
 
 - Users can login via the user icon (for desktop users) or in the side menu (for mobile users) via the login link. That takes them to their profile page.
 - Users can logout via the user icon (for desktop users) or in the side menu (for mobile users) via the logout link. That logs them out of the store.
-- Users can recover their password by clicking 
+- Users can recover their password by clicking "Forgot password" - user will be prompted to enter login details.
 
 **Receive email confirmations**
 
@@ -147,8 +147,8 @@ The app was thought-through with consistency in mind, regardless of where the us
 
 - The Edit Product page can be accessed from any of the pages in which a product appears by clicking the edit icon.
 - The form fields are prepopulated with the existing product's details, including the image.
-- From the front-end a product can only be deleted via the product detail page to minimise accidents, by clicking the trashcan icon.
-- A modal appears to confirm whether they want to go ahead.
+- From the storefront a product can only be removed via the product detail page to minimise accidents, by clicking the "Remove" link.
+- A modal is triggered asking the store owner to confirm the removal of the product.
 
 ## Manual testing
 
