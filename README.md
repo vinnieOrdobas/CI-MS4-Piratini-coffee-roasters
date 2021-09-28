@@ -39,18 +39,17 @@ An e-commerce website that features speciality coffee beans, collections of brew
 |**AS A/AN**|**I WANT TO**|**SO I CAN...**|
 |:-----|:-----|:-----|
 |**Shopper**|View a list of collections/products|Purchase Items|
-||See product details|Find the price, description, product rating and product image|
+||See product details|Find the price, description and product image|
 ||Identify deals and special offers|Benefit from special savings and offers|
 ||Check my total spendings|Avoid spending to much|
-||Sort the list of products|Identify the best rated, best priced and categorically sorted products|
-||Sort a specific category of product|Browse through different categories to see best-rated products|
+||Sort the list of products|Identify the best priced and categorically sorted products|
+||Sort a specific category of product|Browse through different categories to see narrow down my search for products|
 ||Sort multiple categories/products|Filter my product search even further|
-||Filter by individual flavours|Quickly find the flavours I like|
 ||Search for a product by name|Find a specific product I'd like to purchase|
 ||Learn about the subscription service|Register with confidence|
 ||Select quantity of a product when purchasing it|Ensure I don't accidentally select wrong product/quantity|
-||View items in my cart to be purchased|Identify the total cost of my purchase and all items I'll get|
-||Adjust the quantities of individual items in my cart|Make changes to my order before checkout|
+||View items in my bag to be purchased|Identify the total cost of my purchase and all items I'll get|
+||Adjust the quantities of individual items in my bag|Make changes to my order before checkout|
 ||Enter payment information|Check out quickly, without hassle|
 ||Be sure that my credit card information is safe|Confidently provide information to make a purchase|
 ||View order confirmation after checkout|Double check if the order has no mistakes|
@@ -151,6 +150,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 > - Subscription system to handle membership payments.
 > - Search based on product's tags.
+> - Expand store management functionalities, such as creating discount codes via the website (rather than the admin.)
 ---
 
 ### Technologies Used

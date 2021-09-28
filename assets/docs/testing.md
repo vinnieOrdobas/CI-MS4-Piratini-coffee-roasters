@@ -12,7 +12,7 @@
 - [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) - To check if mobile-friendly.
 - [Web Page Test by Catchpoint](https://www.webpagetest.org/) - To test performance.
 
-### Flow testing
+## Flow testing
 
 Usual flow through the app:
 
@@ -21,13 +21,138 @@ Usual flow through the app:
 
 The website as a whole was thought-through to simplify navigation for the customers, providing buttons/controls based on a known online shopping experience.
 
-### Testing user stories from "User Stories" section of README.md
+## Testing user stories from "User Stories" section of README.md
+
+### Pervasive user expectations
+
+**Standardization**
+
+The app was thought-through with consistency in mind, regardless of where the user happens to be.
+- The Navbar and Footer are the same across pages, creating an easy-to-grasp-experience for the user.
+- Headings and icons are homogenous, to relay a consistent layout.
+- Product cards and collections are uniformly shaped, creating a predictable experience for the shopper.
+
+**Effortless navigation**
+
+- Page titles/headings describe the content of each page
+- Search functionality helps the user to find the products/collections without browsing.
+- Tooltip function provide information on larger displays.
+- Footer encompasses information about the page and copyrights, together with social media links.
+
+**Instinctive blueprint**
+
+- Intuitive icons were chosen to convey typical functions of a webapp, such as padlock, heart, bag, user, magnifying glass for search, etc.
+- Toasts give shoppers in-app messages to confirm user-performed actions.
+
+**Responsive design**
+
+- Content adjusts to a wide range of screen sizes due to Materialize grid layout and flexbox capabilities.
+- When space for content is compressed, structure mutates dynamically to allow more space for the renderization of elements (for instance, pushing elements to a new row on the bag page on smaller screens).
+- If necessary, text gets truncated to maintain layout.
+
+**User security**
+
+- Django's Allauth supplies a sturdy account framework while Stripe allows shoppers to securely checkout - webhooks generates redundancy to add an extra layer of protection.
+
+**Attractive aesthetics**
+
+- The landing page takes the user to a "Visual Narrative", with a hero's slideshow that relays a graphic story.
+- Natural, earthy tones and use of constrasting "call-to-action" buttons create an intuitive shopping experience.
+- Standard layout creates a well-known shopping experience for the user and bonds the elements together.
+
+### As a Shopper...
+
+**View a list of collections/products**
+
+- The hero slideshow provides shortcuts that immediately take the shopper to the aforementioned products/collections.
+
+**Identify deals and special offers**
+
+- Shopper can sort products by price (either ascending or descending) to have a better outlook on how the products are priced.
+- There are numerous discount codes that can be applied in the **bag** app - these discounts are communicated via email for Members of the club.
+
+**Check my total spendings**
+
+- Shopper can see Grand total of the order in the bag icon dropdown (for desktop users), in the **bag** app before checking out and during **checkout**, where Grand total is displayed in the Order Summary.
+- Before clicking on Complete order, there's a message box that displays the amount the shopper will be charged on their credit card.
+
+**Sort a specific category of product / Sort multiple categories/products**
+
+- Within the "All Products page" the shopper has the option to sort products by Collection and easily categorize products.
+- Shopper can further sort products within categories by price and/or alphabetically.
+
+**Search for a product by name**
+
+- Shoppers can look for products via the search button(magnifying glass icon on desktop) on the navigation bar.
+
+**Select quantity of a product when purchasing it**
+
+- Product quantities can be adjusted in the Product detail page before adding to the bag.
 
 
+**View items in my bag to be purchased**
 
-### Manual testing
+- In the **bag** app, shopper can see which products are currently in their **bag** and use the links provided to navigate to each product.
+- Grand Total of the bag is displayed in the page, together with subtotal, bag total and delivery.
 
-#### Home App
+**Adjust the quantities of individual items in my bag**
+
+- Shopper can adjust quantities of products in the **bag** app via the "Update | Remove" controls.
+
+**Enter payment information**
+
+- In the **checkout** section, shopper can quickly and securely input payment details.
+
+**Be sure that my credit card information is safe**
+
+- In the **checkout** section, **Stripe** provides a secure environment to input credit card information and to securely complete purchase.
+
+**View order confirmation after checkout**
+
+- After **Stripe** receives confirmation of payment, it takes the shopper to an order confirmation page that shows an order summary with everything the shopper bought and the grand total of the purchase.
+
+**Receive an email confirmation after checking out**
+
+- Shopper receives an email confirmation that the order received and displays an order summary with the grand total of the purchase.
+
+### As a Site user...
+
+**Register for an account**
+
+- Users can register via the navigation bar by clicking register and signing up for an account.
+
+**Login and Logout**
+
+- Users can login via the user icon (for desktop users) or in the side menu (for mobile users) via the login link. That takes them to their profile page.
+- Users can logout via the user icon (for desktop users) or in the side menu (for mobile users) via the logout link. That logs them out of the store.
+- Users can recover their password by clicking 
+
+**Receive email confirmations**
+
+- After registering, users receive an email with a discount code attached prompting them to confirm their email address to login in the store.
+
+**Have a personalized user profile**
+
+- Registered users can login and see their personalized user dashboard, with access to their previous orders/order confirmations, default delivery information, Wish List and Membership details (if they have an active one).
+
+
+### As a Site owner...
+
+**Add a product**
+
+- Store owners can access the Add Product page from the navbar by clicking "Store".
+- In the Add product page, store owners can decide in which collection the new product will appear, the SKU number, the default image, price and the tags the product will have.
+
+**Edit/update a product**
+
+- The Edit Product page can be accessed from any of the pages in which a product appears by clicking the edit icon.
+- The form fields are prepopulated with the existing product's details, including the image.
+- From the front-end a product can only be deleted via the product detail page to minimise accidents, by clicking the trashcan icon.
+- A modal appears to confirm whether they want to go ahead.
+
+## Manual testing
+
+### Home App
 
 1. Navigation bar:
     1. Click nav bar links to double check if they're not broken.
@@ -49,7 +174,7 @@ The website as a whole was thought-through to simplify navigation for the custom
 
 4. Review bullet points in different devices, such as tablets, phones and consoles.
 
-#### Products App
+### Products App
 
 1. All Products page:
     1. Check if Collections collapsible renders all collections/links appropriately.
@@ -85,7 +210,7 @@ The website as a whole was thought-through to simplify navigation for the custom
 
 6. Review bullet points in different devices, such as tablets, phones and consoles.
 
-#### Bag App
+### Bag App
 
 1. Bag Page:
     1. Check if bag renders the products added via product app clicking the "Add to bag" link and if product render correctly under the bag table with round picture, card name, SKU, price, quantity widget, subtotal and "Update | Remove" functionalities.
@@ -96,7 +221,7 @@ The website as a whole was thought-through to simplify navigation for the custom
     6. Check if "Secure Checkout" leads to Checkout app with appropriate information/products.
 2. Review bullet points in different devices, such as tablets, phones and consoles.
 
-#### Checkout App
+### Checkout App
 
 1. Checkout Page:
     1. Check if "Order Summary" renders the table with product(s) information and with the appropriate count beside the section's title.
@@ -109,7 +234,7 @@ The website as a whole was thought-through to simplify navigation for the custom
     8. Check if payment system works and generates an Order confirmation with Order number, Date and information about the order. If user logged in, if order gets saved on the user's profile and if checkbox "Save this delivery information to my profile" updates delivery information on the user's profile.
 2. Review bullet points in different devices, such as tablets, phones and consoles.
 
-#### Profile App
+### Profile App
 
 1. Login page:
     1. Check if all the inputs in the form have appropriate width and if they're responsive on smaller screens.

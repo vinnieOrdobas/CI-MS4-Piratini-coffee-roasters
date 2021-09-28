@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load account %}
+{% load materializecss %}
 
 {% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
@@ -17,6 +18,7 @@
 
 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
+{% form|materializecss %}
     <button class="btn" type="submit">{% trans 'Confirm' %}</button>
 </form>
 

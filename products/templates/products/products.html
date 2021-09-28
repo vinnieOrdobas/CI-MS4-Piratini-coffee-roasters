@@ -130,7 +130,6 @@
                         <div class="center">
                             <small>
                                 <a href="{% url 'edit_product' product.id %}" class="black-text">Edit</a>
-                                <a href="{% url 'delete_product' product.id %}" class="black-text">Remove</a>
                             </small>
                         </div>
                     {% endif %}
@@ -196,8 +195,7 @@
                                     {% if request.user.is_superuser %}
                                         <div class="center">
                                             <small>
-                                                <a href="{% url 'edit_product' product.id %}" class="black-text">Edit | </a>
-                                                <a href="{% url 'delete_product' product.id %}" class="red-text">Remove</a>
+                                                <a href="{% url 'edit_product' product.id %}" class="black-text">Edit</a>
                                             </small>
                                         </div>
                                     {% endif %}
