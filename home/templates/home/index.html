@@ -11,30 +11,38 @@
         <i class="white-text fas fa-chevron-right"></i>
       </a>
     </div>
-    <div class="carousel-item white-text carousel-hero-1 valign-wrapper" href="#one!">
-        <div class="carousel-content">
-            <h1 class="h3">Coffee Beans</h1>
-            <a href="{% url 'products' %}?collection=coffee_beans" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+    <a href="#one!">
+        <div class="carousel-item white-text carousel-hero-1 valign-wrapper">
+            <div class="carousel-content">
+                <h1 class="h3">Coffee Beans</h1>
+                <a href="{% url 'products' %}?collection=coffee_beans" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+            </div>
         </div>
-    </div>
-    <div class="carousel-item white-text carousel-hero-3 valign-wrapper" href="#three!">
-        <div class="carousel-content">
-            <h1 class="h3">Brewers</h1>
-            <a href="{% url 'products' %}?collection=brewers" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+    </a>
+    <a href="#three!">
+        <div class="carousel-item white-text carousel-hero-3 valign-wrapper">
+            <div class="carousel-content">
+                <h1 class="h3">Brewers</h1>
+                <a href="{% url 'products' %}?collection=brewers" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+            </div>
         </div>
-    </div>
-    <div class="carousel-item white-text carousel-hero-2 valign-wrapper" href="#two!">
-        <div class="carousel-content">
-            <h1 class="h3">Accessories</h1>
-            <a href="{% url 'products' %}?collection=accessories" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+    </a>
+    <a href="#two!">
+        <div class="carousel-item white-text carousel-hero-2 valign-wrapper">
+            <div class="carousel-content">
+                <h1 class="h3">Accessories</h1>
+                <a href="{% url 'products' %}?collection=accessories" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+            </div>
         </div>
-    </div>
-    <div class="carousel-item white-text carousel-hero-4 valign-wrapper" href="#four!">
-        <div class="carousel-content">
-            <h1 class="h3">Memberships</h1>
-            <a href="{% url 'products' %}?collection=memberships" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+    </a>
+    <a href="#four!">
+        <div class="carousel-item white-text carousel-hero-4 valign-wrapper">
+            <div class="carousel-content">
+                <h1 class="h3">Memberships</h1>
+                <a href="{% url 'products' %}?collection=memberships" class="btn-large waves-effect white white-text darken-text-2 deep-orange darken-1 title shop-now white-text">Shop now</a>
+            </div>
         </div>
-    </div>
+    </a>
 </div>
 <div class="divider"></div>
 <div class="section">
@@ -173,7 +181,7 @@
       $('.carousel').carousel('prev');
    });
     // auto play function
-    setTimeout(autoplay, 10000)
+    setTimeout(autoplay, 9000)
     function autoplay() {
     $('.carousel').carousel('next');
 }
