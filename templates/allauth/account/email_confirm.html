@@ -18,7 +18,6 @@
 
 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
-{% form|materializecss %}
     <button class="btn" type="submit">{% trans 'Confirm' %}</button>
 </form>
 
