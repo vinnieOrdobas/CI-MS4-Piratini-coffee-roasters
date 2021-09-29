@@ -29,7 +29,7 @@ The website as a whole was thought-through to simplify navigation for the custom
 
 The app was thought-through with consistency in mind, regardless of where the user happens to be.
 - The Navbar and Footer are the same across pages, creating an easy-to-grasp-experience for the user.
-- Headings and icons are homogenous, to relay a consistent layout.
+- Headings and icons are homogeneous, to relay a consistent layout.
 - Product cards and collections are uniformly shaped, creating a predictable experience for the shopper.
 
 **Effortless navigation**
@@ -41,7 +41,7 @@ The app was thought-through with consistency in mind, regardless of where the us
 
 **Instinctive blueprint**
 
-- Intuitive icons were chosen to convey typical functions of a webapp, such as padlock, heart, bag, user, magnifying glass for search, etc.
+- Intuitive icons were chosen to convey typical functions of a web app, such as padlock, heart, bag, user, magnifying glass for search, etc.
 - Toasts give shoppers in-app messages to confirm user-performed actions.
 
 **Responsive design**
@@ -57,7 +57,7 @@ The app was thought-through with consistency in mind, regardless of where the us
 **Attractive aesthetics**
 
 - The landing page takes the user to a "Visual Narrative", with a hero's slideshow that relays a graphic story.
-- Natural, earthy tones and use of constrasting "call-to-action" buttons create an intuitive shopping experience.
+- Natural, earthy tones and the use of contrasting "call-to-action" buttons create an intuitive shopping experience.
 - Standard layout creates a well-known shopping experience for the user and bonds the elements together.
 
 ### As a Shopper...
@@ -71,7 +71,7 @@ The app was thought-through with consistency in mind, regardless of where the us
 - Shopper can sort products by price (either ascending or descending) to have a better outlook on how the products are priced.
 - There are numerous discount codes that can be applied in the **bag** app - these discounts are communicated via email for Members of the club.
 
-**Check my total spendings**
+**Check my total spending**
 
 - Shopper can see Grand total of the order in the bag icon dropdown (for desktop users), in the **bag** app before checking out and during **checkout**, where Grand total is displayed in the Order Summary.
 - Before clicking on Complete order, there's a message box that displays the amount the shopper will be charged on their credit card.
@@ -252,7 +252,7 @@ The app was thought-through with consistency in mind, regardless of where the us
 
 1. Profile Page:
     1. Check if the profile page renders correctly according to the user's profile, including collapsibles "Default Information", "Order History", "Membership" and "Wish List".
-    2. Check if "Default information" renders user's delivery information, and if "Update" button updates informations (writes to the database).
+    2. Check if "Default information" renders user's delivery information, and if "Update" button updates information (writes to the database).
     3. Check if orders get rendered from the database in case the user has orders - if so, check if orders lead to order confirmation page with message communicating that this is an older order.
     4. Check if "Wish List" widget renders products in a table format, with appropriate product images (leading to product detail page), with name, SKU, Collections (and if the link to the collection leads the user to the collection's page), price and "Remove" button.
     5. Check if "Remove" button removes the product from the Wish List. (bug found - check README.md)

@@ -30,7 +30,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 ## Description
 
-> Piratini Coffee Roasters is a company that believes in sourcing sustainable coffee beans that were produced with the utmost care and love for nature. Over one hundred million people in developing countries have become dependant on coffee as their primary source of income - we believe in investing on the communities producing these beans, we can move away from the *commodity* type of coffee. We only work with traditional, award winning Brazilian producers to bring the best produce to your doorstep. We are firm believers that good coffee is made with love and care, on the comfort of your own home. 
+> Piratini Coffee Roasters is a company that believes in sourcing sustainable coffee beans that were produced with the utmost care and love for nature. Over one hundred million people in developing countries have become dependent on coffee as their primary source of income - we believe in investing on the communities producing these beans, we can move away from the *commodity* type of coffee. We only work with traditional, award-winning Brazilian producers to bring the best produce to your doorstep. We are firm believers that good coffee is made with love and care, on the comfort of your own home. 
 
 ---
 
@@ -71,7 +71,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 
 #### 1. Strategy
 
-> To achieve and simple yet compelling narrative for our users, the website leads the user through a journey to connect with the brand, where we showcase the products and acessories on their best light.
+> To achieve and simple yet compelling narrative for our users, the website leads the user through a journey to connect with the brand, where we showcase the products and accessories in their best light.
 >
 > ##### Project Goals
 >
@@ -92,16 +92,15 @@ An e-commerce website that features speciality coffee beans, collections of brew
 #### 2. Scope
 
 > The objective is to reach the threshold version of the app with enough usability - the Minimum viable product (MVP), that includes:
->
 > - Authentication system for user to login/logout and sign-up - personalised profile with order history, wishlist and personal information.
 > - Checkout system for users to securely pay for their items and arrange delivery.
-> - The abliity to add/edit/delete products by the store owner to keep the store up-to-date.
+> - The ability to add/edit/delete products by the store owner to keep the store up-to-date.
 > - Showcase products, collections and subscription services on the landing page through a visual narrative of the brand.
 
 #### 3. Structure
 
 > - The structure of the app was based on a catalog of products, in which the visually appealing elements prompt the user to action on it. With *call-to-action* buttons, the experience becomes a journey that ends on the customer's doorstep.
-> - The navbar, modals and *call-to-action* buttons were chosen to be on the background, to not take attention from the visuals and the focus on the products/acessories.
+> - The navbar, modals and *call-to-action* buttons were chosen to be on the background, to not take attention from the visuals and the focus on the products/accessories.
 
 ##### Data Model
 
@@ -151,6 +150,7 @@ An e-commerce website that features speciality coffee beans, collections of brew
 > - Subscription system to handle membership payments.
 > - Search based on product's tags.
 > - Expand store management functionalities, such as creating discount codes via the website (rather than the admin.)
+> - Expand mailing functionalities, as registering email accounts to receive newsletters.
 ---
 
 ### Technologies Used
