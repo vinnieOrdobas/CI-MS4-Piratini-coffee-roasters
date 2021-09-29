@@ -23,5 +23,5 @@ class UserProfileForm(forms.ModelForm):
 
         for field in self.fields:
             if field != 'default_country':
-                    placeholder = placeholders[field]
+                placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder

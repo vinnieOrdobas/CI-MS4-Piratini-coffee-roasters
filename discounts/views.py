@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 from .models import Discount
-from .forms import DiscountApplyForm, DiscountForm
+from .forms import DiscountApplyForm
 
 import datetime
 
@@ -25,5 +24,6 @@ def discount_apply(request):
             messages.success(request, f'{discount.code} applied to your bag.')
         except Discount.DoesNotExist:
             request.session['discount_id'] = None
-            messages.error(request, 'Discount code does not exist or is not valid anymore.')
+            messages.error(request, 'Discount code does not exist or is not\
+                                     valid anymore.')
     return redirect('view_bag')

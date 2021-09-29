@@ -17,8 +17,7 @@ class Collection(models.Model):
 
 class Tags(models.Model):
     """
-    A model for the individual flavours of a Product, which can belong to many different
-    products.
+    A model for product tags.
     """
     class Meta:
         ordering = ['name']
@@ -31,7 +30,8 @@ class Tags(models.Model):
 
 
 class Product(models.Model):
-    collection = models.ForeignKey('Collection', null=True, blank=True, on_delete=models.SET_NULL)
+    collection = models.ForeignKey('Collection', null=True, blank=True,
+                                   on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     membership = models.BooleanField(default=False)

@@ -15,10 +15,14 @@ class UserProfile(models.Model):
     information and order history
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=40, null=True, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_phone_number = models.CharField(max_length=40, null=True,
+                                            blank=True)
+    default_street_address1 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_street_address2 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True,
+                                            blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='', null=True, blank=True)
@@ -28,12 +32,16 @@ class UserProfile(models.Model):
 
 
 class Membership(models.Model):
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False, blank=False, related_name="membership")
-    product = models.ManyToManyField(Product, related_name='membership_product')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
+                                     null=False, blank=False,
+                                     related_name="membership")
+    product = models.ManyToManyField(Product,
+                                     related_name='membership_product')
     number = models.CharField(max_length=32, null=False, editable=False)
 
     def __str__(self):
-        return f'Membership number {self.number} belonging to {self.user_profile}'
+        return f'Membership number {self.number} belonging to \
+            {self.user_profile}'
 
     def generate_membership_number(self):
         """

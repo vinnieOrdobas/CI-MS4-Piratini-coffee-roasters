@@ -32,7 +32,7 @@ def profile(request):
         else:
             messages.error(
                 request, 'Update failed. Please ensure the form is valid.'
-            ) 
+            )
     else:
         form = UserProfileForm(instance=profile)
 
@@ -59,7 +59,7 @@ def order_history(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
-        'order':order,
+        'order': order,
         'from_profile': True,
     }
 

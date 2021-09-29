@@ -64,8 +64,9 @@ def remove_from_bag(request, item_id):
         bag.pop(item_id)
 
         request.session['bag'] = bag
-        messages.warning(request, f'{product.card_name} removed from your bag.')
+        messages.warning(request, f'{product.card_name}\
+            removed from your bag.')
         return HttpResponse(status=200)
 
-    except Exception as e:
+    except Exception:
         return HttpResponse(status=500)

@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'piratini_coffee_roasters.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                      'piratini_coffee_roasters.settings')
 
 application = get_wsgi_application()
