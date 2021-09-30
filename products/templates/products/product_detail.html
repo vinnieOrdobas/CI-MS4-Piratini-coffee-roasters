@@ -79,8 +79,8 @@
                                     <div id="modal_wish_list{{ product_name }}" class="modal">
                                         <div class="modal-content center">
                                             <h5 class="title green-text darken-2">oops!</h5>
-                                            <a href="">Creat an account</a> or
-                                            <a href="">login</a> to add {{ product.card_name }} to your wish list.
+                                            <a href="{% url 'account_signup' %}">Create an account</a> or
+                                            <a href="{% url 'account_login' %}">login</a> to add {{ product.card_name }} to your wish list.
                                         </div>
                                         <div class="modal-footer">
                                             <div class="row center">
